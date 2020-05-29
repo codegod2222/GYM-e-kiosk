@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "LoginScreen.h"
+#include "QMouseEvent"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,7 +19,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_kupKarnetButton_clicked()
 {
-
+    QMouseEvent event1(QEvent::MouseButtonPress, QPoint(0,0),
+    Qt::LeftButton,
+    Qt::LeftButton,
+    Qt::NoModifier );
+    QApplication::sendEvent(ui->zalozKontoButton, &event1);
 }
 
 void MainWindow::on_zalogujSieButton_clicked()

@@ -1,5 +1,6 @@
 #include "RegistrationScreen.h"
 #include "ui_RegistrationScreen.h"
+#include "QMouseEvent"
 
 RegistrationScreen::RegistrationScreen(QWidget *parent) :
     QDialog(parent),
@@ -7,6 +8,7 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    this->setMouseTracking(true);
 }
 
 RegistrationScreen::~RegistrationScreen()
@@ -14,42 +16,22 @@ RegistrationScreen::~RegistrationScreen()
     delete ui;
 }
 
-void RegistrationScreen::on_powrot_clicked()
-{
-    this->close();
-}
-
 void RegistrationScreen::loop()
 {
     while(1)
     {
-
-        if(ui->nazwisko->hasFocus())
-        {
-            ui->email->hide();
-            ui->emailLabel->hide();
-            ui->haslo->hide();
-            ui->hasloLabel->hide();
-        }
-        else if(ui->imie->hasFocus())
-        {
-            ui->email->hide();
-            ui->emailLabel->hide();
-            ui->haslo->hide();
-            ui->hasloLabel->hide();
-        }
-        else if(ui->email->hasFocus())
+        if(ui->email->hasFocus())
         {
             ui->nazwisko->hide();
             ui->nazwiskoLabel->hide();
             ui->imie->hide();
             ui->imie->hide();
 
-            ui->email->setGeometry(359,63,508,100);
-            ui->emailLabel->setGeometry(153,63,200,100);
+            ui->email->setGeometry(359,62,508,100);
+            ui->emailLabel->setGeometry(153,62,200,100);
 
-            ui->haslo->setGeometry(359,171,508,100);
-            ui->hasloLabel->setGeometry(153,171,200,100);
+            ui->haslo->setGeometry(359,159,508,100);
+            ui->hasloLabel->setGeometry(153,159,200,100);
         }
         else if(ui->haslo->hasFocus())
         {
@@ -58,12 +40,17 @@ void RegistrationScreen::loop()
             ui->imie->hide();
             ui->imieLabel->hide();
 
-            ui->email->setGeometry(359,63,508,100);
-            ui->emailLabel->setGeometry(153,63,200,100);
+            ui->email->setGeometry(359,62,508,100);
+            ui->emailLabel->setGeometry(153,62,200,100);
 
-            ui->haslo->setGeometry(359,171,508,100);
-            ui->hasloLabel->setGeometry(153,171,200,100);
-
+            ui->haslo->setGeometry(359,159,508,100);
+            ui->hasloLabel->setGeometry(153,159,200,100);
+            QMouseEvent event1(QEvent::MouseButtonPress, QPoint(1,1),
+            Qt::LeftButton,
+            Qt::LeftButton,
+            Qt::NoModifier );
+            QApplication::sendEvent(ui->powrot, &event1);
+            QApplication::sendEvent(this, &event1);
         }
         else
         {
@@ -76,11 +63,11 @@ void RegistrationScreen::loop()
             ui->imie->show();
             ui->imieLabel->show();
 
-            ui->email->setGeometry(359,279,508,100);
-            ui->emailLabel->setGeometry(153,279,200,100);
+            ui->email->setGeometry(359,256,508,100);
+            ui->emailLabel->setGeometry(153,256,200,100);
 
-            ui->haslo->setGeometry(359,387,508,100);
-            ui->hasloLabel->setGeometry(153,387,200,100);
+            ui->haslo->setGeometry(359,353,508,100);
+            ui->hasloLabel->setGeometry(153,353,200,100);
         }
         qApp->processEvents();
     }
@@ -88,10 +75,15 @@ void RegistrationScreen::loop()
 
 void RegistrationScreen::on_nazwisko_editingFinished()
 {
-    ui->haslo->setFocus();
+    ui->email->setFocus();
 }
 
 void RegistrationScreen::on_haslo_editingFinished()
 {
     ui->emailLabel->setFocus();
+}
+
+void RegistrationScreen::on_powrot_clicked()
+{
+        this->close();
 }
