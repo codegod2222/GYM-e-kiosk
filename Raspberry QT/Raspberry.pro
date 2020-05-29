@@ -19,15 +19,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     LoginScreen.cpp \
+    RegistrationScreen.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     LoginScreen.h \
+    RegistrationScreen.h \
     mainwindow.h
 
 FORMS += \
     LoginScreen.ui \
+    RegistrationScreen.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

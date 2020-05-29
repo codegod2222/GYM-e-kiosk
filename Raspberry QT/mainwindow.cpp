@@ -30,5 +30,8 @@ void MainWindow::on_zalogujSieButton_clicked()
 
 void MainWindow::on_zalozKontoButton_clicked()
 {
-
+    registrationScreen = new RegistrationScreen();
+    registrationScreen->move(0,0);
+    registrationScreen->show();
+    registrationScreen->loop();
 }
