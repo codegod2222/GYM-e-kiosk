@@ -23,12 +23,8 @@ void MainWindow::on_kupKarnetButton_clicked()
 
 void MainWindow::on_zalogujSieButton_clicked()
 {
-    /*LoginScreen loginScreen;
-    loginScreen.setModal(true);
-    loginScreen.exec();
-    loginScreen.show();*/
-    /*loginScreen.setFocus();*/
     loginScreen = new LoginScreen(); // Be sure to destroy your window somewhere
+    loginScreen->move(0,0);
     loginScreen->show();
 }
 
