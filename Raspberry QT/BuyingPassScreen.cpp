@@ -41,3 +41,8 @@ void BuyingPassScreen::loop()
         qApp->processEvents();
     }
 }
+
+void BuyingPassScreen::on_powrot_clicked()
+{
+    this->close();
+}

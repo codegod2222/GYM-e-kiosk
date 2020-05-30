@@ -17,6 +17,9 @@ public:
 
     void loop();
 
+private slots:
+    void on_powrot_clicked();
+
 private:
     Ui::BuyingPassScreen *ui;
 };

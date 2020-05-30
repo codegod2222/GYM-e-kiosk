@@ -38,7 +38,7 @@
    <widget class="QPushButton" name="kupKarnetButton">
     <property name="geometry">
      <rect>
-      <x>511</x>
+      <x>515</x>
       <y>2</y>
       <width>370</width>
       <height>370</height>
@@ -71,7 +71,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="zalozKontoButton">
     <property name="geometry">
      <rect>
-      <x>511</x>
+      <x>515</x>
       <y>376</y>
       <width>370</width>
       <height>370</height>
@@ -98,7 +98,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="zalogujSieButton">
     <property name="geometry">
      <rect>
-      <x>141</x>
+      <x>138</x>
       <y>376</y>
       <width>370</width>
       <height>370</height>
@@ -125,7 +125,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>141</x>
+      <x>138</x>
       <y>2</y>
       <width>370</width>
       <height>370</height>

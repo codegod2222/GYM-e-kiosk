@@ -134,7 +134,7 @@ aligment: alignHcenter;</string>
    <property name="geometry">
     <rect>
      <x>31</x>
-     <y>360</y>
+     <y>350</y>
      <width>300</width>
      <height>300</height>
     </rect>
@@ -163,7 +163,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>362</x>
-     <y>360</y>
+     <y>350</y>
      <width>300</width>
      <height>300</height>
     </rect>
@@ -192,7 +192,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>693</x>
-     <y>360</y>
+     <y>350</y>
      <width>300</width>
      <height>300</height>
     </rect>
@@ -215,6 +215,45 @@ color: rgb(255, 255, 255);</string>
      <width>16</width>
      <height>16</height>
     </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="powrot">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>660</y>
+     <width>718</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+max-width:710px;
+max-height:82px;
+min-width:710px;
+min-height:82px;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>POWRÓT</string>
    </property>
   </widget>
  </widget>
