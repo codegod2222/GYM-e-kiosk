@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "LoginScreen.h"
 #include "RegistrationScreen.h"
+#include "BuyingPassScreen.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,5 +30,6 @@ private:
     Ui::MainWindow *ui;
     LoginScreen *loginScreen;
     RegistrationScreen *registrationScreen;
+    BuyingPassScreen *buyingPassScreen;
 };
 #endif // MAINWINDOW_H

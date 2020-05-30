@@ -175,7 +175,7 @@ color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -291,12 +291,9 @@ border-radius:30px;</string>
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>pushButton_5</zorder>
   <zorder>pushButton_3</zorder>
-  <zorder>textEdit</zorder>
-  <zorder>textEdit_2</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
   <zorder>pushButton</zorder>
   <zorder>pushButton_2</zorder>
   <zorder>pushButton_4</zorder>

@@ -19,11 +19,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_kupKarnetButton_clicked()
 {
-    QMouseEvent event1(QEvent::MouseButtonPress, QPoint(0,0),
+    buyingPassScreen = new BuyingPassScreen();
+    buyingPassScreen->move(0,0);
+    buyingPassScreen->show();
+    buyingPassScreen->loop();
+    /*QMouseEvent event1(QEvent::MouseButtonPress, QPoint(0,0),
     Qt::LeftButton,
     Qt::LeftButton,
     Qt::NoModifier );
-    QApplication::sendEvent(ui->zalozKontoButton, &event1);
+    QApplication::sendEvent(ui->zalozKontoButton, &event1);*/
 }
 
 void MainWindow::on_zalogujSieButton_clicked()
