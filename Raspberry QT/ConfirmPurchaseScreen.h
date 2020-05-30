@@ -1,0 +1,28 @@
+#ifndef CONFIRMPURCHASESCREEN_H
+#define CONFIRMPURCHASESCREEN_H
+
+#include <QDialog>
+#include <BuyingPassScreen.h>
+
+namespace Ui {
+class ConfirmPurchaseScreen;
+}
+
+class ConfirmPurchaseScreen : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit ConfirmPurchaseScreen(QWidget *parent = nullptr);
+    ~ConfirmPurchaseScreen();
+    BuyingPassScreen *buyingPassScreen;
+
+private slots:
+    void on_potwierdz_clicked();
+    void odbierzDane(QString karnet, QString rodzajPlatnosci, BuyingPassScreen*);
+
+private:
+    Ui::ConfirmPurchaseScreen *ui;
+};
+
+#endif // CONFIRMPURCHASESCREEN_H

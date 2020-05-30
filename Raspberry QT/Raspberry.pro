@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     BuyingPassScreen.cpp \
+    ConfirmPurchaseScreen.cpp \
     LoginScreen.cpp \
     RegistrationScreen.cpp \
     main.cpp \
@@ -26,12 +27,14 @@ SOURCES += \
 
 HEADERS += \
     BuyingPassScreen.h \
+    ConfirmPurchaseScreen.h \
     LoginScreen.h \
     RegistrationScreen.h \
     mainwindow.h
 
 FORMS += \
     BuyingPassScreen.ui \
+    ConfirmPurchaseScreen.ui \
     LoginScreen.ui \
     RegistrationScreen.ui \
     mainwindow.ui

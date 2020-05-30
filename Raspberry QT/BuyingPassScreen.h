@@ -20,6 +20,14 @@ public:
 private slots:
     void on_powrot_clicked();
 
+    void on_gotowka_clicked();
+
+    void on_karta_clicked();
+
+    void on_online_clicked();
+signals:
+    void wyslijDaneDoPotwierdzenia(QString karnet, QString rodzajPlatnosci, BuyingPassScreen*);
+
 private:
     Ui::BuyingPassScreen *ui;
 };
