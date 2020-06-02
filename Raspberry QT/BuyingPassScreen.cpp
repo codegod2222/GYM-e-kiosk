@@ -50,20 +50,35 @@ void BuyingPassScreen::on_powrot_clicked()
 
 void BuyingPassScreen::on_gotowka_clicked()
 {
-    ConfirmPurchaseScreen *confirmPurchaseScreen = new ConfirmPurchaseScreen;
     QString wybranyKarnet = ui->typyKarnetow->currentText();
-    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(QString,QString,BuyingPassScreen*)), confirmPurchaseScreen, SLOT(odbierzDane(QString,QString,BuyingPassScreen*)));
-    emit wyslijDaneDoPotwierdzenia(wybranyKarnet,"GOTÓWKA",this);
-    confirmPurchaseScreen->show();
-    //this->close();
+    potwierdzZakup(wybranyKarnet, "GOTÓWKA");
 }
 
 void BuyingPassScreen::on_karta_clicked()
 {
-    this->close();
+    QString wybranyKarnet = ui->typyKarnetow->currentText();
+    potwierdzZakup(wybranyKarnet, "KARTA");
 }
 
 void BuyingPassScreen::on_online_clicked()
 {
+
+    QString wybranyKarnet = ui->typyKarnetow->currentText();
+    potwierdzZakup(wybranyKarnet, "ONLINE");
+
+}
+
+void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatnosci)
+{
+    ConfirmPurchaseScreen *confirmPurchaseScreen = new ConfirmPurchaseScreen;
+    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(QString,QString,BuyingPassScreen*)), confirmPurchaseScreen, SLOT(odbierzDane(QString,QString,BuyingPassScreen*)));
+    emit wyslijDaneDoPotwierdzenia(wybranyKarnet,formaPlatnosci,this);
+    confirmPurchaseScreen->show();
+    confirmPurchaseScreen->move(252,84);
+}
+
+void BuyingPassScreen::odbierzPotwierdzenie()
+{
+    //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
     this->close();
 }

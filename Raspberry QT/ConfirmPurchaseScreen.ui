@@ -2,11 +2,14 @@
 <ui version="4.0">
  <class>ConfirmPurchaseScreen</class>
  <widget class="QDialog" name="ConfirmPurchaseScreen">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>520</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,12 +17,16 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(13, 13, 13);</string>
+   <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color:  rgb(218, 0, 0);;</string>
   </property>
   <widget class="QLabel" name="kupujesz">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>10</y>
      <width>200</width>
      <height>90</height>
@@ -42,7 +49,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+border-style: none;</string>
    </property>
    <property name="text">
     <string>KUPUJESZ:</string>
@@ -54,7 +62,7 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="typKarnetu">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>100</y>
      <width>500</width>
      <height>90</height>
@@ -77,7 +85,8 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(218, 0, 0);
+border-style: none;</string>
    </property>
    <property name="text">
     <string>KUPUJESZ</string>
@@ -89,7 +98,7 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="forma">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>190</y>
      <width>400</width>
      <height>90</height>
@@ -111,7 +120,8 @@ color: rgb(255, 255, 255);</string>
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+    <string notr="true">border-style: none;
+font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
@@ -124,7 +134,7 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="typFormy">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>280</y>
      <width>500</width>
      <height>90</height>
@@ -146,8 +156,9 @@ color: rgb(255, 255, 255);</string>
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+    <string notr="true">border-style: none;
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(218, 0, 0);</string>
    </property>
    <property name="text">
     <string>KUPUJESZ</string>
@@ -156,10 +167,10 @@ color: rgb(255, 255, 255);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="powrot">
+  <widget class="QPushButton" name="potwierdz">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>380</y>
      <width>400</width>
      <height>90</height>
@@ -167,14 +178,14 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="minimumSize">
     <size>
-     <width>400</width>
-     <height>90</height>
+     <width>0</width>
+     <height>0</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>718</width>
-     <height>90</height>
+     <width>16777215</width>
+     <height>16777215</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -183,10 +194,6 @@ border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
-max-width:710px;
-max-height:82px;
-min-width:710px;
-min-height:82px;
 
 font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>
@@ -195,10 +202,10 @@ color: rgb(255, 255, 255);</string>
     <string>POTWIERDŹ</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="powrot_2">
+  <widget class="QPushButton" name="close">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>480</y>
      <width>400</width>
      <height>90</height>
@@ -206,14 +213,14 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="minimumSize">
     <size>
-     <width>400</width>
-     <height>90</height>
+     <width>0</width>
+     <height>0</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>718</width>
-     <height>90</height>
+     <width>16777215</width>
+     <height>16777215</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -222,10 +229,6 @@ border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
-max-width:710px;
-max-height:82px;
-min-width:710px;
-min-height:82px;
 
 font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>

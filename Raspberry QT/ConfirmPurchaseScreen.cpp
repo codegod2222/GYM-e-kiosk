@@ -8,6 +8,7 @@ ConfirmPurchaseScreen::ConfirmPurchaseScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    activateWindow();
 }
 
 ConfirmPurchaseScreen::~ConfirmPurchaseScreen()
@@ -24,12 +25,17 @@ void ConfirmPurchaseScreen::odbierzDane(QString karnet, QString platnosc, Buying
 
 void ConfirmPurchaseScreen::on_potwierdz_clicked()
 {
-    /*connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(QString,QString,BuyingPassScreen*)), buyingPassScreen, SLOT(odbierzDane(QString,QString,BuyingPassScreen*)));
-    emit wyslijPotwierdzenie(wybranyKarnet,"GOTÓWKA",this);
-    confirmPurchaseScreen->show();*/
+    connect( this, SIGNAL(wyslijPotwierdzenie()), buyingPassScreen, SLOT(odbierzPotwierdzenie()));
+    emit wyslijPotwierdzenie();
+    this->close();
 }
 
-void ConfirmPurchaseScreen::on_anuluj_clicked()
+void ConfirmPurchaseScreen::on_close_clicked()
 {
     this->close();
+}
+
+void ConfirmPurchaseScreen::wyslijPotwierdzenie()
+{
+
 }

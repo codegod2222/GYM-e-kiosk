@@ -25,6 +25,10 @@ private slots:
     void on_karta_clicked();
 
     void on_online_clicked();
+
+    void potwierdzZakup(QString, QString);
+
+    void odbierzPotwierdzenie();
 signals:
     void wyslijDaneDoPotwierdzenia(QString karnet, QString rodzajPlatnosci, BuyingPassScreen*);
 
