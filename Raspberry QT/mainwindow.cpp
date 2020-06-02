@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_kupKarnetButton_clicked()
 {
-    buyingPassScreen = new BuyingPassScreen();
+    buyingPassScreen = new BuyingPassScreen(nullptr,false);
     buyingPassScreen->move(0,0);
     buyingPassScreen->show();
     buyingPassScreen->loop();
@@ -43,4 +43,11 @@ void MainWindow::on_zalozKontoButton_clicked()
     registrationScreen->move(0,0);
     registrationScreen->show();
     registrationScreen->loop();
+}
+
+void MainWindow::on_administracja_clicked()
+{
+    administrationScreen = new AdministrationScreen();
+    administrationScreen->move(0,0);
+    administrationScreen->show();
 }

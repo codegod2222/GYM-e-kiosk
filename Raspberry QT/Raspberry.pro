@@ -18,23 +18,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AdministrationScreen.cpp \
     BuyingPassScreen.cpp \
     ConfirmPurchaseScreen.cpp \
+    LoggedScreen.cpp \
     LoginScreen.cpp \
     RegistrationScreen.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    AdministrationScreen.h \
     BuyingPassScreen.h \
     ConfirmPurchaseScreen.h \
+    LoggedScreen.h \
     LoginScreen.h \
     RegistrationScreen.h \
     mainwindow.h
 
 FORMS += \
+    AdministrationScreen.ui \
     BuyingPassScreen.ui \
     ConfirmPurchaseScreen.ui \
+    LoggedScreen.ui \
     LoginScreen.ui \
     RegistrationScreen.ui \
     mainwindow.ui

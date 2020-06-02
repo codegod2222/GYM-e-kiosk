@@ -3,7 +3,7 @@
 #include "QLineEdit"
 #include "ConfirmPurchaseScreen.h"
 
-BuyingPassScreen::BuyingPassScreen(QWidget *parent) :
+BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     QDialog(parent),
     ui(new Ui::BuyingPassScreen)
 {
@@ -14,15 +14,20 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent) :
     ui->typyKarnetow->lineEdit()->setReadOnly(true);
     ui->typyKarnetow->lineEdit()->setAlignment(Qt::AlignCenter);
 
+    if(logged)
+    {
+        ui->typyKarnetow->addItem("TYGODNIOWY");
+        ui->typyKarnetow->addItem("DWUTYGODNIOWY");
+        ui->typyKarnetow->addItem("MIESIĘCZNY");
+    }
     ui->typyKarnetow->addItem("JEDNORAZOWE WEJŚCIE");
-    ui->typyKarnetow->addItem("TYGODNIOWY");
-    ui->typyKarnetow->addItem("DWUTYGODNIOWY");
-    ui->typyKarnetow->addItem("MIESIĘCZNY");
+
     for (int i = 0 ; i <  ui->typyKarnetow->count() ; ++i)
     {
         ui->typyKarnetow->setItemData(i, Qt::AlignCenter, Qt::TextAlignmentRole);
     }
-     ui->label->setFocus();
+    ui->label->setFocus();
+
 }
 
 BuyingPassScreen::~BuyingPassScreen()
@@ -30,6 +35,7 @@ BuyingPassScreen::~BuyingPassScreen()
     delete ui;
 }
 
+//Pętla czekająca aż użytkonwik kliknie na comboBoxa, wyłapując to kliknięcie i rozwijając w ten czas listę z dostępnymi karnetami.
 void BuyingPassScreen::loop()
 {
     while(1)
@@ -50,21 +56,24 @@ void BuyingPassScreen::on_powrot_clicked()
 
 void BuyingPassScreen::on_gotowka_clicked()
 {
-    QString wybranyKarnet = ui->typyKarnetow->currentText();
-    potwierdzZakup(wybranyKarnet, "GOTÓWKA");
+    wybranyKarnet = ui->typyKarnetow->currentText();
+    wybranaPlatnosc = "GOTÓWKA";
+    potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
 void BuyingPassScreen::on_karta_clicked()
 {
-    QString wybranyKarnet = ui->typyKarnetow->currentText();
-    potwierdzZakup(wybranyKarnet, "KARTA");
+    wybranyKarnet = ui->typyKarnetow->currentText();
+    wybranaPlatnosc = "KARTA";
+    potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
 void BuyingPassScreen::on_online_clicked()
 {
 
-    QString wybranyKarnet = ui->typyKarnetow->currentText();
-    potwierdzZakup(wybranyKarnet, "ONLINE");
+    wybranyKarnet = ui->typyKarnetow->currentText();
+    wybranaPlatnosc = "ONLINE";
+    potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 
 }
 

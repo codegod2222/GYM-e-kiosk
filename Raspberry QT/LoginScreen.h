@@ -16,9 +16,9 @@ public:
     ~LoginScreen();
 
 private slots:
-    void on_pushButton_2_clicked();
+    void on_powrot_clicked();
 
-    void on_pushButton_clicked();
+    void on_zaloguj_clicked();
 
 private:
     Ui::LoginScreen *ui;

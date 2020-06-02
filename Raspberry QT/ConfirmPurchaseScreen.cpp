@@ -34,8 +34,3 @@ void ConfirmPurchaseScreen::on_close_clicked()
 {
     this->close();
 }
-
-void ConfirmPurchaseScreen::wyslijPotwierdzenie()
-{
-
-}

@@ -5,6 +5,7 @@
 #include "LoginScreen.h"
 #include "RegistrationScreen.h"
 #include "BuyingPassScreen.h"
+#include "AdministrationScreen.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,10 +27,13 @@ private slots:
 
     void on_zalozKontoButton_clicked();
 
+    void on_administracja_clicked();
+
 private:
     Ui::MainWindow *ui;
     LoginScreen *loginScreen;
     RegistrationScreen *registrationScreen;
     BuyingPassScreen *buyingPassScreen;
+    AdministrationScreen *administrationScreen;
 };
 #endif // MAINWINDOW_H

@@ -12,10 +12,14 @@ class BuyingPassScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit BuyingPassScreen(QWidget *parent = nullptr);
+    explicit BuyingPassScreen(QWidget *parent = nullptr, bool logged = false);
     ~BuyingPassScreen();
 
     void loop();
+
+private:
+    QString wybranyKarnet;
+    QString wybranaPlatnosc;
 
 private slots:
     void on_powrot_clicked();
@@ -34,6 +38,7 @@ signals:
 
 private:
     Ui::BuyingPassScreen *ui;
+
 };
 
 #endif // BUYINGPASSSCREEN_H
