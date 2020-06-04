@@ -48,9 +48,9 @@
    <property name="geometry">
     <rect>
      <x>870</x>
-     <y>60</y>
+     <y>-10</y>
      <width>161</width>
-     <height>671</height>
+     <height>781</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -181,7 +181,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>153</x>
-     <y>62</y>
+     <y>2</y>
      <width>200</width>
      <height>90</height>
     </rect>
@@ -216,7 +216,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>359</x>
-     <y>62</y>
+     <y>2</y>
      <width>508</width>
      <height>90</height>
     </rect>
@@ -252,7 +252,7 @@ min-height:82px;</string>
    <property name="geometry">
     <rect>
      <x>153</x>
-     <y>353</y>
+     <y>272</y>
      <width>200</width>
      <height>90</height>
     </rect>
@@ -284,7 +284,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>359</x>
-     <y>353</y>
+     <y>272</y>
      <width>508</width>
      <height>90</height>
     </rect>
@@ -323,7 +323,7 @@ min-height:82px;</string>
    <property name="geometry">
     <rect>
      <x>153</x>
-     <y>159</y>
+     <y>92</y>
      <width>200</width>
      <height>90</height>
     </rect>
@@ -355,7 +355,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>359</x>
-     <y>159</y>
+     <y>92</y>
      <width>508</width>
      <height>90</height>
     </rect>
@@ -394,7 +394,7 @@ min-height:82px;</string>
    <property name="geometry">
     <rect>
      <x>153</x>
-     <y>256</y>
+     <y>182</y>
      <width>200</width>
      <height>90</height>
     </rect>
@@ -426,7 +426,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>359</x>
-     <y>256</y>
+     <y>182</y>
      <width>508</width>
      <height>90</height>
     </rect>
@@ -459,6 +459,77 @@ min-height:82px;</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="hasloLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>154</x>
+     <y>362</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 18pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>POWTÓRZ HASŁO</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="haslo_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>362</y>
+     <width>508</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+font: 75 30pt &quot;Tahoma&quot;;
+
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+
+max-width:500px;
+max-height:82px;
+min-width:500px;
+min-height:82px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
  </widget>

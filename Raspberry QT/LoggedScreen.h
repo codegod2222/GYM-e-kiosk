@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "LoginScreen.h"
 #include "BuyingPassScreen.h"
+#include "LoggedUser.h"
 
 namespace Ui {
 class LoggedScreen;
@@ -14,7 +15,7 @@ class LoggedScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoggedScreen(QWidget *parent = nullptr, QString = "NULL", LoginScreen* = nullptr);
+    explicit LoggedScreen(QWidget *parent = nullptr, LoggedUser* = nullptr, LoginScreen* = nullptr);
     ~LoggedScreen();
 
 private slots:
@@ -22,11 +23,15 @@ private slots:
 
     void on_kupKarnet_clicked();
 
+    void on_zmienDane_clicked();
+
+     void odbierzZmianeDanych();
+
 private:
     Ui::LoggedScreen *ui;
-    QString loggedUser;
     LoginScreen *loginScreen;
     BuyingPassScreen *buyingPassScreen;
+    LoggedUser *loggedUser;
 };
 
 #endif // LOGGEDSCREEN_H

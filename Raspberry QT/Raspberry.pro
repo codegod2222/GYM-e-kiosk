@@ -21,7 +21,9 @@ SOURCES += \
     AdministrationScreen.cpp \
     BuyingPassScreen.cpp \
     ConfirmPurchaseScreen.cpp \
+    DataChangeScreen.cpp \
     LoggedScreen.cpp \
+    LoggedUser.cpp \
     LoginScreen.cpp \
     RegistrationScreen.cpp \
     main.cpp \
@@ -31,7 +33,9 @@ HEADERS += \
     AdministrationScreen.h \
     BuyingPassScreen.h \
     ConfirmPurchaseScreen.h \
+    DataChangeScreen.h \
     LoggedScreen.h \
+    LoggedUser.h \
     LoginScreen.h \
     RegistrationScreen.h \
     mainwindow.h
@@ -40,6 +44,7 @@ FORMS += \
     AdministrationScreen.ui \
     BuyingPassScreen.ui \
     ConfirmPurchaseScreen.ui \
+    DataChangeScreen.ui \
     LoggedScreen.ui \
     LoginScreen.ui \
     RegistrationScreen.ui \

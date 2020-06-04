@@ -1,6 +1,7 @@
 #include "LoginScreen.h"
 #include "ui_LoginScreen.h"
 #include "LoggedScreen.h"
+#include "LoggedUser.h"
 
 LoginScreen::LoginScreen(QWidget *parent) :
     QDialog(parent),
@@ -27,8 +28,9 @@ void LoginScreen::on_zaloguj_clicked()
 
     if(login == "U" && password == "u")
     {
+        LoggedUser *loggedUser = new LoggedUser("Daniel","Kaleta","danikal410@student.polsl.pl","tajne");
         ui->komunikat->setText("ZALOGOWANO POMYŚLNIE");
-        LoggedScreen *loggedScreen = new LoggedScreen(nullptr,login,this);
+        LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser,this);
         loggedScreen->show();
         loggedScreen->move(0,0);
     }
