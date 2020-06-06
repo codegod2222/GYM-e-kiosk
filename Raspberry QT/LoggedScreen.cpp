@@ -2,15 +2,15 @@
 #include "ui_LoggedScreen.h"
 #include "DataChangeScreen.h"
 
-LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser, LoginScreen *loginScreen) :
+LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser, QWidget *toClose) :
     QDialog(parent),
     ui(new Ui::LoggedScreen)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->loggedUser = loggedUser;
-    this->loginScreen = loginScreen;
     ui->zalogowanyJako->setText(loggedUser->getFirstName()+" "+loggedUser->getLastName());
+    toClose->close();
 }
 
 LoggedScreen::~LoggedScreen()
@@ -20,7 +20,6 @@ LoggedScreen::~LoggedScreen()
 
 void LoggedScreen::on_wyloguj_clicked()
 {
-    loginScreen->close();
     this->close();
 }
 

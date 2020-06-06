@@ -2,6 +2,7 @@
 #define REGISTRATIONSCREEN_H
 
 #include <QDialog>
+#include "RegistrationInfoScreen.h"
 
 namespace Ui {
 class RegistrationScreen;
@@ -25,8 +26,12 @@ private slots:
 
     void on_haslo_editingFinished();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::RegistrationScreen *ui;
+    RegistrationInfoScreen *registrationInfoScreen;
+
 };
 
 #endif // REGISTRATIONSCREEN_H

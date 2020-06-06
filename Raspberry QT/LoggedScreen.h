@@ -15,7 +15,7 @@ class LoggedScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoggedScreen(QWidget *parent = nullptr, LoggedUser* = nullptr, LoginScreen* = nullptr);
+    explicit LoggedScreen(QWidget *parent = nullptr, LoggedUser* = nullptr, QWidget *toClose = nullptr);
     ~LoggedScreen();
 
 private slots:
@@ -29,7 +29,6 @@ private slots:
 
 private:
     Ui::LoggedScreen *ui;
-    LoginScreen *loginScreen;
     BuyingPassScreen *buyingPassScreen;
     LoggedUser *loggedUser;
 };

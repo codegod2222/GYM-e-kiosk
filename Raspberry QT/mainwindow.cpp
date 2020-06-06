@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "LoginScreen.h"
-#include "QMouseEvent"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
