@@ -14,6 +14,8 @@ public:
 
     QString getEmail();
 
+    QString getPassword();
+
     void setFirstName(QString);
 
     void setLastName(QString);

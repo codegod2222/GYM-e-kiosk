@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "LoggedUser.h"
 #include "LoggedScreen.h"
+#include "PasswordChangeScreen.h"
 
 namespace Ui {
 class DataChangeScreen;
@@ -22,6 +23,8 @@ private slots:
 
     void on_zatwierdzZmiany_clicked();
 
+    void on_zmienHaslo_clicked();
+
 signals:
     void wyslijZmianeDanych();
 
@@ -29,6 +32,7 @@ private:
     Ui::DataChangeScreen *ui;
     LoggedUser *loggedUser;
     LoggedScreen *loggedScreen;
+    PasswordChangeScreen *passwordChangeScreen;
 };
 
 #endif // DATACHANGESCREEN_H

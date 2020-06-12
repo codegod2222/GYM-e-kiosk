@@ -23,6 +23,11 @@ QString LoggedUser::getEmail()
     return this->email;
 }
 
+QString LoggedUser::getPassword()
+{
+    return this->password;
+}
+
 void LoggedUser::setEmail(QString email)
 {
     this->email = email;

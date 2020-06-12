@@ -25,6 +25,7 @@ SOURCES += \
     LoggedScreen.cpp \
     LoggedUser.cpp \
     LoginScreen.cpp \
+    PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
     RegistrationScreen.cpp \
     main.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     LoggedScreen.h \
     LoggedUser.h \
     LoginScreen.h \
+    PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
     RegistrationScreen.h \
     mainwindow.h
@@ -49,6 +51,7 @@ FORMS += \
     DataChangeScreen.ui \
     LoggedScreen.ui \
     LoginScreen.ui \
+    PasswordChangeScreen.ui \
     RegistrationInfoScreen.ui \
     RegistrationScreen.ui \
     mainwindow.ui

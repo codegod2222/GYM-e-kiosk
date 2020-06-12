@@ -35,3 +35,10 @@ void DataChangeScreen::on_zatwierdzZmiany_clicked()
 
     this->close();
 }
+
+void DataChangeScreen::on_zmienHaslo_clicked()
+{
+    passwordChangeScreen = new PasswordChangeScreen(nullptr, loggedUser);
+    passwordChangeScreen->move(0,0);
+    passwordChangeScreen->show();
+}
