@@ -1,0 +1,2 @@
+wersja beta, polaczenie sie z poziomu raspberry wymaga troche konfiguracji i instalacji, wiec zamiast korzystac z tej biblioteki to spojrzcie, prosze, na plik .h i zobaczcie, czy ma wszystkie potrzebne funkcjonalnosci
+dokumentacje, instrukcje instalacji i reszte bzdetow dodam w najblizszym czasie
