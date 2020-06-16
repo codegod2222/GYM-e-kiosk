@@ -1,7 +1,7 @@
-ï»¿#include "printer.h"
+#include "printer.h"
 #include <iostream> //debug
 
-//otwiera poÅ‚Ä…czenie z drukarkÄ…
+//otwiera poˆ¥czenie z drukark¥
 bool Printer::open() {
 #ifdef __linux__
     printer = popen("/usr/bin/lp", "w");
@@ -11,7 +11,7 @@ bool Printer::open() {
     #error "UNKNOWN OS"
 #endif
     printer = printer;
-    if (!printer) //kontrola poprawnoÅ›ci
+    if (!printer) //kontrola poprawno˜ci
         return false;
     else
         return true;
@@ -20,7 +20,7 @@ bool Printer::open() {
 int Printer::init() {
     return fprintf(printer, "\e@");
 }
-//ustawia stronÄ™ kodowÄ… CP852
+//ustawia stron© kodow¥ CP852
 int Printer::codePage852() {
     return fprintf(printer, "\et%c", 18);
 }
@@ -31,7 +31,7 @@ int Printer::print(const std::string& text) {
 int Printer::print(const char* text) {
     return fprintf(printer, "%s", text);
 }
-//drukuje 'text' zakoÅ„czony znakiem nowej linii
+//drukuje 'text' zakoäczony znakiem nowej linii
 int Printer::println(const std::string& text) {
     return println(text.c_str());
 }
@@ -42,11 +42,11 @@ int Printer::println(const char* text) {
 int Printer::line(unsigned char n) {
     return fprintf(printer, "\ed%c", n);
 }
-//koÅ„cowy odstÄ™p 'n' jednostek
+//koäcowy odst©p 'n' jednostek
 int Printer::endFeed(unsigned char n) {
     return fprintf(printer, "\eJ%c", n);
 }
-//zamyka poÅ‚Ä…czenie z drukarkÄ…
+//zamyka poˆ¥czenie z drukark¥
 bool Printer::close() {
 #ifdef __linux__
     return !pclose(printer);
@@ -57,11 +57,11 @@ bool Printer::close() {
 #endif
 }
 
-//zwraca tryb wyrÃ³wnania tekstu
+//zwraca tryb wyr¢wnania tekstu
 Printer::Align Printer::align() const {
     return _align;
 }
-//ustawia tryb wyrÃ³wnania tekstu
+//ustawia tryb wyr¢wnania tekstu
 int Printer::align(Printer::Align val) {
     if (_align == val)
         return 0;
@@ -69,11 +69,11 @@ int Printer::align(Printer::Align val) {
     return fprintf(printer, "\ea%c", (char)val);
 }
 
-//zwraca aktualnÄ… czcionkÄ™
+//zwraca aktualn¥ czcionk©
 Printer::Font Printer::font() const {
     return _font;
 }
-//ustawia czcionkÄ™
+//ustawia czcionk©
 int Printer::font(Font val) {
     if (_font == val) {
         return 0;
@@ -98,11 +98,11 @@ int Printer::bold(bool val) {
         return fprintf(printer, "\eE%c", (char)val);
     }
 }
-//zwraca czy aktywne jest podkreÅ›lenie tekstu
+//zwraca czy aktywne jest podkre˜lenie tekstu
 bool Printer::underline() const {
     return _underline;
 }
-//ustawia podkreÅ›lenie tekstu
+//ustawia podkre˜lenie tekstu
 int Printer::underline(bool val) {
     if (_underline == val) {
         return 0;

@@ -1,4 +1,4 @@
-﻿#ifndef PRINTER_H
+#ifndef PRINTER_H
 #define PRINTER_H
 
 #include <iostream> //FILE*
