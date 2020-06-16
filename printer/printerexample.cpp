@@ -1,5 +1,6 @@
-#include "printer.h"
+//Dla poprawnego kodowania polskich znakÃ³w, przed kompilacjÄ… upewnij siÄ™ Å¼e plik jest w kodowany stronÄ… kodowÄ… 852 (github psuje)
 
+#include "printer.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -45,8 +46,8 @@ int printPair(Printer& printer, const std::string& left, const std::string& righ
         ret += printer.println(right);
         return ret;
     }
-    Printer::Align a = printer.align(); //kopia wyr¢wnania
-    printer.align(Printer::Align::LEFT); //wyr¢wnanie do lewej
+    Printer::Align a = printer.align(); //kopia wyrÂ¢wnania
+    printer.align(Printer::Align::LEFT); //wyrÂ¢wnanie do lewej
     char* white = new char[spaces+1];
     for (unsigned char i = 0; i < spaces; i++) {
         white[i] = ' ';
@@ -55,7 +56,7 @@ int printPair(Printer& printer, const std::string& left, const std::string& righ
     int ret = printer.print(left);
     ret += printer.print(white);
     ret += printer.println(right);
-    printer.align(a); //przywr¢cenie wyr¢wnania
+    printer.align(a); //przywrÂ¢cenie wyrÂ¢wnania
     return ret;
 }
 
@@ -64,18 +65,18 @@ void example1(Printer& printer) {
     std::string nazwaFirmy = "Nazwa firmy";
     std::string adresFirmy = "Miasto, ul. Ulica 0/0";
     std::string nip = "000-000-00-00";
-    std::string imieNazwisko = "Imi© nazwisko";
+    std::string imieNazwisko = "ImiÂ© nazwisko";
     std::string dataWystawienia = "00-00-0000";
     std::string dataSprzedazy = "00-00-0000";
     std::string nazwaKarnetu = "karnetowy";
     unsigned int cena = 1234;
-    std::string sposobZaplaty = "got¢wka";
+    std::string sposobZaplaty = "gotÂ¢wka";
     std::string terminZaplaty = "00-00-0000";
     unsigned int doZaplaty = 1234;
-    std::string kwotaSlownie = "Dwana˜cie zˆotych i trzydzie˜ci cztery grosze";
+    std::string kwotaSlownie = "DwanaËœcie zË†otych i trzydzieËœci cztery grosze";
 
     printer.init(); //inicjalizacja wydruku
-    printer.codePage852(); //ustaw stron© kodow¥
+    printer.codePage852(); //ustaw stronÂ© kodowÂ¥
     printer.align(Printer::Align::CENTER);
     printer.bold(true);
     printer.print("Rachunek nr ");
@@ -97,37 +98,37 @@ void example1(Printer& printer) {
     printer.bold(true);
     printer.font(Printer::Font::B);
     printPair(printer, "Data wystawienia: ", dataWystawienia);
-    printPair(printer ,"Data sprzeda¾y: ", dataSprzedazy);
+    printPair(printer ,"Data sprzedaÂ¾y: ", dataSprzedazy);
     printer.font(Printer::Font::A);
     /*printer.font(Printer::Font::B);
-    printPair(printer, "Data wystawienia", "Data sprzeda¾y");
+    printPair(printer, "Data wystawienia", "Data sprzedaÂ¾y");
     printer.font(Printer::Font::A);
     printer.bold(false);
     printPair(printer, dataWystawienia, dataSprzedazy);*/
     printer.line(1);
     printer.bold(true);
-    printPair(printer, "Nazwa towaru/usˆugi", "Cena");
+    printPair(printer, "Nazwa towaru/usË†ugi", "Cena");
     printer.bold(false);
-    printPair(printer, "Karnet " + nazwaKarnetu, std::to_string(cena/100)+','+std::to_string(cena%100)+" zˆ");
+    printPair(printer, "Karnet " + nazwaKarnetu, std::to_string(cena/100)+','+std::to_string(cena%100)+" zË†");
     printer.line(1);
     //printer.bold(true);
-    printPair(printer, "Spos¢b zapˆaty:", sposobZaplaty);
+    printPair(printer, "SposÂ¢b zapË†aty:", sposobZaplaty);
     //printer.bold(false);
-    printPair(printer, "Termin zapˆaty: ", terminZaplaty);
+    printPair(printer, "Termin zapË†aty: ", terminZaplaty);
     printer.line(1);
     printer.bold(true);
-    printPair(printer, "Do zapˆaty:", std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zˆ");
-    //printer.println("Do zapˆaty");
-    //printer.println(std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zˆ");
+    printPair(printer, "Do zapË†aty:", std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zË†");
+    //printer.println("Do zapË†aty");
+    //printer.println(std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zË†");
     printer.bold(false);
     printer.font(Printer::Font::B);
-    printer.println("(sˆownie: " + kwotaSlownie + ")");
+    printer.println("(sË†ownie: " + kwotaSlownie + ")");
     printer.font(Printer::Font::A);
     printer.line(1);
     printer.bold(true);
-    printPair(printer, "Zapˆacono", "Pozostaˆo do zapˆaty");
+    printPair(printer, "ZapË†acono", "PozostaË†o do zapË†aty");
     printer.bold(false);
-    printPair(printer, std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zˆ", "0 zˆ");
+    printPair(printer, std::to_string(doZaplaty/100)+','+std::to_string(doZaplaty%100)+" zË†", "0 zË†");
     printer.endFeed(90);
 }
 
@@ -149,7 +150,7 @@ struct ReceiptData {
 
 void printReceipt(Printer& printer, ReceiptData& data) {
     printer.init(); //inicjalizacja wydruku
-    printer.codePage852(); //ustaw stron© kodow¥
+    printer.codePage852(); //ustaw stronÂ© kodowÂ¥
     printer.align(Printer::Align::CENTER);
     printer.size(Printer::Size::DOUBLE_SIZE);
     printer.println(data.nazwaFirmy);
@@ -181,8 +182,8 @@ void printReceipt(Printer& printer, ReceiptData& data) {
     printer.size(Printer::Size::NORMAL);
     printer.font(Printer::Font::A);
     printPair(printer, data.rodzajPlatnosci, makePrice(data.zaplacono));
-    if (data.rodzajPlatnosci == "Got¢wka") {
-        printPair(printer, "Reszta got¢wka", makePrice(data.zaplacono-data.suma));
+    if (data.rodzajPlatnosci == "GotÂ¢wka") {
+        printPair(printer, "Reszta gotÂ¢wka", makePrice(data.zaplacono-data.suma));
     }
     printPair(printer, "Nabywca", data.nabywca);
     printer.font(Printer::Font::B);
@@ -196,7 +197,7 @@ void printReceipt(Printer& printer, ReceiptData& data) {
 
 void example2(Printer& printer) {
     printer.init(); //inicjalizacja wydruku
-    printer.codePage852(); //ustaw stron© kodow¥
+    printer.codePage852(); //ustaw stronÂ© kodowÂ¥
     printer.println("Font A, Size NORMAL");
     printer.bold(true);
     printer.println("Font A, Size NORMAL, bold");
@@ -245,7 +246,7 @@ void example2(Printer& printer) {
 
 void example3(Printer& printer) {
     printer.init(); //inicjalizacja wydruku
-    printer.codePage852(); //ustaw stron© kodow¥
+    printer.codePage852(); //ustaw stronÂ© kodowÂ¥
     printer.println("Font A");
     printer.font(Printer::Font::B);
     printer.println("Font B");
@@ -278,7 +279,7 @@ void example3(Printer& printer) {
     printer.font(Printer::Font::A);
     printer.line(1);
     printer.align(Printer::Align::LEFT);
-    printer.println("Za¾¢ˆ† g©si¥ ja«ä");
+    printer.println("ZaÂ¾Â¢Ë†â€  gÂ©siÂ¥ jaÂ«Ã¤");
     printer.println("End of print");
     printer.endFeed(90);
 }
@@ -295,17 +296,17 @@ int main() {
     data.nrDobowy = 0;
     data.nrDoby = 0;
     data.godzina = "00:00";
-    data.rodzajPlatnosci = "Got¢wka";
+    data.rodzajPlatnosci = "GotÂ¢wka";
     data.zaplacono = 5000;
     //data.rodzajPlatnosci = "Karta";
     //data.zaplacono = 4690;
-    data.nabywca = "Imi© Nazwisko";
+    data.nabywca = "ImiÂ© Nazwisko";
 
     Printer printer;
-    printer.open(); //otwarcie poˆ¥czenia
+    printer.open(); //otwarcie poË†Â¥czenia
 
     printReceipt(printer, data);
 
-    printer.close(); //zamkni©cie poˆ¥czenia
+    printer.close(); //zamkniÂ©cie poË†Â¥czenia
     return 0;
 }
