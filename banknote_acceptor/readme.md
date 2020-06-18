@@ -1,0 +1,2 @@
+na razie wersja na arduino, jak przyjada konwertery napiec 3.3 na 5 to przepisze na raspberry; zasada dzialania bedzie ta sama,
+wywolujecie metode pay(TEN/TWENTY/FIFTY/HUNDRET) ktora zwraca boola, czy platnosc sie powiodla
