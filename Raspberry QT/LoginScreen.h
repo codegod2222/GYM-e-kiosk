@@ -2,6 +2,7 @@
 #define LOGINSCREEN_H
 
 #include <QDialog>
+#include <Keyboard.h>
 
 namespace Ui {
 class LoginScreen;
@@ -15,13 +16,18 @@ public:
     explicit LoginScreen(QWidget *parent = nullptr);
     ~LoginScreen();
 
+    void loop();
+
 private slots:
     void on_powrot_clicked();
 
     void on_zaloguj_clicked();
 
+    void mousePressEvent(QMouseEvent *event);
+
 private:
     Ui::LoginScreen *ui;
+    Keyboard *keyboard;
 };
 
 #endif // LOGINSCREEN_H

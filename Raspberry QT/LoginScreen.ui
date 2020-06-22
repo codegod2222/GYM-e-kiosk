@@ -111,70 +111,6 @@ color: rgb(255, 255, 255);</string>
     <string>POWRÓT</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>870</x>
-     <y>-10</y>
-     <width>161</width>
-     <height>781</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>-6</x>
-     <y>480</y>
-     <width>881</width>
-     <height>291</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_5">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>-10</y>
-     <width>171</width>
-     <height>501</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_6">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>-8</y>
-     <width>731</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -312,12 +248,8 @@ color: rgb(218, 0, 0);</string>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>
-  <zorder>pushButton_5</zorder>
-  <zorder>pushButton_3</zorder>
   <zorder>zaloguj</zorder>
   <zorder>powrot</zorder>
-  <zorder>pushButton_4</zorder>
-  <zorder>pushButton_6</zorder>
   <zorder>komunikat</zorder>
  </widget>
  <resources/>

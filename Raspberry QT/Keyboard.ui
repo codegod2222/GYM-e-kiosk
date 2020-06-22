@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Keyboard</class>
+ <widget class="QDialog" name="Keyboard">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(13, 13, 13);</string>
+  </property>
+  <widget class="QPushButton" name="Q">
+   <property name="geometry">
+    <rect>
+     <x>2</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#Q 
+{ 
+background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);
+ } 
+QPushButton#Q:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
+   </property>
+   <property name="text">
+    <string>Q</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="W">
+   <property name="geometry">
+    <rect>
+     <x>104</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#W 
+{ 
+background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);
+ } 
+QPushButton#W:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
+   </property>
+   <property name="text">
+    <string>W</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="E">
+   <property name="geometry">
+    <rect>
+     <x>206</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#E 
+{ 
+background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);
+ } 
+QPushButton#E:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
+   </property>
+   <property name="text">
+    <string>E</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R">
+   <property name="geometry">
+    <rect>
+     <x>308</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>R</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="T">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>T</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Y">
+   <property name="geometry">
+    <rect>
+     <x>512</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Y</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="U">
+   <property name="geometry">
+    <rect>
+     <x>614</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>U</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="I">
+   <property name="geometry">
+    <rect>
+     <x>716</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>I</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="O">
+   <property name="geometry">
+    <rect>
+     <x>818</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>O</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="P">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>1</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>P</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="A">
+   <property name="geometry">
+    <rect>
+     <x>53</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>A</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="S">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>S</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="D">
+   <property name="geometry">
+    <rect>
+     <x>257</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>D</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="F">
+   <property name="geometry">
+    <rect>
+     <x>359</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>F</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="G">
+   <property name="geometry">
+    <rect>
+     <x>461</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>G</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="H">
+   <property name="geometry">
+    <rect>
+     <x>563</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="J">
+   <property name="geometry">
+    <rect>
+     <x>665</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>J</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="K">
+   <property name="geometry">
+    <rect>
+     <x>767</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>K</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L">
+   <property name="geometry">
+    <rect>
+     <x>869</x>
+     <y>88</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>L</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Z">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Z</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="X">
+   <property name="geometry">
+    <rect>
+     <x>257</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="C">
+   <property name="geometry">
+    <rect>
+     <x>359</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="V">
+   <property name="geometry">
+    <rect>
+     <x>461</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>V</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="B">
+   <property name="geometry">
+    <rect>
+     <x>563</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>B</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="N">
+   <property name="geometry">
+    <rect>
+     <x>665</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>N</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="M">
+   <property name="geometry">
+    <rect>
+     <x>767</x>
+     <y>175</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>M</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CAPS">
+   <property name="geometry">
+    <rect>
+     <x>2</x>
+     <y>175</y>
+     <width>153</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>CAPS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BACKSPACE">
+   <property name="geometry">
+    <rect>
+     <x>869</x>
+     <y>175</y>
+     <width>153</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 20pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>BACKSPACE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="NUMERYCZNA">
+   <property name="geometry">
+    <rect>
+     <x>2</x>
+     <y>263</y>
+     <width>153</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>123</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="PRZECINEK">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>263</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>,</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SPACE">
+   <property name="geometry">
+    <rect>
+     <x>257</x>
+     <y>263</y>
+     <width>510</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>SPACE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ENTER">
+   <property name="geometry">
+    <rect>
+     <x>869</x>
+     <y>263</y>
+     <width>153</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>ENTER</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="KROPKA">
+   <property name="geometry">
+    <rect>
+     <x>767</x>
+     <y>263</y>
+     <width>102</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>.</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -2,6 +2,7 @@
 #include "ui_LoginScreen.h"
 #include "LoggedScreen.h"
 #include "LoggedUser.h"
+#include "Keyboard.h"
 
 LoginScreen::LoginScreen(QWidget *parent) :
     QDialog(parent),
@@ -9,6 +10,9 @@ LoginScreen::LoginScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    keyboard = new Keyboard();
+    keyboard->move(0,388); //418
+    ui->komunikat->hide();
 }
 
 LoginScreen::~LoginScreen()
@@ -29,13 +33,43 @@ void LoginScreen::on_zaloguj_clicked()
     if(login == "U" && password == "u")
     {
         LoggedUser *loggedUser = new LoggedUser("Daniel","Kaleta","danikal410@student.polsl.pl","tajne");
+        ui->komunikat->show();
         ui->komunikat->setText("ZALOGOWANO POMYŚLNIE");
         LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser,this);
         loggedScreen->move(0,0);
         loggedScreen->show();
+        this->close();
     }
     else
     {
+        ui->komunikat->show();
         ui->komunikat->setText("DANE LOGOWANIA NIEPOPRAWNE!");
     }
+}
+
+void LoginScreen::loop()
+{
+    while(1)
+    {
+        //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
+        if(ui->login->hasFocus())
+        {
+            keyboard->activate(ui->login);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
+        else if(ui->password->hasFocus())
+        {
+            keyboard->activate(ui->password);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
+        qApp->processEvents();
+    }
+}
+
+void LoginScreen::mousePressEvent(QMouseEvent *event)
+{
+    ui->label->setFocus();
+    keyboard->hide();
 }
