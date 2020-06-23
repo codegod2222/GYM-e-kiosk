@@ -4,20 +4,27 @@
 #include "LoggedUser.h"
 #include "Keyboard.h"
 
+int LoginScreen::ile = 0;
+
 LoginScreen::LoginScreen(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginScreen)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    keyboard = new Keyboard();
+    setAttribute( Qt::WA_DeleteOnClose );
+    keyboard = new Keyboard(nullptr, this->ui->zaloguj);
     keyboard->move(0,388); //418
     ui->komunikat->hide();
+    ile++;
 }
 
 LoginScreen::~LoginScreen()
 {
+    closed=true;
     delete ui;
+    delete keyboard;
+    ile--;
 }
 
 void LoginScreen::on_powrot_clicked()
@@ -49,7 +56,7 @@ void LoginScreen::on_zaloguj_clicked()
 
 void LoginScreen::loop()
 {
-    while(1)
+    while(!closed)
     {
         //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
         if(ui->login->hasFocus())

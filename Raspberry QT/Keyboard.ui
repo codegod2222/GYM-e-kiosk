@@ -125,14 +125,23 @@ border-color: rgb(13,13,13);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#R 
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#R:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>R</string>
@@ -148,14 +157,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#T 
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#T:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>T</string>
@@ -171,14 +189,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#Y
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#Y:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>Y</string>
@@ -194,14 +221,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#U
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#U:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>U</string>
@@ -217,14 +253,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#I
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#I:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>I</string>
@@ -240,14 +285,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#O
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#O:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>O</string>
@@ -263,14 +317,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#P
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#P:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>P</string>
@@ -286,14 +349,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#A
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#A:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>A</string>
@@ -309,14 +381,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#S
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#S:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>S</string>
@@ -332,14 +413,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#D
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#D:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>D</string>
@@ -355,14 +445,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#F
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#F:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>F</string>
@@ -378,14 +477,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#G
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#G:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>G</string>
@@ -401,14 +509,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#H
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#H:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>H</string>
@@ -424,14 +541,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#J
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#J:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>J</string>
@@ -447,14 +573,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#K
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#K:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>K</string>
@@ -470,14 +605,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#L
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#L:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>L</string>
@@ -493,14 +637,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#Z
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#Z:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>Z</string>
@@ -516,14 +669,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#X
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#X:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>X</string>
@@ -539,14 +701,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#C
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#C:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>C</string>
@@ -562,14 +733,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#V
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#V:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>V</string>
@@ -585,14 +765,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#B
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#B:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>B</string>
@@ -608,14 +797,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#N
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#N:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>N</string>
@@ -631,14 +829,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#M
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#M:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>M</string>
@@ -654,17 +861,26 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#CAPS
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#CAPS:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
-    <string>CAPS</string>
+    <string>HIDE</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BACKSPACE">
@@ -677,14 +893,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#BACKSPACE
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 20pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#BACKSPACE:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>BACKSPACE</string>
@@ -700,17 +925,26 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#NUMERYCZNA
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#NUMERYCZNA:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
-    <string>123</string>
+    <string>abc</string>
    </property>
   </widget>
   <widget class="QPushButton" name="PRZECINEK">
@@ -723,14 +957,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#PRZECINEK
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#PRZECINEK:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>,</string>
@@ -746,14 +989,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#SPACE
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#SPACE:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>SPACE</string>
@@ -769,14 +1021,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#ENTER
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#ENTER:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>ENTER</string>
@@ -792,14 +1053,23 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(13, 13, 13);
+    <string notr="true">QPushButton#KROPKA
+{ 
+background-color: rgb(13, 13, 13);
 border-style: solid;
 border-width:4px;
 border-radius:30px;
 border-color: white;
 
 font: 75 30pt &quot;Tahoma&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+ } 
+QPushButton#KROPKA:pressed 
+{ 
+background-color:white; 
+color: rgb(0, 0, 0);
+border-color: rgb(13,13,13);
+}</string>
    </property>
    <property name="text">
     <string>.</string>
