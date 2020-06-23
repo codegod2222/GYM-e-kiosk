@@ -28,6 +28,9 @@ LoginScreen::~LoginScreen()
 
 void LoginScreen::on_powrot_clicked()
 {
+    ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->komunikat->setText("");
     ui->login->setText("");
     ui->password->setText("");
     keyboard->hide();
@@ -47,7 +50,8 @@ void LoginScreen::on_zaloguj_clicked()
         LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser,this);
         loggedScreen->move(0,0);
         loggedScreen->show();
-        this->close();
+
+        on_powrot_clicked();
     }
     else
     {
@@ -63,12 +67,16 @@ void LoginScreen::loop()
         //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
         if(ui->login->hasFocus())
         {
+            ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             keyboard->activate(ui->login);
             keyboard->show();
             keyboard->activateWindow();
         }
         else if(ui->password->hasFocus())
         {
+            ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             keyboard->activate(ui->password);
             keyboard->show();
             keyboard->activateWindow();
@@ -79,6 +87,8 @@ void LoginScreen::loop()
 
 void LoginScreen::mousePressEvent(QMouseEvent *event)
 {
+    ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
     ui->label->setFocus();
     keyboard->hide();
 }

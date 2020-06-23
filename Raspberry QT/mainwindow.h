@@ -32,8 +32,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     LoginScreen *loginScreen = nullptr;
-    RegistrationScreen *registrationScreen;
-    BuyingPassScreen *buyingPassScreen;
-    AdministrationScreen *administrationScreen;
+    RegistrationScreen *registrationScreen = nullptr;
+    BuyingPassScreen *buyingPassScreen = nullptr;
+    AdministrationScreen *administrationScreen = nullptr;
 };
 #endif // MAINWINDOW_H

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "RegistrationInfoScreen.h"
+#include <Keyboard.h>
 
 namespace Ui {
 class RegistrationScreen;
@@ -22,15 +23,14 @@ private slots:
 
     void on_powrot_clicked();
 
-    void on_nazwisko_editingFinished();
-
-    void on_haslo_editingFinished();
-
     void on_pushButton_clicked();
+
+    void mousePressEvent(QMouseEvent*);
 
 private:
     Ui::RegistrationScreen *ui;
     RegistrationInfoScreen *registrationInfoScreen;
+    Keyboard *keyboard;
 
 };
 

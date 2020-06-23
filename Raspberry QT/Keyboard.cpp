@@ -23,6 +23,11 @@ Keyboard::~Keyboard()
 void Keyboard::activate(QLineEdit *toEdit)
 {
     this->toEdit = toEdit;
+    if(toEdit->echoMode() == 2)
+    {
+        this->type = 0;
+        on_NUMERYCZNA_clicked();
+    }
 }
 
 void Keyboard::on_Q_clicked()
@@ -33,6 +38,11 @@ void Keyboard::on_Q_clicked()
 void Keyboard::on_W_clicked()
 {
     toEdit->insert(ui->W->text());
+    if(toEdit->text().size()==1)
+    {
+        this->type = 0;
+        on_NUMERYCZNA_clicked();
+    }
 }
 
 void Keyboard::on_E_clicked()
