@@ -31,10 +31,17 @@ void MainWindow::on_kupKarnetButton_clicked()
 
 void MainWindow::on_zalogujSieButton_clicked()
 {
-    loginScreen = new LoginScreen(); // Be sure to destroy your window somewhere
-    loginScreen->move(0,0);
-    loginScreen->show();
-    loginScreen->loop();
+    if(loginScreen == nullptr)
+    {
+        loginScreen = new LoginScreen(); // Be sure to destroy your window somewhere
+        loginScreen->move(0,0);
+        loginScreen->show();
+        loginScreen->loop();
+    }
+    else
+    {
+        loginScreen->show();
+    }
 }
 
 void MainWindow::on_zalozKontoButton_clicked()

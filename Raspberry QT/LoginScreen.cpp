@@ -12,7 +12,6 @@ LoginScreen::LoginScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    setAttribute( Qt::WA_DeleteOnClose );
     keyboard = new Keyboard(nullptr, this->ui->zaloguj);
     keyboard->move(0,388); //418
     ui->komunikat->hide();
@@ -29,6 +28,9 @@ LoginScreen::~LoginScreen()
 
 void LoginScreen::on_powrot_clicked()
 {
+    ui->login->setText("");
+    ui->password->setText("");
+    keyboard->hide();
     this->close();
 }
 
