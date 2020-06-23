@@ -10,7 +10,6 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    setMouseTracking(true);
     keyboard = new Keyboard(nullptr, this->ui->pushButton);
     keyboard->move(0,388); //418
 }
@@ -18,11 +17,12 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
 RegistrationScreen::~RegistrationScreen()
 {
     delete ui;
+    delete keyboard;
 }
 
 void RegistrationScreen::loop()
 {
-    while(1)
+    while(this->isVisible())
     {
         //Jezeli nadejdzie pora wpisywania hasla wystawiam te pola wyzej,
         //aby klawiatura ekranowa nie zaslaniala
@@ -114,6 +114,7 @@ void RegistrationScreen::on_powrot_clicked()
     ui->powtHaslo->setText("");
     ui->email->setText("");
     keyboard->hide();
+    closed = true;
     this->close();
 }
 

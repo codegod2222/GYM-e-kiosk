@@ -34,6 +34,7 @@ void LoginScreen::on_powrot_clicked()
     ui->login->setText("");
     ui->password->setText("");
     keyboard->hide();
+    closed=true;
     this->close();
 }
 
@@ -62,7 +63,7 @@ void LoginScreen::on_zaloguj_clicked()
 
 void LoginScreen::loop()
 {
-    while(!closed)
+    while(this->isVisible())
     {
         //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
         if(ui->login->hasFocus())

@@ -43,6 +43,7 @@ void MainWindow::on_zalogujSieButton_clicked()
     else
     {
         loginScreen->show();
+        loginScreen->loop();
     }
 }
 
@@ -58,6 +59,7 @@ void MainWindow::on_zalozKontoButton_clicked()
     else
     {
         registrationScreen->show();
+        registrationScreen->loop();
     }
 }
 

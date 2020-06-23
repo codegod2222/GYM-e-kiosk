@@ -31,7 +31,7 @@ private:
     Ui::RegistrationScreen *ui;
     RegistrationInfoScreen *registrationInfoScreen;
     Keyboard *keyboard;
-
+    bool closed = false;
 };
 
 #endif // REGISTRATIONSCREEN_H
