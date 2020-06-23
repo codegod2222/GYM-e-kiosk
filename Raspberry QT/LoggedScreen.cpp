@@ -1,6 +1,6 @@
 #include "LoggedScreen.h"
 #include "ui_LoggedScreen.h"
-#include "DataChangeScreen.h"
+#include <DataChangeScreen.h>
 
 LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser, QWidget *toClose) :
     QDialog(parent),
@@ -36,6 +36,7 @@ void LoggedScreen::on_zmienDane_clicked()
     DataChangeScreen *dataChangeScreen = new DataChangeScreen(nullptr, loggedUser, this);
     dataChangeScreen->move(0,0);
     dataChangeScreen->show();
+    dataChangeScreen->loop();
 }
 
 void LoggedScreen::odbierzZmianeDanych()

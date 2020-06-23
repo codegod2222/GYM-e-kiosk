@@ -28,7 +28,6 @@ private slots:
 private:
     Ui::LoginScreen *ui;
     Keyboard *keyboard;
-    bool closed = false;
 public:
     static int ile;
 };

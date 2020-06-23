@@ -20,7 +20,6 @@ LoginScreen::LoginScreen(QWidget *parent) :
 
 LoginScreen::~LoginScreen()
 {
-    closed=true;
     delete ui;
     delete keyboard;
     ile--;
@@ -34,7 +33,6 @@ void LoginScreen::on_powrot_clicked()
     ui->login->setText("");
     ui->password->setText("");
     keyboard->hide();
-    closed=true;
     this->close();
 }
 

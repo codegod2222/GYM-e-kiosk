@@ -12,6 +12,8 @@ DataChangeScreen::DataChangeScreen(QWidget *parent, LoggedUser *loggedUser, Logg
     ui->email->setText(loggedUser->getEmail());
     this->loggedUser = loggedUser;
     this->loggedScreen = loggedScreen;
+    keyboard = new Keyboard(nullptr, this->ui->zatwierdzZmiany);
+    keyboard->move(0,388); //418
 }
 
 DataChangeScreen::~DataChangeScreen()
@@ -21,6 +23,10 @@ DataChangeScreen::~DataChangeScreen()
 
 void DataChangeScreen::on_powrot_clicked()
 {
+    ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    keyboard->hide();
     this->close();
 }
 
@@ -41,4 +47,49 @@ void DataChangeScreen::on_zmienHaslo_clicked()
     passwordChangeScreen = new PasswordChangeScreen(nullptr, loggedUser);
     passwordChangeScreen->move(0,0);
     passwordChangeScreen->show();
+}
+
+void DataChangeScreen::loop()
+{
+    while(this->isVisible())
+    {
+        //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
+        if(ui->imie->hasFocus())
+        {
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->imie);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
+        else if(ui->nazwisko->hasFocus())
+        {
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->nazwisko);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
+        else if(ui->email->hasFocus())
+        {
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->email);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
+        qApp->processEvents();
+    }
+}
+
+void DataChangeScreen::mousePressEvent(QMouseEvent *event)
+{
+    ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->imieLabel->setFocus();
+    keyboard->hide();
 }

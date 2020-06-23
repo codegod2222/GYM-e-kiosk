@@ -114,7 +114,6 @@ void RegistrationScreen::on_powrot_clicked()
     ui->powtHaslo->setText("");
     ui->email->setText("");
     keyboard->hide();
-    closed = true;
     this->close();
 }
 
@@ -188,4 +187,5 @@ void RegistrationScreen::on_pushButton_clicked()
     LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser, this);
     loggedScreen->move(0,0);
     loggedScreen->show();
+    on_powrot_clicked();
 }

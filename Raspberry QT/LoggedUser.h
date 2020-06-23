@@ -29,8 +29,6 @@ private:
     QString lastName;
     QString email;
     QString password;
-
-
 };
 
 #endif // LOGGEDUSER_H
