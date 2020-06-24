@@ -59,6 +59,15 @@ void PasswordChangeScreen::loop()
     }
 }
 
+void PasswordChangeScreen::mousePressEvent(QMouseEvent *event)
+{
+    ui->oldPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->newPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->newPassword2->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+    ui->forma->setFocus();
+    keyboard->hide();
+}
+
 void PasswordChangeScreen::on_potwierdz_clicked()
 {
     QString oldPassword = this->ui->oldPassword->text();

@@ -17,8 +17,6 @@ public:
     explicit RegistrationScreen(QWidget *parent = nullptr);
     ~RegistrationScreen();
 
-    void loop();
-
 private slots:
 
     void on_powrot_clicked();
@@ -26,6 +24,8 @@ private slots:
     void on_pushButton_clicked();
 
     void mousePressEvent(QMouseEvent*);
+
+    bool eventFilter(QObject*, QEvent*);
 
 private:
     Ui::RegistrationScreen *ui;

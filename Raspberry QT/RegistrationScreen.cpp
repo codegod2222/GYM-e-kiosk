@@ -12,6 +12,13 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     keyboard = keyboard->getKeyboard();
     keyboard->move(0,388); //418
+
+    ui->imie->installEventFilter(this);
+    ui->nazwisko->installEventFilter(this);
+    ui->email->installEventFilter(this);
+    ui->haslo->installEventFilter(this);
+    ui->powtHaslo->installEventFilter(this);
+    ui->nazwiskoLabel->installEventFilter(this);
 }
 
 RegistrationScreen::~RegistrationScreen()
@@ -19,90 +26,84 @@ RegistrationScreen::~RegistrationScreen()
     delete ui;
 }
 
-void RegistrationScreen::loop()
+bool RegistrationScreen::eventFilter(QObject *obj, QEvent *event)
 {
-    while(this->isVisible())
+    if( (obj == ui->haslo || obj == ui->powtHaslo) && event->type() == QEvent::FocusIn)
     {
-        //Jezeli nadejdzie pora wpisywania hasla wystawiam te pola wyzej,
-        //aby klawiatura ekranowa nie zaslaniala
-        if(ui->haslo->hasFocus() || ui->powtHaslo->hasFocus())
+        ui->nazwisko->hide();
+        ui->nazwiskoLabel->hide();
+        ui->imie->hide();
+        ui->imieLabel->hide();
+        ui->email->hide();
+        ui->emailLabel->hide();
+
+        ui->haslo->setGeometry(359,2,508,100);
+        ui->hasloLabel->setGeometry(153,2,200,100);
+        ui->powtHaslo->setGeometry(359,92,508,100);
+        ui->powtHasloLabel->setGeometry(153,92,508,100);
+
+        if(obj == ui->haslo)
         {
-            ui->nazwisko->hide();
-            ui->nazwiskoLabel->hide();
-            ui->imie->hide();
-            ui->imieLabel->hide();
-            ui->email->hide();
-            ui->emailLabel->hide();
+            ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->haslo, ui->pushButton);
+        }
+        else
+        {
+            ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->powtHaslo, ui->pushButton);
+        }
+        keyboard->show();
+        keyboard->activateWindow();
+    }
+    else if( (obj == ui->nazwisko || obj == ui->email || obj == ui->imie || obj == ui->nazwiskoLabel) && event->type() == QEvent::FocusIn)
+    {
+        ui->nazwisko->show();
+        ui->nazwiskoLabel->show();
+        ui->email->show();
+        ui->emailLabel->show();
+        ui->haslo->show();
+        ui->hasloLabel->show();
+        ui->imie->show();
+        ui->imieLabel->show();
 
-            ui->haslo->setGeometry(359,2,508,100);
-            ui->hasloLabel->setGeometry(153,2,200,100);
+        ui->email->setGeometry(359,182,508,100);
+        ui->emailLabel->setGeometry(153,182,200,100);
+        ui->haslo->setGeometry(359,272,508,100);
+        ui->hasloLabel->setGeometry(153,272,200,100);
+        ui->powtHaslo->setGeometry(359,362,508,100);
+        ui->powtHasloLabel->setGeometry(153,362,200,100);
 
-            ui->powtHaslo->setGeometry(359,92,508,100);
-            ui->powtHasloLabel->setGeometry(153,92,508,100);
-
-            if(ui->haslo->hasFocus())
-            {
-                ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->haslo, ui->pushButton);
-            }
-            else
-            {
-                ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->powtHaslo, ui->pushButton);
-            }
+        if( obj == ui->imie)
+        {
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->imie);
             keyboard->show();
             keyboard->activateWindow();
         }
-        else if(ui->nazwisko->hasFocus() || ui->email->hasFocus() || ui->imie->hasFocus() || ui->nazwiskoLabel->hasFocus())
+        else if(obj == ui->nazwisko)
         {
-            ui->nazwisko->show();
-            ui->nazwiskoLabel->show();
-            ui->email->show();
-            ui->emailLabel->show();
-            ui->haslo->show();
-            ui->hasloLabel->show();
-            ui->imie->show();
-            ui->imieLabel->show();
-
-            ui->email->setGeometry(359,182,508,100);
-            ui->emailLabel->setGeometry(153,182,200,100);
-            ui->haslo->setGeometry(359,272,508,100);
-            ui->hasloLabel->setGeometry(153,272,200,100);
-            ui->powtHaslo->setGeometry(359,362,508,100);
-            ui->powtHasloLabel->setGeometry(153,362,200,100);
-
-            if(ui->imie->hasFocus())
-            {
-                ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->imie);
-                keyboard->show();
-                keyboard->activateWindow();
-            }
-            else if(ui->nazwisko->hasFocus())
-            {
-                ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->nazwisko);
-                keyboard->show();
-                keyboard->activateWindow();
-            }
-            else if(ui->email->hasFocus())
-            {
-                ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->email);
-                keyboard->show();
-                keyboard->activateWindow();
-            }
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->nazwisko);
+            keyboard->show();
+            keyboard->activateWindow();
         }
-        qApp->processEvents();
+        else if(obj == ui->email)
+        {
+            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+            keyboard->activate(ui->email);
+            keyboard->show();
+            keyboard->activateWindow();
+        }
     }
+    return false;
 }
 
 void RegistrationScreen::on_powrot_clicked()

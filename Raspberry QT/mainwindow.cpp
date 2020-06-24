@@ -38,12 +38,10 @@ void MainWindow::on_zalogujSieButton_clicked()
         loginScreen = new LoginScreen();
         loginScreen->move(0,0);
         loginScreen->show();
-        loginScreen->loop();
     }
     else
     {
         loginScreen->show();
-        loginScreen->loop();
     }
 }
 
@@ -54,12 +52,10 @@ void MainWindow::on_zalozKontoButton_clicked()
         registrationScreen = new RegistrationScreen();
         registrationScreen->move(0,0);
         registrationScreen->show();
-        registrationScreen->loop();
     }
     else
     {
         registrationScreen->show();
-        registrationScreen->loop();
     }
 }
 

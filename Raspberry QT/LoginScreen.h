@@ -16,14 +16,14 @@ public:
     explicit LoginScreen(QWidget *parent = nullptr);
     ~LoginScreen();
 
-    void loop();
-
 private slots:
     void on_powrot_clicked();
 
     void on_zaloguj_clicked();
 
     void mousePressEvent(QMouseEvent *event);
+
+    bool eventFilter(QObject*, QEvent*);
 
 private:
     Ui::LoginScreen *ui;
