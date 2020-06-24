@@ -3,14 +3,14 @@
 #include "LoginScreen.h"
 
 int Keyboard::ile = 0;
+Keyboard* Keyboard::instance = nullptr;
 
-Keyboard::Keyboard(QWidget *parent, QPushButton *toClick) :
+Keyboard::Keyboard(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Keyboard)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    this->toClick = toClick;
     ile++;
 }
 
@@ -20,8 +20,18 @@ Keyboard::~Keyboard()
     ile--;
 }
 
-void Keyboard::activate(QLineEdit *toEdit)
+Keyboard* Keyboard::getKeyboard()
 {
+    if(!instance)
+    {
+        instance = new Keyboard();
+    }
+    return instance;
+}
+
+void Keyboard::activate(QLineEdit *toEdit, QPushButton *toClick)
+{
+    this->toClick = toClick;
     this->toEdit = toEdit;
     if(toEdit->echoMode() == 2)
     {
@@ -31,6 +41,11 @@ void Keyboard::activate(QLineEdit *toEdit)
     else if(toEdit->text().size()==0)
     {
         this->type = 2;
+        on_NUMERYCZNA_clicked();
+    }
+    else if(toEdit->text().size() > 0)
+    {
+        this->type = 0;
         on_NUMERYCZNA_clicked();
     }
 }

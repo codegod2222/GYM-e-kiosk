@@ -13,10 +13,20 @@ class Keyboard : public QDialog
     Q_OBJECT
 
 public:
-    explicit Keyboard(QWidget *parent = nullptr, QPushButton *toClick = nullptr);
-    ~Keyboard();
 
-    void activate(QLineEdit *toEdit = nullptr);
+    static Keyboard* getKeyboard();
+    void activate(QLineEdit *toEdit = nullptr, QPushButton *toClick = nullptr);
+
+    // The copy constructor and assignment operator
+    // are defined as deleted, which means that you
+    // can't make a copy of singleton.
+    Keyboard( Keyboard const& ) = delete;
+    Keyboard& operator=( Keyboard const& ) = delete;
+
+private:
+
+    explicit Keyboard(QWidget *parent = nullptr);
+    ~Keyboard();
 
 private slots:
 
@@ -91,6 +101,7 @@ private:
     QPushButton *toClick;
     QLineEdit *toEdit;
     int type = 0;
+    static Keyboard* instance;
 public:
     static int ile;
 };

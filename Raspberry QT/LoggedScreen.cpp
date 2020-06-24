@@ -33,10 +33,18 @@ void LoggedScreen::on_kupKarnet_clicked()
 
 void LoggedScreen::on_zmienDane_clicked()
 {
-    DataChangeScreen *dataChangeScreen = new DataChangeScreen(nullptr, loggedUser, this);
-    dataChangeScreen->move(0,0);
-    dataChangeScreen->show();
-    dataChangeScreen->loop();
+    if(dataChangeScreen == nullptr)
+    {
+        dataChangeScreen = new DataChangeScreen(nullptr, loggedUser, this);
+        dataChangeScreen->move(0,0);
+        dataChangeScreen->show();
+        dataChangeScreen->loop();
+    }
+    else
+    {
+        dataChangeScreen->show();
+        dataChangeScreen->loop();
+    }
 }
 
 void LoggedScreen::odbierzZmianeDanych()

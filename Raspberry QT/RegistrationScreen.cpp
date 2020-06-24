@@ -10,14 +10,13 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    keyboard = new Keyboard(nullptr, this->ui->pushButton);
+    keyboard = keyboard->getKeyboard();
     keyboard->move(0,388); //418
 }
 
 RegistrationScreen::~RegistrationScreen()
 {
     delete ui;
-    delete keyboard;
 }
 
 void RegistrationScreen::loop()
@@ -45,13 +44,13 @@ void RegistrationScreen::loop()
             {
                 ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
                 ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->haslo);
+                keyboard->activate(ui->haslo, ui->pushButton);
             }
             else
             {
                 ui->powtHaslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
                 ui->haslo->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-                keyboard->activate(ui->powtHaslo);
+                keyboard->activate(ui->powtHaslo, ui->pushButton);
             }
             keyboard->show();
             keyboard->activateWindow();

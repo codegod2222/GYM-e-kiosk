@@ -12,7 +12,7 @@ LoginScreen::LoginScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    keyboard = new Keyboard(nullptr, this->ui->zaloguj);
+    keyboard = keyboard->getKeyboard();
     keyboard->move(0,388); //418
     ui->komunikat->hide();
     ile++;
@@ -21,7 +21,6 @@ LoginScreen::LoginScreen(QWidget *parent) :
 LoginScreen::~LoginScreen()
 {
     delete ui;
-    delete keyboard;
     ile--;
 }
 
@@ -68,7 +67,7 @@ void LoginScreen::loop()
         {
             ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->login);
+            keyboard->activate(ui->login, ui->zaloguj);
             keyboard->show();
             keyboard->activateWindow();
         }
@@ -76,7 +75,7 @@ void LoginScreen::loop()
         {
             ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->password);
+            keyboard->activate(ui->password, ui->zaloguj);
             keyboard->show();
             keyboard->activateWindow();
         }

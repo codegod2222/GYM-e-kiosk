@@ -6,6 +6,8 @@
 #include "BuyingPassScreen.h"
 #include "LoggedUser.h"
 
+class DataChangeScreen;
+
 namespace Ui {
 class LoggedScreen;
 }
@@ -31,6 +33,7 @@ private:
     Ui::LoggedScreen *ui;
     BuyingPassScreen *buyingPassScreen;
     LoggedUser *loggedUser;
+    DataChangeScreen *dataChangeScreen = nullptr;
 };
 
 #endif // LOGGEDSCREEN_H
