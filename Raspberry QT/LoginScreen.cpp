@@ -78,7 +78,6 @@ bool LoginScreen::eventFilter(QObject *obj, QEvent *event)
         keyboard->activate(ui->login, ui->zaloguj);
         keyboard->show();
         keyboard->activateWindow();
-        return false; //should discard the signal (?)
     }
     else if( obj == ui->password && event->type() == QEvent::FocusIn)
     {
@@ -88,5 +87,5 @@ bool LoginScreen::eventFilter(QObject *obj, QEvent *event)
         keyboard->show();
         keyboard->activateWindow();
     }
-
+    return false;
 }
