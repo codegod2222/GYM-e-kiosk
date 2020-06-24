@@ -1,0 +1,10 @@
+1. Dodać do definicji preprocesora:
+	_CRT_SECURE_NO_WARNINGS
+	CURL_STATICLIB
+
+2. Dodać do dodatkowych zależności linkera:
+	Crypt32.lib
+	ws2_32.lib
+	winmm.lib
+	wldap32.lib
+	libcurld.lib
