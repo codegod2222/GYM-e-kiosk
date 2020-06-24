@@ -25,6 +25,8 @@ private slots:
 
     void mousePressEvent(QMouseEvent *event);
 
+    bool eventFilter(QObject *, QEvent*);
+
 private:
     Ui::LoginScreen *ui;
     Keyboard *keyboard;

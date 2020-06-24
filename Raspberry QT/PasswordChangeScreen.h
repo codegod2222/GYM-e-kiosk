@@ -26,6 +26,8 @@ private slots:
 
     void on_potwierdz_clicked();   
 
+    void mousePressEvent(QMouseEvent*);
+
 private:
     Ui::PasswordChangeScreen *ui;
     LoggedUser *loggedUser;

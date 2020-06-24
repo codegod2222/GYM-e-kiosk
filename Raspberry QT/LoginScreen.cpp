@@ -16,6 +16,9 @@ LoginScreen::LoginScreen(QWidget *parent) :
     keyboard->move(0,388); //418
     ui->komunikat->hide();
     ile++;
+
+    ui->login->installEventFilter(this);
+    ui->password->installEventFilter(this);
 }
 
 LoginScreen::~LoginScreen()
@@ -58,35 +61,32 @@ void LoginScreen::on_zaloguj_clicked()
     }
 }
 
-void LoginScreen::loop()
-{
-    while(this->isVisible())
-    {
-        //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
-        if(ui->login->hasFocus())
-        {
-            ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->login, ui->zaloguj);
-            keyboard->show();
-            keyboard->activateWindow();
-        }
-        else if(ui->password->hasFocus())
-        {
-            ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->password, ui->zaloguj);
-            keyboard->show();
-            keyboard->activateWindow();
-        }
-        qApp->processEvents();
-    }
-}
-
 void LoginScreen::mousePressEvent(QMouseEvent *event)
 {
     ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
     ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
     ui->label->setFocus();
     keyboard->hide();
+}
+
+bool LoginScreen::eventFilter(QObject *obj, QEvent *event)
+{
+    if( obj == ui->login && event->type() == QEvent::FocusIn)
+    {
+        ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        keyboard->activate(ui->login, ui->zaloguj);
+        keyboard->show();
+        keyboard->activateWindow();
+        return false; //should discard the signal (?)
+    }
+    else if( obj == ui->password && event->type() == QEvent::FocusIn)
+    {
+        ui->password->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->login->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        keyboard->activate(ui->password, ui->zaloguj);
+        keyboard->show();
+        keyboard->activateWindow();
+    }
+
 }
