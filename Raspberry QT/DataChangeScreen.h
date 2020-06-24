@@ -37,7 +37,7 @@ private:
     Ui::DataChangeScreen *ui;
     LoggedUser *loggedUser;
     LoggedScreen *loggedScreen;
-    PasswordChangeScreen *passwordChangeScreen;
+    PasswordChangeScreen *passwordChangeScreen = nullptr;
     Keyboard *keyboard;
 };
 

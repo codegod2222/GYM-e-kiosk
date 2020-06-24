@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <LoggedUser.h>
 #include <RegistrationInfoScreen.h>
+#include <Keyboard.h>
 
 namespace Ui {
 class PasswordChangeScreen;
@@ -17,15 +18,19 @@ public:
     explicit PasswordChangeScreen(QWidget *parent = nullptr, LoggedUser *loggedUser = nullptr);
     ~PasswordChangeScreen();
 
+    void loop();
+
+
 private slots:
     void on_close_clicked();
 
-    void on_potwierdz_clicked();
+    void on_potwierdz_clicked();   
 
 private:
     Ui::PasswordChangeScreen *ui;
     LoggedUser *loggedUser;
     RegistrationInfoScreen *infoScreen;
+    Keyboard *keyboard;
 };
 
 #endif // PASSWORDCHANGESCREEN_H
