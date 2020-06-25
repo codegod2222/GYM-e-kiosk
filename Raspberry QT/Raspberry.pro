@@ -26,6 +26,7 @@ SOURCES += \
     LoggedScreen.cpp \
     LoggedUser.cpp \
     LoginScreen.cpp \
+    LoopThread.cpp \
     PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
     RegistrationScreen.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     LoggedScreen.h \
     LoggedUser.h \
     LoginScreen.h \
+    LoopThread.h \
     PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
     RegistrationScreen.h \

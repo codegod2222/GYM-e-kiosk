@@ -48,7 +48,7 @@ void LoginScreen::on_zaloguj_clicked()
         LoggedUser *loggedUser = new LoggedUser("Daniel","Kaleta","danikal410@student.polsl.pl","tajne");
         ui->komunikat->show();
         ui->komunikat->setText("ZALOGOWANO POMYŚLNIE");
-        LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser,this);
+        LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
         loggedScreen->move(0,0);
         loggedScreen->show();
 

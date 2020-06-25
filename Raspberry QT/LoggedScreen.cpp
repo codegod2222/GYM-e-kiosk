@@ -2,7 +2,7 @@
 #include "ui_LoggedScreen.h"
 #include <DataChangeScreen.h>
 
-LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser, QWidget *toClose) :
+LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser) :
     QDialog(parent),
     ui(new Ui::LoggedScreen)
 {
@@ -10,7 +10,10 @@ LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser, QWidget *toC
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->loggedUser = loggedUser;
     ui->zalogowanyJako->setText(loggedUser->getFirstName()+" "+loggedUser->getLastName());
-    toClose->close();
+    if(parent != nullptr)
+    {
+        parent->close();
+    }
 }
 
 LoggedScreen::~LoggedScreen()

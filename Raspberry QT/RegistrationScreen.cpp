@@ -184,7 +184,7 @@ void RegistrationScreen::on_pushButton_clicked()
     }
 
     LoggedUser *loggedUser = new LoggedUser(imie,nazwisko,email,haslo);
-    LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser, this);
+    LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
     loggedScreen->move(0,0);
     loggedScreen->show();
     on_powrot_clicked();
