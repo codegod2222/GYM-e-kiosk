@@ -18,7 +18,7 @@ public:
     explicit PasswordChangeScreen(QWidget *parent = nullptr, LoggedUser *loggedUser = nullptr);
     ~PasswordChangeScreen();
 
-    void loop();
+    bool eventFilter(QObject*, QEvent*);
 
 
 private slots:

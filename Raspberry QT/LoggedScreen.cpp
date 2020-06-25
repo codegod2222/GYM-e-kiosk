@@ -31,7 +31,6 @@ void LoggedScreen::on_kupKarnet_clicked()
     buyingPassScreen = new BuyingPassScreen(nullptr,true);
     buyingPassScreen->move(0,0);
     buyingPassScreen->show();
-    buyingPassScreen->loop();
 }
 
 void LoggedScreen::on_zmienDane_clicked()
@@ -41,12 +40,10 @@ void LoggedScreen::on_zmienDane_clicked()
         dataChangeScreen = new DataChangeScreen(nullptr, loggedUser, this);
         dataChangeScreen->move(0,0);
         dataChangeScreen->show();
-        dataChangeScreen->loop();
     }
     else
     {
         dataChangeScreen->show();
-        dataChangeScreen->loop();
     }
 }
 

@@ -27,7 +27,6 @@ void MainWindow::on_kupKarnetButton_clicked()
         buyingPassScreen = new BuyingPassScreen(nullptr,false);
         buyingPassScreen->move(0,0);
         buyingPassScreen->show();
-        buyingPassScreen->loop();
     }
     else
     {

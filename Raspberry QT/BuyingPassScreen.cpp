@@ -13,6 +13,7 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     ui->typyKarnetow->setEditable(true);
     ui->typyKarnetow->lineEdit()->setReadOnly(true);
     ui->typyKarnetow->lineEdit()->setAlignment(Qt::AlignCenter);
+    this->ui->typyKarnetow->installEventFilter(this);
 
     if(logged)
     {
@@ -35,18 +36,14 @@ BuyingPassScreen::~BuyingPassScreen()
     delete ui;
 }
 
-//Pętla czekająca aż użytkonwik kliknie na comboBoxa, wyłapując to kliknięcie i rozwijając w ten czas listę z dostępnymi karnetami.
-void BuyingPassScreen::loop()
+bool BuyingPassScreen::eventFilter(QObject *obj, QEvent *event)
 {
-    while(1)
+    if( obj == ui->typyKarnetow && event->type() == QEvent::FocusIn)
     {
-        if(ui->typyKarnetow->hasFocus())
-        {
-            ui->typyKarnetow->showPopup();
-            ui->label->setFocus();
-        }
-        qApp->processEvents();
+        ui->typyKarnetow->showPopup();
+        ui->label->setFocus();
     }
+    return false;
 }
 
 void BuyingPassScreen::on_powrot_clicked()

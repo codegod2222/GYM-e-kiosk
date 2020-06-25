@@ -19,7 +19,7 @@ public:
     explicit DataChangeScreen(QWidget *parent = nullptr, LoggedUser* = nullptr, LoggedScreen* = nullptr);
     ~DataChangeScreen();
 
-    void loop();
+    bool eventFilter(QObject*, QEvent*);
 
 private slots:
     void on_powrot_clicked();

@@ -11,13 +11,19 @@ DataChangeScreen::DataChangeScreen(QWidget *parent, LoggedUser *loggedUser, Logg
     ui->imie->setText(loggedUser->getFirstName());
     ui->nazwisko->setText(loggedUser->getLastName());
     ui->email->setText(loggedUser->getEmail());
-    ui->imieLabel->setFocus();
+
+    //W celu ukazania ekranu bez klawiatury i skupionego na jakimkolwiek QLineEdit
+    this->ui->nazwiskoLabel->setFocus();
 
     this->loggedUser = loggedUser;
     this->loggedScreen = loggedScreen;
 
     keyboard = keyboard->getKeyboard();
     keyboard->move(0,388); //418
+
+    this->ui->imie->installEventFilter(this);
+    this->ui->nazwisko->installEventFilter(this);
+    this->ui->email->installEventFilter(this);
 }
 
 DataChangeScreen::~DataChangeScreen()
@@ -53,49 +59,43 @@ void DataChangeScreen::on_zmienHaslo_clicked()
         passwordChangeScreen = new PasswordChangeScreen(nullptr, loggedUser);
         passwordChangeScreen->move(0,0);
         passwordChangeScreen->show();
-        passwordChangeScreen->loop();
     }
     else
     {
         passwordChangeScreen->show();
-        passwordChangeScreen->loop();
     }
 }
 
-void DataChangeScreen::loop()
+bool DataChangeScreen::eventFilter(QObject *obj, QEvent *event)
 {
-    while(this->isVisible())
+    if( obj == ui->imie && event->type() == QEvent::FocusIn)
     {
-        //Jezeli nadejdzie pora wpisywania loginu lub hasla wywoluje klawiature
-        if(ui->imie->hasFocus())
-        {
-            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->imie, ui->zatwierdzZmiany);
-            keyboard->show();
-            keyboard->activateWindow();
-        }
-        else if(ui->nazwisko->hasFocus())
-        {
-            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->nazwisko, ui->zatwierdzZmiany);
-            keyboard->show();
-            keyboard->activateWindow();
-        }
-        else if(ui->email->hasFocus())
-        {
-            ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->email, ui->zatwierdzZmiany);
-            keyboard->show();
-            keyboard->activateWindow();
-        }
-        qApp->processEvents();
+        ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        keyboard->activate(ui->imie, ui->zatwierdzZmiany);
+        keyboard->show();
+        keyboard->activateWindow();
     }
+    else if( obj == ui->nazwisko && event->type() == QEvent::FocusIn)
+    {
+        ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        keyboard->activate(ui->nazwisko, ui->zatwierdzZmiany);
+        keyboard->show();
+        keyboard->activateWindow();
+    }
+    else if( obj == ui->email && event->type() == QEvent::FocusIn)
+    {
+        ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
+        keyboard->activate(ui->email, ui->zatwierdzZmiany);
+        keyboard->show();
+        keyboard->activateWindow();
+    }
+    return false;
 }
 
 void DataChangeScreen::mousePressEvent(QMouseEvent *event)

@@ -15,7 +15,7 @@ public:
     explicit BuyingPassScreen(QWidget *parent = nullptr, bool logged = false);
     ~BuyingPassScreen();
 
-    void loop();
+    bool eventFilter(QObject*, QEvent*);
 
 private:
     QString wybranyKarnet;
