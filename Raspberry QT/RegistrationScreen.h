@@ -27,6 +27,8 @@ private slots:
 
     bool eventFilter(QObject*, QEvent*);
 
+    void on_dodajZdjecie_clicked();
+
 private:
     Ui::RegistrationScreen *ui;
     RegistrationInfoScreen *registrationInfoScreen;

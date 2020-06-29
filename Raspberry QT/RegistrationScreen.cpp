@@ -3,6 +3,7 @@
 #include "QMouseEvent"
 #include "LoggedUser.h"
 #include "LoggedScreen.h"
+#include "TakePictureScreen.h"
 
 RegistrationScreen::RegistrationScreen(QWidget *parent) :
     QDialog(parent),
@@ -188,4 +189,11 @@ void RegistrationScreen::on_pushButton_clicked()
     loggedScreen->move(0,0);
     loggedScreen->show();
     on_powrot_clicked();
+}
+
+void RegistrationScreen::on_dodajZdjecie_clicked()
+{
+    TakePictureScreen *takePictureScreen = new TakePictureScreen();
+    takePictureScreen->move(0,0);
+    takePictureScreen->show();
 }

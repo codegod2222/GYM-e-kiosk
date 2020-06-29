@@ -30,6 +30,7 @@ SOURCES += \
     PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
     RegistrationScreen.cpp \
+    TakePictureScreen.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -46,6 +47,7 @@ HEADERS += \
     PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
     RegistrationScreen.h \
+    TakePictureScreen.h \
     mainwindow.h
 
 FORMS += \
@@ -59,6 +61,7 @@ FORMS += \
     PasswordChangeScreen.ui \
     RegistrationInfoScreen.ui \
     RegistrationScreen.ui \
+    TakePictureScreen.ui \
     mainwindow.ui
 
 TRANSLATIONS += \
