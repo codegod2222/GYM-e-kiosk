@@ -49,7 +49,7 @@ gpio=27,22,10,9=op,dh
  *   6  <->  GPIO22
  *   7  <->  GPIO10
  *   8  <->  GPIO9
- * Pin 9 and 15 of NV10 should be grounded.
+ * Pin 10 and 16 of NV10 should be grounded.
  * Pi's ground should be connected with NV10's ground.
  */
  
