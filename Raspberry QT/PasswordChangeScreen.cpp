@@ -71,7 +71,7 @@ void PasswordChangeScreen::mousePressEvent(QMouseEvent *event)
 void PasswordChangeScreen::on_potwierdz_clicked()
 {
     QString oldPassword = this->ui->oldPassword->text();
-    int temp = oldPassword.compare(loggedUser->getPassword());
+    /*int temp = oldPassword.compare(loggedUser->getPassword());
     if(temp==0)
     {
         QString newPassword = this->ui->newPassword->text();
@@ -105,5 +105,5 @@ void PasswordChangeScreen::on_potwierdz_clicked()
         infoScreen->move(162,234);
         infoScreen->show();
         return;
-    }
+    }*/
 }

@@ -31,7 +31,7 @@ private slots:
 
 private:
     Ui::PasswordChangeScreen *ui;
-    LoggedUser *loggedUser;
+    UserDAO *loggedUser;
     RegistrationInfoScreen *infoScreen;
     Keyboard *keyboard;
 };

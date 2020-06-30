@@ -103,8 +103,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::przylozonoKarte(QString jakiesDane)
 {
     qDebug() << jakiesDane;
-    LoggedUser *loggedUser = new LoggedUser("Daniel","ZMainWindow",jakiesDane,"tajne");
+    /*LoggedUser *loggedUser = new LoggedUser("Daniel","ZMainWindow",jakiesDane,"tajne");
     LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);
     loggedScreen->move(0,0);
-    loggedScreen->show();
+    loggedScreen->show();*/
 }

@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "RegistrationInfoScreen.h"
 #include <Keyboard.h>
+#include "dao.h"
 
 namespace Ui {
 class RegistrationScreen;
@@ -16,6 +17,7 @@ class RegistrationScreen : public QDialog
 public:
     explicit RegistrationScreen(QWidget *parent = nullptr);
     ~RegistrationScreen();
+
 
 private slots:
 
@@ -33,6 +35,7 @@ private:
     Ui::RegistrationScreen *ui;
     RegistrationInfoScreen *registrationInfoScreen;
     Keyboard *keyboard;
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // REGISTRATIONSCREEN_H

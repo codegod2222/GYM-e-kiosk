@@ -42,9 +42,9 @@ void DataChangeScreen::on_powrot_clicked()
 
 void DataChangeScreen::on_zatwierdzZmiany_clicked()
 {
-    loggedUser->name = ui->imie->text();
+    /*loggedUser->name = ui->imie->text();
     loggedUser->surname = ui->nazwisko->text();
-    loggedUser->email = ui->email->text();
+    loggedUser->email = ui->email->text();*/
 
     connect( this, SIGNAL(wyslijZmianeDanych()), loggedScreen, SLOT(odbierzZmianeDanych()));
     emit wyslijZmianeDanych();

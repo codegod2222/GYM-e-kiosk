@@ -11,6 +11,7 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
+#include <QDebug>
 
 // compiling on raspberry with line:
 // sudo g++ -Wall -I/usr/include/cppconn -o test cppconn.cpp -L/usr/lib -lmysqlcppconn
@@ -98,6 +99,8 @@ UserDAO* KodokanDAO::authorize_user(std::string login, std::string password)
                 );
             }
         }
+        prepared_statement->close();
+        delete prepared_statement;
         return nullptr;
     }
     catch (const sql::SQLException& e)
@@ -107,13 +110,16 @@ UserDAO* KodokanDAO::authorize_user(std::string login, std::string password)
     }
 }
 
-bool KodokanDAO::add_user(std::string login, std::string email, std::string name, std::string surname, std::string password, BLOB photo = nullptr)
+bool KodokanDAO::add_user(std::string login, std::string email, std::string name, std::string surname, std::string password, BLOB photo)
 {
     // check if login already exists in database, if yes return error
     // check if mail already exists in database, if yes return error
     // hashes password
     std::string hashed_password = password; // complicated hashing function
     try {
+        qDebug() << "Debug: ";
+        qDebug() << "Debug: " << this;
+        qDebug() << "Debug: " << this->connection;
         auto* prepared_statement = connection->prepareStatement(
                 "INSERT INTO users(login, email, hashed_pswd, name, surname) values (?, ?, ?, ?, ?)"
         );
@@ -123,11 +129,15 @@ bool KodokanDAO::add_user(std::string login, std::string email, std::string name
         prepared_statement->setString(4, name);
         prepared_statement->setString(5, surname);
         prepared_statement->executeUpdate();
+        prepared_statement->close();
         delete prepared_statement;
     }
     catch(const sql::SQLException& e)
     {
         std::cout << e.what() << std::endl;
+    }
+    catch(...) {
+        std::cout << "zjebaˆo si©" << std::endl;
     }
 }
 

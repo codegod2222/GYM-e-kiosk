@@ -64,13 +64,13 @@ private:
     const char* password = "Kodokan123";
     const char* database_name = "kodokan_database";
     sql::Driver* driver;
-    sql::Connection* connection;
+    sql::Connection* connection = nullptr;
     KodokanDAO();
     static KodokanDAO* instance;
 public:
     static KodokanDAO* getInstance();
     UserDAO* authorize_user(std::string login, std::string password);
-    bool add_user(std::string login, std::string email, std::string name, std::string surname, std::string password, BLOB photo);
+    bool add_user(std::string login, std::string email, std::string name, std::string surname, std::string password, BLOB photo = nullptr);
     void list_users();
     ~KodokanDAO();
 };

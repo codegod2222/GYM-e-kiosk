@@ -20,6 +20,8 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
     ui->haslo->installEventFilter(this);
     ui->powtHaslo->installEventFilter(this);
     ui->nazwiskoLabel->installEventFilter(this);
+
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 RegistrationScreen::~RegistrationScreen()
@@ -81,7 +83,7 @@ bool RegistrationScreen::eventFilter(QObject *obj, QEvent *event)
             ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->imie);
+            keyboard->activate(ui->imie, ui->pushButton);
             keyboard->show();
             keyboard->activateWindow();
         }
@@ -90,7 +92,7 @@ bool RegistrationScreen::eventFilter(QObject *obj, QEvent *event)
             ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->nazwisko);
+            keyboard->activate(ui->nazwisko, ui->pushButton);
             keyboard->show();
             keyboard->activateWindow();
         }
@@ -99,7 +101,7 @@ bool RegistrationScreen::eventFilter(QObject *obj, QEvent *event)
             ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
             ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-            keyboard->activate(ui->email);
+            keyboard->activate(ui->email, ui->pushButton);
             keyboard->show();
             keyboard->activateWindow();
         }
@@ -175,6 +177,9 @@ void RegistrationScreen::on_pushButton_clicked()
         registrationInfoScreen->show();
         return;
     }
+
+    kodokanDAO->add_user(email.toStdString(), email.toStdString(), imie.toStdString(), nazwisko.toStdString(), haslo.toStdString());
+
     registrationInfoScreen = new RegistrationInfoScreen(nullptr, "ZAREJESTROWANO POMYŚLNIE");
     registrationInfoScreen->move(162,234);
     registrationInfoScreen->exec();
@@ -184,7 +189,8 @@ void RegistrationScreen::on_pushButton_clicked()
 
     }
 
-    LoggedUser *loggedUser = new LoggedUser(imie,nazwisko,email,haslo);
+    UserDAO * loggedUser = kodokanDAO->authorize_user(email.toStdString(), haslo.toStdString());
+
     LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
     loggedScreen->move(0,0);
     loggedScreen->show();

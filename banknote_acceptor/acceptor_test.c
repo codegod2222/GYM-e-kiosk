@@ -113,7 +113,7 @@ int pay(int nominal)
 
 int main() {
   wiringPiSetupGpio();
-  int result = pay(FIFTY);
+  int result = pay(TEN);
   printf(result != 0 ? "\tSuccessfully paid." : "Error occured during payment.");
 }
 
