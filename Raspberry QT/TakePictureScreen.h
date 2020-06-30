@@ -2,9 +2,10 @@
 #define TAKEPICTURESCREEN_H
 
 #include <QWidget>
-/*#include <raspicam/raspicam.h>
+#include <raspicam/raspicam.h>
+#include <CameraWorker.h>
 
-using namespace raspicam;*/
+using namespace raspicam;
 
 namespace Ui {
 class TakePictureScreen;
@@ -18,13 +19,23 @@ public:
     explicit TakePictureScreen(QWidget *parent = nullptr);
     ~TakePictureScreen();
 
-private:
-    void loop();
+private slots:
+
+        void handleImage(QImage &image);
+        void on_btnStart_clicked();
+
+        void on_OK_2_clicked();
+
+        void on_OK_clicked();
+
+signals:
+
+        void takePhoto();
 
 private:
-    Ui::TakePictureScreen *ui;
-    //RaspiCam camera;
-    unsigned char *data;
+        Ui::TakePictureScreen *ui;
+        QThread *workerThread;
+        CameraWorker *worker;
 };
 
 #endif // TAKEPICTURESCREEN_H

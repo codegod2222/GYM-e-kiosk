@@ -2,6 +2,120 @@
 #include "ui_BuyingPassScreen.h"
 #include "QLineEdit"
 #include "ConfirmPurchaseScreen.h"
+#include "printer.h"
+#include <sstream>
+
+struct ReceiptData {
+    std::string nazwaFirmy;
+    std::string adres;
+    std::string nip;
+    std::string data;
+    unsigned int nrWyrduku;
+    std::list<std::pair<std::string, unsigned int>> listaKarnetow;
+    unsigned int suma = 0;
+    unsigned int nrDobowy;
+    unsigned int nrDoby;
+    std::string godzina;
+    std::string rodzajPlatnosci;
+    unsigned int zaplacono;
+    std::string nabywca;
+};
+
+std::string makePrice(unsigned int price) {
+    std::stringstream ss;
+    ss.width(3);
+    ss << price/100;
+    ss << ',';
+    ss.width(2);
+    ss.fill('0');
+    ss << price%100;
+    return ss.str();
+}
+
+std::string toInt(unsigned int val, unsigned int width) {
+    std::stringstream ss;
+    ss.width(width);
+    ss.fill('0');
+    ss << val;
+    return ss.str();
+}
+
+int printPair(Printer& printer, const std::string& left, const std::string& right) {
+    int lineWidth;
+    if (printer.font() == Printer::Font::A)
+        lineWidth = Printer::lineWidthA;
+    else
+        lineWidth = Printer::lineWidthB;
+    if (printer.size() == Printer::Size::DOUBLE_WIDTH || printer.size() == Printer::Size::DOUBLE_SIZE)
+        lineWidth >>= 1;
+    char spaces = lineWidth - left.size() - right.size();
+    if (spaces < 0) {
+        return -1;
+    }
+    else if (spaces == 0) {
+        int ret = printer.print(left);
+        ret += printer.println(right);
+        return ret;
+    }
+    Printer::Align a = printer.align(); //kopia wyr贸wnania
+    printer.align(Printer::Align::LEFT); //wyr贸wnanie do lewej
+    char* white = new char[spaces+1];
+    for (unsigned char i = 0; i < spaces; i++) {
+        white[i] = ' ';
+        white[static_cast<unsigned char>(spaces)] = '\0';
+    }
+    int ret = printer.print(left);
+    ret += printer.print(white);
+    ret += printer.println(right);
+    printer.align(a); //przywr贸cenie wyr贸wnania
+    return ret;
+}
+void printReceipt(Printer& printer, ReceiptData& data) {
+    printer.init(); //inicjalizacja wydruku
+    printer.codePage852(); //ustaw stron臋 kodow膮
+    printer.align(Printer::Align::CENTER);
+    printer.size(Printer::Size::DOUBLE_SIZE);
+    printer.println(data.nazwaFirmy);
+    printer.size(Printer::Size::NORMAL);
+    printer.println(data.adres);
+    printer.println("NIP: " + data.nip);
+    printer.print(data.data + "             ");
+    printer.font(Printer::Font::B);
+    printer.println(" wydr." + toInt(data.nrWyrduku, 6));
+    printer.font(Printer::Font::B);
+    printer.size(Printer::Size::DOUBLE_SIZE);
+    printer.println("POTWIERDZENIE");
+    printer.size(Printer::Size::NORMAL);
+    printer.font(Printer::Font::A);
+    for (auto k : data.listaKarnetow) {
+        printPair(printer, std::get<0>(k), makePrice(std::get<1>(k)));
+        data.suma += std::get<1>(k);
+    }
+    printer.font(Printer::Font::B);
+    printer.size(Printer::Size::DOUBLE_SIZE);
+    printer.print("SUMA PLN: ");
+    printer.size(Printer::Size::DOUBLE_HEIGHT);
+    printer.font(Printer::Font::A);
+    printer.print("        ");
+    printer.font(Printer::Font::B);
+    printer.size(Printer::Size::DOUBLE_SIZE);
+    printer.println(makePrice(data.suma));
+
+    printer.size(Printer::Size::NORMAL);
+    printer.font(Printer::Font::A);
+    printPair(printer, data.rodzajPlatnosci, makePrice(data.zaplacono));
+    if (data.rodzajPlatnosci == "Got贸wka") {
+        printPair(printer, "Reszta got贸wka", makePrice(data.zaplacono-data.suma));
+    }
+    printPair(printer, "Nabywca", data.nabywca);
+    printer.font(Printer::Font::B);
+    printer.print(toInt(data.nrDobowy, 5) + '/' + toInt(data.nrDoby, 4) + ' ');
+    printer.font(Printer::Font::A);
+    printer.print("                    ");
+    printer.font(Printer::Font::B);
+    printer.println(data.godzina);
+    printer.endFeed(90);
+}
 
 BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     QDialog(parent),
@@ -19,9 +133,9 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     {
         ui->typyKarnetow->addItem("TYGODNIOWY");
         ui->typyKarnetow->addItem("DWUTYGODNIOWY");
-        ui->typyKarnetow->addItem("MIESI臉CZNY");
+        ui->typyKarnetow->addItem("MIESICZNY");
     }
-    ui->typyKarnetow->addItem("JEDNORAZOWE WEJ艢CIE");
+    ui->typyKarnetow->addItem("JEDNORAZOWE WEJ棌IE");
 
     for (int i = 0 ; i <  ui->typyKarnetow->count() ; ++i)
     {
@@ -86,5 +200,29 @@ void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatno
 void BuyingPassScreen::odbierzPotwierdzenie()
 {
     //Tutaj jakie艣 rzeczy zwi膮zane z zakupem, p艂atno艣膰, baza danych itd
+    ReceiptData data;
+    data.nazwaFirmy = "Nazwa firmy";
+    data.adres = "ul. Ulica 00\nMiasto 00-000";
+    data.nip = "000-000-00-00";
+    data.data = "0000-00-00";
+    data.nrWyrduku = 0;
+    data.listaKarnetow.push_back({ wybranyKarnet.toStdString() , 1234 });
+    data.listaKarnetow.push_back({ "Nazwa karnetu2", 3456 });
+    data.nrDobowy = 0;
+    data.nrDoby = 0;
+    data.godzina = "00:00";
+    data.rodzajPlatnosci = "Got贸wka";
+    data.zaplacono = 5000;
+    //data.rodzajPlatnosci = "Karta";
+    //data.zaplacono = 4690;
+    data.nabywca = "Imi臋 Nazwisko";
+
+    Printer printer;
+    printer.open(); //otwarcie po艂膮czenia
+
+    printReceipt(printer, data);
+
+    printer.close(); //zamkni臋cie po艂膮czenia
     this->close();
 }
+

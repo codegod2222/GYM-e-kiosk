@@ -19,6 +19,8 @@ LoginScreen::LoginScreen(QWidget *parent) :
 
     ui->login->installEventFilter(this);
     ui->password->installEventFilter(this);
+
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 LoginScreen::~LoginScreen()
@@ -43,9 +45,10 @@ void LoginScreen::on_zaloguj_clicked()
     QString login = ui->login->text();
     QString password = ui->password->text();
 
-    if(login == "U" && password == "u")
+    UserDAO *loggedUser = kodokanDAO->authorize_user(login.toStdString(), password.toStdString());
+
+    if(loggedUser != nullptr)
     {
-        LoggedUser *loggedUser = new LoggedUser("Daniel","Kaleta","danikal410@student.polsl.pl","tajne");
         ui->komunikat->show();
         ui->komunikat->setText("ZALOGOWANO POMYŚLNIE");
         LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);

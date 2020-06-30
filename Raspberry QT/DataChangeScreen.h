@@ -6,6 +6,7 @@
 #include "LoggedScreen.h"
 #include "PasswordChangeScreen.h"
 #include <Keyboard.h>
+#include "dao.h"
 
 namespace Ui {
 class DataChangeScreen;
@@ -16,7 +17,7 @@ class DataChangeScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit DataChangeScreen(QWidget *parent = nullptr, LoggedUser* = nullptr, LoggedScreen* = nullptr);
+    explicit DataChangeScreen(QWidget *parent = nullptr, UserDAO *loggedUser = nullptr, LoggedScreen* = nullptr);
     ~DataChangeScreen();
 
     bool eventFilter(QObject*, QEvent*);
@@ -35,7 +36,7 @@ signals:
 
 private:
     Ui::DataChangeScreen *ui;
-    LoggedUser *loggedUser;
+    UserDAO *loggedUser;
     LoggedScreen *loggedScreen;
     PasswordChangeScreen *passwordChangeScreen = nullptr;
     Keyboard *keyboard;

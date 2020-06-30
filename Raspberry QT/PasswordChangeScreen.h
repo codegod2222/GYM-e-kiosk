@@ -5,6 +5,7 @@
 #include <LoggedUser.h>
 #include <RegistrationInfoScreen.h>
 #include <Keyboard.h>
+#include "dao.h"
 
 namespace Ui {
 class PasswordChangeScreen;
@@ -15,7 +16,7 @@ class PasswordChangeScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit PasswordChangeScreen(QWidget *parent = nullptr, LoggedUser *loggedUser = nullptr);
+    explicit PasswordChangeScreen(QWidget *parent = nullptr, UserDAO *loggedUser = nullptr);
     ~PasswordChangeScreen();
 
     bool eventFilter(QObject*, QEvent*);

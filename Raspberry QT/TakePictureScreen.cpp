@@ -1,5 +1,7 @@
 #include "TakePictureScreen.h"
 #include "ui_TakePictureScreen.h"
+#include <QDebug>
+#include <QtCore>
 
 
 TakePictureScreen::TakePictureScreen(QWidget *parent) :
@@ -8,9 +10,10 @@ TakePictureScreen::TakePictureScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    this->ui->jeszczeRaz->setVisible(false);
 
     qRegisterMetaType<QImage>("QImage&");
-    //data = new unsigned char[camera.getImageTypeSize(RASPICAM_FORMAT_RGB)];
+    on_btnStart_clicked();
 }
 
 TakePictureScreen::~TakePictureScreen()
@@ -18,35 +21,50 @@ TakePictureScreen::~TakePictureScreen()
     delete ui;
 }
 
-void TakePictureScreen::loop()
+void TakePictureScreen::on_btnStart_clicked()
 {
-    // Open the camera
-        if (!camera.open()) {
-            qDebug() << "Error opening camera";
-            cameraRunning = false;
-        } else {
-            cameraRunning = true;
-        }
+    // Initialize the thread and worker
+    workerThread = new QThread;
+    worker = new CameraWorker;
 
-        // Wait for the camera
-        sleep(3);
+    // Setup the thread
+    worker->moveToThread(workerThread);
 
-        // While the camera is on (the user has clicked the button), capture
-        while (cameraRunning) {
-            // Capture
-            camera.grab();
-            camera.retrieve(data, RASPICAM_FORMAT_RGB);
+    // Connect signals to slots
+    connect(workerThread, SIGNAL(started()), worker, SLOT(doWork()));
+    /*connect(worker, SIGNAL(finished()), workerThread, SLOT(quit()));
+    connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
+    connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
+    connect(worker, SIGNAL(finished()), this, SLOT(cameraFinished()));*/
+    connect(this, SIGNAL(takePhoto()), worker, SLOT(takePhotoWorker()));
+    connect(worker, SIGNAL(handleImage(QImage &)), this, SLOT(handleImage(QImage &)));
+    workerThread->start();
 
-            // Convert the data and send to the caller to handle
-            QImage image = QImage(data, camera.getWidth(), camera.getHeight(), QImage::Format_RGB888);
+}
 
-            // Update the image shown
-            ui->imgLabel->setPixmap(QPixmap::fromImage(image));
+void TakePictureScreen::handleImage(QImage &image)
+{
+    // Update the image shown
+    ui->imgLabel->setPixmap(QPixmap::fromImage(image));
 
-            // Force an update of the UI so that the image is shown immediately.
-            QApplication::processEvents();
-            this->repaint();
+    // Force an update of the UI so that the image is shown immediately.
+    QApplication::processEvents();
+    this->repaint();
+}
 
-            usleep(200);
-        }
+
+void TakePictureScreen::on_OK_2_clicked()
+{
+    /*workerThread->terminate();
+    delete worker;*/
+    this->close();
+}
+
+void TakePictureScreen::on_OK_clicked()
+{
+    this->ui->OK->setVisible(false);
+    this->ui->jeszczeRaz->setVisible(true);
+    emit takePhoto();
+    QApplication::processEvents();
+    this->repaint();
 }

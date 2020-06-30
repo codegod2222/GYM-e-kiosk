@@ -32,7 +32,11 @@ SOURCES += \
     RegistrationScreen.cpp \
     TakePictureScreen.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    CameraWorker.cpp \
+    printer.cpp \
+    rfid.cpp \
+    dao.cpp
 
 HEADERS += \
     AdministrationScreen.h \
@@ -48,7 +52,11 @@ HEADERS += \
     RegistrationInfoScreen.h \
     RegistrationScreen.h \
     TakePictureScreen.h \
-    mainwindow.h
+    mainwindow.h \
+    CameraWorker.h \
+    printer.h \
+    rfid.h \
+    dao.h
 
 FORMS += \
     AdministrationScreen.ui \
@@ -71,6 +79,12 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# Requirements for raspicam
+LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
+LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
+#LIBS += -E/usr/include/cppconn    -
+LIBS += -L/usr/lib -lmysqlcppconn
 
 DISTFILES +=
 

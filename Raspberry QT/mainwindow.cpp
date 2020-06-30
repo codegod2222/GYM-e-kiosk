@@ -10,9 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //QMainWindow::showFullScreen();
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    loopThread = new LoopThread();
+    this->threadRun=true;
+    loopThread = new LoopThread(threadRun);
     connect( loopThread, SIGNAL(przylozonoKarte(QString)), this, SLOT(przylozonoKarte(QString)));
     this->installEventFilter(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -22,6 +24,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_kupKarnetButton_clicked()
 {
+    qDebug() << "Stop watek";
+    threadRun = false;
     if(buyingPassScreen == nullptr)
     {
         buyingPassScreen = new BuyingPassScreen(nullptr,false);
@@ -36,6 +40,8 @@ void MainWindow::on_kupKarnetButton_clicked()
 
 void MainWindow::on_zalogujSieButton_clicked()
 {
+    qDebug() << "Stop watek";
+    threadRun = false;
     if(loginScreen == nullptr)
     {
         loginScreen = new LoginScreen();
@@ -50,6 +56,8 @@ void MainWindow::on_zalogujSieButton_clicked()
 
 void MainWindow::on_zalozKontoButton_clicked()
 {
+    qDebug() << "Stop watek";
+    threadRun = false;
     if(registrationScreen == nullptr)
     {
         registrationScreen = new RegistrationScreen();
@@ -71,14 +79,24 @@ void MainWindow::on_administracja_clicked()
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    if(this->isActiveWindow())
+    if(event->type() == QEvent::WindowActivate)
     {
-        loopThread->start();
+        if(!loopThread->isRunning())
+        {
+            qDebug() << "Start watek";
+            this->threadRun = true;
+            loopThread->start();
+
+        }
     }
-    else
+    /*else
     {
-        loopThread->terminate();
-    }
+        if(loopThread->isRunning())
+        {
+            qDebug() << "Stop watek";
+            loopThread->terminate();
+        }
+    }*/
     return false;
 }
 

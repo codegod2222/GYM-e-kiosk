@@ -42,5 +42,6 @@ private:
     BuyingPassScreen *buyingPassScreen = nullptr;
     AdministrationScreen *administrationScreen = nullptr;
     LoopThread *loopThread;
+    bool threadRun;
 };
 #endif // MAINWINDOW_H

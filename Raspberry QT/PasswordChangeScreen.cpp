@@ -1,7 +1,7 @@
 #include "PasswordChangeScreen.h"
 #include "ui_PasswordChangeScreen.h"
 
-PasswordChangeScreen::PasswordChangeScreen(QWidget *parent, LoggedUser *loggedUser) :
+PasswordChangeScreen::PasswordChangeScreen(QWidget *parent, UserDAO *loggedUser) :
     QDialog(parent),
     ui(new Ui::PasswordChangeScreen)
 {

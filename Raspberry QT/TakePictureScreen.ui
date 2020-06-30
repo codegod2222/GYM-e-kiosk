@@ -26,10 +26,20 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Inicjowanie kamery</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="OK">
@@ -76,6 +86,29 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>ANULUJ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="jeszczeRaz">
+   <property name="geometry">
+    <rect>
+     <x>74</x>
+     <y>645</y>
+     <width>400</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>JESZCZE RAZ</string>
    </property>
   </widget>
  </widget>

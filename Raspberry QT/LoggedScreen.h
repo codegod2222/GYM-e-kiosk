@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "LoginScreen.h"
 #include "BuyingPassScreen.h"
-#include "LoggedUser.h"
+#include "dao.h"
 
 class DataChangeScreen;
 
@@ -17,7 +17,7 @@ class LoggedScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoggedScreen(QWidget *parent = nullptr, LoggedUser* = nullptr);
+    explicit LoggedScreen(QWidget *parent = nullptr, UserDAO *loggedUser = nullptr);
     ~LoggedScreen();
 
 private slots:
@@ -32,7 +32,7 @@ private slots:
 private:
     Ui::LoggedScreen *ui;
     BuyingPassScreen *buyingPassScreen;
-    LoggedUser *loggedUser;
+    UserDAO *loggedUser;
     DataChangeScreen *dataChangeScreen = nullptr;
 };
 

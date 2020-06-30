@@ -2,14 +2,14 @@
 #include "ui_LoggedScreen.h"
 #include <DataChangeScreen.h>
 
-LoggedScreen::LoggedScreen(QWidget *parent, LoggedUser *loggedUser) :
+LoggedScreen::LoggedScreen(QWidget *parent, UserDAO *loggedUser) :
     QDialog(parent),
     ui(new Ui::LoggedScreen)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->loggedUser = loggedUser;
-    ui->zalogowanyJako->setText(loggedUser->getFirstName()+" "+loggedUser->getLastName());
+    ui->zalogowanyJako->setText(loggedUser->name+" "+loggedUser->surname);
     if(parent != nullptr)
     {
         parent->close();
@@ -49,5 +49,5 @@ void LoggedScreen::on_zmienDane_clicked()
 
 void LoggedScreen::odbierzZmianeDanych()
 {
-    ui->zalogowanyJako->setText(loggedUser->getFirstName()+" "+loggedUser->getLastName());
+    ui->zalogowanyJako->setText(loggedUser->name+" "+loggedUser->surname);
 }
