@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Keyboard.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_KEYBOARD_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -731,40 +728,40 @@ public:
 
     void retranslateUi(QDialog *Keyboard)
     {
-        Keyboard->setWindowTitle(QApplication::translate("Keyboard", "Dialog", 0, QApplication::UnicodeUTF8));
-        Q->setText(QApplication::translate("Keyboard", "Q", 0, QApplication::UnicodeUTF8));
-        W->setText(QApplication::translate("Keyboard", "W", 0, QApplication::UnicodeUTF8));
-        E->setText(QApplication::translate("Keyboard", "E", 0, QApplication::UnicodeUTF8));
-        R->setText(QApplication::translate("Keyboard", "R", 0, QApplication::UnicodeUTF8));
-        T->setText(QApplication::translate("Keyboard", "T", 0, QApplication::UnicodeUTF8));
-        Y->setText(QApplication::translate("Keyboard", "Y", 0, QApplication::UnicodeUTF8));
-        U->setText(QApplication::translate("Keyboard", "U", 0, QApplication::UnicodeUTF8));
-        I->setText(QApplication::translate("Keyboard", "I", 0, QApplication::UnicodeUTF8));
-        O->setText(QApplication::translate("Keyboard", "O", 0, QApplication::UnicodeUTF8));
-        P->setText(QApplication::translate("Keyboard", "P", 0, QApplication::UnicodeUTF8));
-        A->setText(QApplication::translate("Keyboard", "A", 0, QApplication::UnicodeUTF8));
-        S->setText(QApplication::translate("Keyboard", "S", 0, QApplication::UnicodeUTF8));
-        D->setText(QApplication::translate("Keyboard", "D", 0, QApplication::UnicodeUTF8));
-        F->setText(QApplication::translate("Keyboard", "F", 0, QApplication::UnicodeUTF8));
-        G->setText(QApplication::translate("Keyboard", "G", 0, QApplication::UnicodeUTF8));
-        H->setText(QApplication::translate("Keyboard", "H", 0, QApplication::UnicodeUTF8));
-        J->setText(QApplication::translate("Keyboard", "J", 0, QApplication::UnicodeUTF8));
-        K->setText(QApplication::translate("Keyboard", "K", 0, QApplication::UnicodeUTF8));
-        L->setText(QApplication::translate("Keyboard", "L", 0, QApplication::UnicodeUTF8));
-        Z->setText(QApplication::translate("Keyboard", "Z", 0, QApplication::UnicodeUTF8));
-        X->setText(QApplication::translate("Keyboard", "X", 0, QApplication::UnicodeUTF8));
-        C->setText(QApplication::translate("Keyboard", "C", 0, QApplication::UnicodeUTF8));
-        V->setText(QApplication::translate("Keyboard", "V", 0, QApplication::UnicodeUTF8));
-        B->setText(QApplication::translate("Keyboard", "B", 0, QApplication::UnicodeUTF8));
-        N->setText(QApplication::translate("Keyboard", "N", 0, QApplication::UnicodeUTF8));
-        M->setText(QApplication::translate("Keyboard", "M", 0, QApplication::UnicodeUTF8));
-        CAPS->setText(QApplication::translate("Keyboard", "HIDE", 0, QApplication::UnicodeUTF8));
-        BACKSPACE->setText(QApplication::translate("Keyboard", "BACKSPACE", 0, QApplication::UnicodeUTF8));
-        NUMERYCZNA->setText(QApplication::translate("Keyboard", "abc", 0, QApplication::UnicodeUTF8));
-        PRZECINEK->setText(QApplication::translate("Keyboard", ",", 0, QApplication::UnicodeUTF8));
-        SPACE->setText(QApplication::translate("Keyboard", "SPACE", 0, QApplication::UnicodeUTF8));
-        ENTER->setText(QApplication::translate("Keyboard", "ENTER", 0, QApplication::UnicodeUTF8));
-        KROPKA->setText(QApplication::translate("Keyboard", ".", 0, QApplication::UnicodeUTF8));
+        Keyboard->setWindowTitle(QCoreApplication::translate("Keyboard", "Dialog", nullptr));
+        Q->setText(QCoreApplication::translate("Keyboard", "Q", nullptr));
+        W->setText(QCoreApplication::translate("Keyboard", "W", nullptr));
+        E->setText(QCoreApplication::translate("Keyboard", "E", nullptr));
+        R->setText(QCoreApplication::translate("Keyboard", "R", nullptr));
+        T->setText(QCoreApplication::translate("Keyboard", "T", nullptr));
+        Y->setText(QCoreApplication::translate("Keyboard", "Y", nullptr));
+        U->setText(QCoreApplication::translate("Keyboard", "U", nullptr));
+        I->setText(QCoreApplication::translate("Keyboard", "I", nullptr));
+        O->setText(QCoreApplication::translate("Keyboard", "O", nullptr));
+        P->setText(QCoreApplication::translate("Keyboard", "P", nullptr));
+        A->setText(QCoreApplication::translate("Keyboard", "A", nullptr));
+        S->setText(QCoreApplication::translate("Keyboard", "S", nullptr));
+        D->setText(QCoreApplication::translate("Keyboard", "D", nullptr));
+        F->setText(QCoreApplication::translate("Keyboard", "F", nullptr));
+        G->setText(QCoreApplication::translate("Keyboard", "G", nullptr));
+        H->setText(QCoreApplication::translate("Keyboard", "H", nullptr));
+        J->setText(QCoreApplication::translate("Keyboard", "J", nullptr));
+        K->setText(QCoreApplication::translate("Keyboard", "K", nullptr));
+        L->setText(QCoreApplication::translate("Keyboard", "L", nullptr));
+        Z->setText(QCoreApplication::translate("Keyboard", "Z", nullptr));
+        X->setText(QCoreApplication::translate("Keyboard", "X", nullptr));
+        C->setText(QCoreApplication::translate("Keyboard", "C", nullptr));
+        V->setText(QCoreApplication::translate("Keyboard", "V", nullptr));
+        B->setText(QCoreApplication::translate("Keyboard", "B", nullptr));
+        N->setText(QCoreApplication::translate("Keyboard", "N", nullptr));
+        M->setText(QCoreApplication::translate("Keyboard", "M", nullptr));
+        CAPS->setText(QCoreApplication::translate("Keyboard", "HIDE", nullptr));
+        BACKSPACE->setText(QCoreApplication::translate("Keyboard", "BACKSPACE", nullptr));
+        NUMERYCZNA->setText(QCoreApplication::translate("Keyboard", "abc", nullptr));
+        PRZECINEK->setText(QCoreApplication::translate("Keyboard", ",", nullptr));
+        SPACE->setText(QCoreApplication::translate("Keyboard", "SPACE", nullptr));
+        ENTER->setText(QCoreApplication::translate("Keyboard", "ENTER", nullptr));
+        KROPKA->setText(QCoreApplication::translate("Keyboard", ".", nullptr));
     } // retranslateUi
 
 };

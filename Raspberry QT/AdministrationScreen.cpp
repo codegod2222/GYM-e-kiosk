@@ -50,3 +50,18 @@ void AdministrationScreen::on_karnety_clicked()
         passesScreen->show();
     }
 }
+
+void AdministrationScreen::on_czlonkowie_clicked()
+{
+    if(clubMembersScreen == nullptr)
+    {
+        clubMembersScreen = new ClubMembersScreen();
+        clubMembersScreen->move(0,0);
+        clubMembersScreen->show();
+    }
+    else
+    {
+        clubMembersScreen->move(0,0);
+        clubMembersScreen->show();
+    }
+}

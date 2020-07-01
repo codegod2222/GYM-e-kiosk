@@ -5,6 +5,7 @@
 //#include "dao.h"
 #include "CompanyInfoScreen.h"
 #include "PassesScreen.h"
+#include "ClubMembersScreen.h"
 
 namespace Ui {
 class AdministrationScreen;
@@ -25,11 +26,14 @@ private slots:
 
     void on_karnety_clicked();
 
+    void on_czlonkowie_clicked();
+
 private:
     Ui::AdministrationScreen *ui;
     //KodokanDAO *kodokanDAO;
     CompanyInfoScreen *companyInfoScreen = nullptr;
     PassesScreen *passesScreen = nullptr;
+    ClubMembersScreen *clubMembersScreen = nullptr;
 };
 
 #endif // ADMINISTRATIONSCREEN_H

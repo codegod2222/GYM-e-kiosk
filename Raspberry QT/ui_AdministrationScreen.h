@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'AdministrationScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_ADMINISTRATIONSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -107,11 +104,11 @@ public:
 
     void retranslateUi(QDialog *AdministrationScreen)
     {
-        AdministrationScreen->setWindowTitle(QApplication::translate("AdministrationScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        karnety->setText(QApplication::translate("AdministrationScreen", "KARNETY", 0, QApplication::UnicodeUTF8));
-        czlonkowie->setText(QApplication::translate("AdministrationScreen", "CZ\305\201ONKOWIE", 0, QApplication::UnicodeUTF8));
-        dane_firmy->setText(QApplication::translate("AdministrationScreen", "DANE FIRMY", 0, QApplication::UnicodeUTF8));
-        wyjscie->setText(QApplication::translate("AdministrationScreen", "WYJ\305\232CIE", 0, QApplication::UnicodeUTF8));
+        AdministrationScreen->setWindowTitle(QCoreApplication::translate("AdministrationScreen", "Dialog", nullptr));
+        karnety->setText(QCoreApplication::translate("AdministrationScreen", "KARNETY", nullptr));
+        czlonkowie->setText(QCoreApplication::translate("AdministrationScreen", "CZ\305\201ONKOWIE", nullptr));
+        dane_firmy->setText(QCoreApplication::translate("AdministrationScreen", "DANE FIRMY", nullptr));
+        wyjscie->setText(QCoreApplication::translate("AdministrationScreen", "WYJ\305\232CIE", nullptr));
     } // retranslateUi
 
 };

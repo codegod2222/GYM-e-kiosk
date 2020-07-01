@@ -18,8 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AddOrEditClubMember.cpp \
+    AddOrEditPassScreen.cpp \
     AdministrationScreen.cpp \
     BuyingPassScreen.cpp \
+    ClubMember.cpp \
+    ClubMembersScreen.cpp \
     CompanyInfoScreen.cpp \
     ConfirmPurchaseScreen.cpp \
     DataChangeScreen.cpp \
@@ -28,6 +32,7 @@ SOURCES += \
     LoggedUser.cpp \
     LoginScreen.cpp \
     LoopThread.cpp \
+    Pass.cpp \
     PassesScreen.cpp \
     PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
@@ -38,11 +43,17 @@ SOURCES += \
     mainwindow.cpp \
     CameraWorker.cpp \
     printer.cpp \
+    qrc_resources.cpp \
     rfid.cpp
 
 HEADERS += \
+    AddOrEditClubMember.h \
+    AddOrEditPassScreen.cpp.autosave \
+    AddOrEditPassScreen.h \
     AdministrationScreen.h \
     BuyingPassScreen.h \
+    ClubMember.h \
+    ClubMembersScreen.h \
     CompanyInfoScreen.h \
     ConfirmPurchaseScreen.h \
     DataChangeScreen.h \
@@ -51,6 +62,7 @@ HEADERS += \
     LoggedUser.h \
     LoginScreen.h \
     LoopThread.h \
+    Pass.h \
     PassesScreen.h \
     PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
@@ -60,11 +72,14 @@ HEADERS += \
     CameraWorker.h \
     printer.h \
     rfid.h \
-    dao.h
+    dao.h \
 
 FORMS += \
+    AddOrEditClubMember.ui \
+    AddOrEditPassScreen.ui \
     AdministrationScreen.ui \
     BuyingPassScreen.ui \
+    ClubMembersScreen.ui \
     CompanyInfoScreen.ui \
     ConfirmPurchaseScreen.ui \
     DataChangeScreen.ui \
@@ -92,7 +107,48 @@ LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
 #LIBS += -E/usr/include/cppconn    -
 LIBS += -L/usr/lib -lmysqlcppconn
 
-DISTFILES +=
+DISTFILES += \
+    AdministrationScreen.o \
+    BuyingPassScreen.o \
+    CameraWorker.o \
+    ConfirmPurchaseScreen.o \
+    DataChangeScreen.o \
+    Keyboard.o \
+    LoggedScreen.o \
+    LoggedUser.o \
+    LoginScreen.o \
+    LoopThread.o \
+    Makefile \
+    PasswordChangeScreen.o \
+    Raspberry \
+    Raspberry.pro.user \
+    Raspberry.pro.user.ccf6f4f.4.9-pre1 \
+    Raspberry.pro.user.d0ebc03 \
+    RegistrationInfoScreen.o \
+    RegistrationScreen.o \
+    TakePictureScreen.o \
+    dao.o \
+    logo 370.png \
+    main.o \
+    mainwindow.o \
+    moc_AdministrationScreen.o \
+    moc_BuyingPassScreen.o \
+    moc_CameraWorker.o \
+    moc_ConfirmPurchaseScreen.o \
+    moc_DataChangeScreen.o \
+    moc_Keyboard.o \
+    moc_LoggedScreen.o \
+    moc_LoginScreen.o \
+    moc_LoopThread.o \
+    moc_PasswordChangeScreen.o \
+    moc_RegistrationInfoScreen.o \
+    moc_RegistrationScreen.o \
+    moc_TakePictureScreen.o \
+    moc_mainwindow.o \
+    printer.o \
+    qrc_resources.o \
+    rfid.o
 
 RESOURCES += \
+    resources.qrc \
     resources.qrc

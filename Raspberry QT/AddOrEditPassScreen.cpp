@@ -76,9 +76,6 @@ void AddOrEditPassScreen::mousePressEvent(QMouseEvent *event)
 
 void AddOrEditPassScreen::on_powrot_clicked()
 {
-    this->ui->nazwa->text().clear();
-    this->ui->cena->text().clear();
-    this->ui->ileDni->text().clear();
     this->close();
 }
 
