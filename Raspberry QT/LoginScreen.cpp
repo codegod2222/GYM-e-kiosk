@@ -20,6 +20,8 @@ LoginScreen::LoginScreen(QWidget *parent) :
     ui->login->installEventFilter(this);
     ui->password->installEventFilter(this);
 
+    ui->login->setFocus();
+
     kodokanDAO = kodokanDAO->getInstance();
 }
 

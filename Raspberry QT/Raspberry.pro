@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     AdministrationScreen.cpp \
     BuyingPassScreen.cpp \
+    CompanyInfoScreen.cpp \
     ConfirmPurchaseScreen.cpp \
     DataChangeScreen.cpp \
     Keyboard.cpp \
@@ -27,20 +28,22 @@ SOURCES += \
     LoggedUser.cpp \
     LoginScreen.cpp \
     LoopThread.cpp \
+    PassesScreen.cpp \
     PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
     RegistrationScreen.cpp \
     TakePictureScreen.cpp \
+    dao.cpp \
     main.cpp \
     mainwindow.cpp \
     CameraWorker.cpp \
     printer.cpp \
-    rfid.cpp \
-    dao.cpp
+    rfid.cpp
 
 HEADERS += \
     AdministrationScreen.h \
     BuyingPassScreen.h \
+    CompanyInfoScreen.h \
     ConfirmPurchaseScreen.h \
     DataChangeScreen.h \
     Keyboard.h \
@@ -48,6 +51,7 @@ HEADERS += \
     LoggedUser.h \
     LoginScreen.h \
     LoopThread.h \
+    PassesScreen.h \
     PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
     RegistrationScreen.h \
@@ -61,11 +65,13 @@ HEADERS += \
 FORMS += \
     AdministrationScreen.ui \
     BuyingPassScreen.ui \
+    CompanyInfoScreen.ui \
     ConfirmPurchaseScreen.ui \
     DataChangeScreen.ui \
     Keyboard.ui \
     LoggedScreen.ui \
     LoginScreen.ui \
+    PassesScreen.ui \
     PasswordChangeScreen.ui \
     RegistrationInfoScreen.ui \
     RegistrationScreen.ui \

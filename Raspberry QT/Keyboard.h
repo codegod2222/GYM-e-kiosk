@@ -15,7 +15,10 @@ class Keyboard : public QDialog
 public:
 
     static Keyboard* getKeyboard();
-    void activate(QLineEdit *toEdit = nullptr, QPushButton *toClick = nullptr);
+    void activate(int type, QLineEdit *toEdit = nullptr, QPushButton *toClick = nullptr);
+    void setType(int);
+    void changeType();
+    void changeKeys();
 
     // The copy constructor and assignment operator
     // are defined as deleted, which means that you

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PassesScreen</class>
+ <widget class="QDialog" name="PassesScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(13, 13, 13);</string>
+  </property>
+  <widget class="QPushButton" name="powrot">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>660</y>
+     <width>250</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>POWRÓT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="edytujKarnet">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>660</y>
+     <width>250</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>EDYTUJ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dodajKarnet">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>660</y>
+     <width>250</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>DODAJ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="usunKarnet">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>660</y>
+     <width>250</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>USUŃ</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="listaKarnetow">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>981</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

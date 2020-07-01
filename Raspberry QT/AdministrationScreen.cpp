@@ -7,6 +7,8 @@ AdministrationScreen::AdministrationScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    //kodokanDAO = kodokanDAO->getInstance();
 }
 
 AdministrationScreen::~AdministrationScreen()
@@ -17,4 +19,34 @@ AdministrationScreen::~AdministrationScreen()
 void AdministrationScreen::on_wyjscie_clicked()
 {
     this->close();
+}
+
+void AdministrationScreen::on_dane_firmy_clicked()
+{
+    if(companyInfoScreen == nullptr)
+    {
+        companyInfoScreen = new CompanyInfoScreen();
+        companyInfoScreen->move(0,0);
+        companyInfoScreen->show();
+    }
+    else
+    {
+        companyInfoScreen->move(0,0);
+        companyInfoScreen->show();
+    }
+}
+
+void AdministrationScreen::on_karnety_clicked()
+{
+    if(passesScreen == nullptr)
+    {
+        passesScreen = new PassesScreen();
+        passesScreen->move(0,0);
+        passesScreen->show();
+    }
+    else
+    {
+        passesScreen->move(0,0);
+        passesScreen->show();
+    }
 }

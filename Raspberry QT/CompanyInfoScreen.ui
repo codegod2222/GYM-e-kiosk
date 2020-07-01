@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompanyInfoScreen</class>
+ <widget class="QDialog" name="CompanyInfoScreen">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(13, 13, 13);</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <widget class="QLineEdit" name="nip">
+   <property name="geometry">
+    <rect>
+     <x>369</x>
+     <y>170</y>
+     <width>508</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+font: 75 30pt &quot;Tahoma&quot;;
+
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+
+max-width:500px;
+max-height:82px;
+min-width:500px;
+min-height:82px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="zatwierdzZmiany">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>360</y>
+     <width>718</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+max-width:710px;
+max-height:82px;
+min-width:710px;
+min-height:82px;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>ZATWIERDŹ ZMIANY</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="adresLabel">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>260</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>ADRES</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="powrot">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>460</y>
+     <width>718</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>718</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+max-width:710px;
+max-height:82px;
+min-width:710px;
+min-height:82px;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>POWRÓT</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="adres">
+   <property name="geometry">
+    <rect>
+     <x>369</x>
+     <y>260</y>
+     <width>508</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+font: 75 30pt &quot;Tahoma&quot;;
+
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+
+max-width:500px;
+max-height:82px;
+min-width:500px;
+min-height:82px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="nazwa">
+   <property name="geometry">
+    <rect>
+     <x>369</x>
+     <y>80</y>
+     <width>508</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+font: 75 30pt &quot;Tahoma&quot;;
+
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+
+max-width:500px;
+max-height:82px;
+min-width:500px;
+min-height:82px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nazwaLabel">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>80</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>NAZWA</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nipLabel">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>170</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>NIP</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
