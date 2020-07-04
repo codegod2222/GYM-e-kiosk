@@ -1,5 +1,0 @@
-dodawanie uzytkownika
-sprawdzanie czy uzytkownik ma aktywny karnet
-dodawanie karnetu do uzytkownika
-podglad i edycja danych uzytkownika
-uwierzytelnienie uzytkownika na podstawie loginu/maila + hashu hasla
