@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ConfirmPurchaseScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_CONFIRMPURCHASESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -115,13 +112,13 @@ public:
 
     void retranslateUi(QDialog *ConfirmPurchaseScreen)
     {
-        ConfirmPurchaseScreen->setWindowTitle(QApplication::translate("ConfirmPurchaseScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        kupujesz->setText(QApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ:", 0, QApplication::UnicodeUTF8));
-        typKarnetu->setText(QApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ", 0, QApplication::UnicodeUTF8));
-        forma->setText(QApplication::translate("ConfirmPurchaseScreen", "P\305\201AC\304\204C FORM\304\204:", 0, QApplication::UnicodeUTF8));
-        typFormy->setText(QApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ", 0, QApplication::UnicodeUTF8));
-        potwierdz->setText(QApplication::translate("ConfirmPurchaseScreen", "POTWIERD\305\271", 0, QApplication::UnicodeUTF8));
-        close->setText(QApplication::translate("ConfirmPurchaseScreen", "ANULUJ", 0, QApplication::UnicodeUTF8));
+        ConfirmPurchaseScreen->setWindowTitle(QCoreApplication::translate("ConfirmPurchaseScreen", "Dialog", nullptr));
+        kupujesz->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ:", nullptr));
+        typKarnetu->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ", nullptr));
+        forma->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "P\305\201AC\304\204C FORM\304\204:", nullptr));
+        typFormy->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "KUPUJESZ", nullptr));
+        potwierdz->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "POTWIERD\305\271", nullptr));
+        close->setText(QCoreApplication::translate("ConfirmPurchaseScreen", "ANULUJ", nullptr));
     } // retranslateUi
 
 };

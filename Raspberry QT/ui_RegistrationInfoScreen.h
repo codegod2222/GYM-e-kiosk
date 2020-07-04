@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'RegistrationInfoScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_REGISTRATIONINFOSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -63,9 +60,9 @@ public:
 
     void retranslateUi(QDialog *RegistrationInfoScreen)
     {
-        RegistrationInfoScreen->setWindowTitle(QApplication::translate("RegistrationInfoScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        information->setText(QApplication::translate("RegistrationInfoScreen", "NAZWISKO NIE MO\305\273E BY\304\206 PUSTE!", 0, QApplication::UnicodeUTF8));
-        OK->setText(QApplication::translate("RegistrationInfoScreen", "OK", 0, QApplication::UnicodeUTF8));
+        RegistrationInfoScreen->setWindowTitle(QCoreApplication::translate("RegistrationInfoScreen", "Dialog", nullptr));
+        information->setText(QCoreApplication::translate("RegistrationInfoScreen", "NAZWISKO NIE MO\305\273E BY\304\206 PUSTE!", nullptr));
+        OK->setText(QCoreApplication::translate("RegistrationInfoScreen", "OK", nullptr));
     } // retranslateUi
 
 };

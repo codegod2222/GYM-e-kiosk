@@ -1,6 +1,12 @@
 #include "Keyboard.h"
 #include "ui_Keyboard.h"
 
+/*
+    0 - male literki
+    1 - cyfry
+    2 - wielkie litery
+*/
+
 int Keyboard::ile = 0;
 Keyboard* Keyboard::instance = nullptr;
 

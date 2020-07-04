@@ -1,5 +1,7 @@
 build-Raspberry-Desktop_Qt_5_12_5_MinGW_32_bit-Debug/*
 build-Raspberry-Desktop_Qt_5_15_0_MinGW_32_bit-Debug/*
+build-Raspberry-Desktop_Qt_5_15_0_MSVC2015_64bit-Debug/*
+Raspberry QT/debug/*
 *.064ec80
 *.autosave
 Raspberry QT/Raspberry.pro.user.d0ebc03

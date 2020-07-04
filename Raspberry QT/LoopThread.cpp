@@ -5,7 +5,7 @@
 
 void LoopThread::run()
 {
-    int i = 0;
+    /*int i = 0;
     RFIDserial = RFIDopen(); //otwórz połączenie
     if (RFIDerrno == RFID_ERR_OPEN) { //jeżeli wystąpił błąd przy otwieraniu połączenia
     }
@@ -35,5 +35,5 @@ void LoopThread::run()
         }
         sleep(1);
     }
-    RFIDclose(RFIDserial);
+    RFIDclose(RFIDserial);*/
 }

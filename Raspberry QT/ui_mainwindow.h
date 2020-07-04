@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -23,7 +24,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
+    QPushButton *kupKarnetButton;
+    QPushButton *zalozKontoButton;
+    QPushButton *zalogujSieButton;
+    QFrame *frame;
+    QPushButton *administracja;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -31,16 +36,76 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->setWindowModality(Qt::NonModal);
+        MainWindow->resize(1024, 768);
+        MainWindow->setMinimumSize(QSize(1024, 768));
+        MainWindow->setMaximumSize(QSize(1024, 768));
+        MainWindow->setAutoFillBackground(false);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(270, 100, 341, 171));
+        kupKarnetButton = new QPushButton(centralwidget);
+        kupKarnetButton->setObjectName(QString::fromUtf8("kupKarnetButton"));
+        kupKarnetButton->setGeometry(QRect(515, 2, 370, 370));
+        kupKarnetButton->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+"border-style: solid;\n"
+"border-width:4px;\n"
+"border-radius:185px;\n"
+"border-color: white;\n"
+"max-width:362px;\n"
+"max-height:362px;\n"
+"min-width:362px;\n"
+"min-height:362px;\n"
+"\n"
+"font: 75 30pt \"Tahoma\";\n"
+"color: rgb(255, 255, 255);"));
+        kupKarnetButton->setIconSize(QSize(16, 16));
+        zalozKontoButton = new QPushButton(centralwidget);
+        zalozKontoButton->setObjectName(QString::fromUtf8("zalozKontoButton"));
+        zalozKontoButton->setGeometry(QRect(515, 376, 370, 370));
+        zalozKontoButton->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+"border-style: solid;\n"
+"border-width:4px;\n"
+"border-radius:185px;\n"
+"border-color: white;\n"
+"max-width:362px;\n"
+"max-height:362px;\n"
+"min-width:362px;\n"
+"min-height:362px;\n"
+"\n"
+"font: 75 30pt \"Tahoma\";\n"
+"color: rgb(255, 255, 255);"));
+        zalogujSieButton = new QPushButton(centralwidget);
+        zalogujSieButton->setObjectName(QString::fromUtf8("zalogujSieButton"));
+        zalogujSieButton->setGeometry(QRect(138, 376, 370, 370));
+        zalogujSieButton->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+"border-style: solid;\n"
+"border-width:4px;\n"
+"border-radius:185px;\n"
+"border-color: white;\n"
+"max-width:362px;\n"
+"max-height:362px;\n"
+"min-width:362px;\n"
+"min-height:362px;\n"
+"\n"
+"font: 75 30pt \"Tahoma\";\n"
+"color: rgb(255, 255, 255);"));
+        frame = new QFrame(centralwidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(138, 2, 370, 370));
+        frame->setAutoFillBackground(false);
+        frame->setStyleSheet(QString::fromUtf8("background-image: url(:/logo 370.png);\n"
+"background-color: rgb(0, 0, 0);"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        administracja = new QPushButton(centralwidget);
+        administracja->setObjectName(QString::fromUtf8("administracja"));
+        administracja->setGeometry(QRect(0, 0, 131, 111));
+        administracja->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 1024, 28));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -53,8 +118,11 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Kodokan", nullptr));
+        kupKarnetButton->setText(QCoreApplication::translate("MainWindow", "KUP KARNET", nullptr));
+        zalozKontoButton->setText(QCoreApplication::translate("MainWindow", "ZA\305\201\303\223\305\273 KONTO", nullptr));
+        zalogujSieButton->setText(QCoreApplication::translate("MainWindow", "ZALOGUJ SI\304\230", nullptr));
+        administracja->setText(QString());
     } // retranslateUi
 
 };

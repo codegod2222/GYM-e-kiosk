@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'RegistrationScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_REGISTRATIONSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -211,15 +208,15 @@ public:
 
     void retranslateUi(QDialog *RegistrationScreen)
     {
-        RegistrationScreen->setWindowTitle(QApplication::translate("RegistrationScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        powrot->setText(QApplication::translate("RegistrationScreen", "POWR\303\223T", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("RegistrationScreen", "ZAREJESTRUJ", 0, QApplication::UnicodeUTF8));
-        dodajZdjecie->setText(QApplication::translate("RegistrationScreen", "DODAJ ZDJ\304\230CIE", 0, QApplication::UnicodeUTF8));
-        imieLabel->setText(QApplication::translate("RegistrationScreen", "IMI\304\230", 0, QApplication::UnicodeUTF8));
-        hasloLabel->setText(QApplication::translate("RegistrationScreen", "HAS\305\201O", 0, QApplication::UnicodeUTF8));
-        nazwiskoLabel->setText(QApplication::translate("RegistrationScreen", "NAZWISKO", 0, QApplication::UnicodeUTF8));
-        emailLabel->setText(QApplication::translate("RegistrationScreen", "EMAIL", 0, QApplication::UnicodeUTF8));
-        powtHasloLabel->setText(QApplication::translate("RegistrationScreen", "POWT\303\223RZ HAS\305\201O", 0, QApplication::UnicodeUTF8));
+        RegistrationScreen->setWindowTitle(QCoreApplication::translate("RegistrationScreen", "Dialog", nullptr));
+        powrot->setText(QCoreApplication::translate("RegistrationScreen", "POWR\303\223T", nullptr));
+        pushButton->setText(QCoreApplication::translate("RegistrationScreen", "ZAREJESTRUJ", nullptr));
+        dodajZdjecie->setText(QCoreApplication::translate("RegistrationScreen", "DODAJ ZDJ\304\230CIE", nullptr));
+        imieLabel->setText(QCoreApplication::translate("RegistrationScreen", "IMI\304\230", nullptr));
+        hasloLabel->setText(QCoreApplication::translate("RegistrationScreen", "HAS\305\201O", nullptr));
+        nazwiskoLabel->setText(QCoreApplication::translate("RegistrationScreen", "NAZWISKO", nullptr));
+        emailLabel->setText(QCoreApplication::translate("RegistrationScreen", "EMAIL", nullptr));
+        powtHasloLabel->setText(QCoreApplication::translate("RegistrationScreen", "POWT\303\223RZ HAS\305\201O", nullptr));
     } // retranslateUi
 
 };

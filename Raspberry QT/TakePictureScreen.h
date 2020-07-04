@@ -2,10 +2,10 @@
 #define TAKEPICTURESCREEN_H
 
 #include <QWidget>
-#include <raspicam/raspicam.h>
+//#include <raspicam/raspicam.h>
 #include <CameraWorker.h>
 
-using namespace raspicam;
+//using namespace raspicam;
 
 namespace Ui {
 class TakePictureScreen;
@@ -35,7 +35,7 @@ signals:
 private:
         Ui::TakePictureScreen *ui;
         QThread *workerThread;
-        CameraWorker *worker;
+        //CameraWorker *worker;
 };
 
 #endif // TAKEPICTURESCREEN_H

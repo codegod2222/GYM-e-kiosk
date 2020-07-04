@@ -24,7 +24,7 @@ TakePictureScreen::~TakePictureScreen()
 void TakePictureScreen::on_btnStart_clicked()
 {
     // Initialize the thread and worker
-    workerThread = new QThread;
+    /*workerThread = new QThread;
     worker = new CameraWorker;
 
     // Setup the thread
@@ -32,13 +32,9 @@ void TakePictureScreen::on_btnStart_clicked()
 
     // Connect signals to slots
     connect(workerThread, SIGNAL(started()), worker, SLOT(doWork()));
-    /*connect(worker, SIGNAL(finished()), workerThread, SLOT(quit()));
-    connect(worker, SIGNAL(finished()), worker, SLOT(deleteLater()));
-    connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
-    connect(worker, SIGNAL(finished()), this, SLOT(cameraFinished()));*/
     connect(this, SIGNAL(takePhoto()), worker, SLOT(takePhotoWorker()));
     connect(worker, SIGNAL(handleImage(QImage &)), this, SLOT(handleImage(QImage &)));
-    workerThread->start();
+    workerThread->start();*/
 
 }
 

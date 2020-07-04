@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'BuyingPassScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_BUYINGPASSSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -138,13 +135,13 @@ public:
 
     void retranslateUi(QDialog *BuyingPassScreen)
     {
-        BuyingPassScreen->setWindowTitle(QApplication::translate("BuyingPassScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("BuyingPassScreen", "WYBIERZ RODZAJ KARNETU:", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("BuyingPassScreen", "WYBIERZ RODZAJ P\305\201ATNO\305\232CI:", 0, QApplication::UnicodeUTF8));
-        gotowka->setText(QApplication::translate("BuyingPassScreen", "GOT\303\223WKA", 0, QApplication::UnicodeUTF8));
-        karta->setText(QApplication::translate("BuyingPassScreen", "KARTA", 0, QApplication::UnicodeUTF8));
-        online->setText(QApplication::translate("BuyingPassScreen", "ONLINE", 0, QApplication::UnicodeUTF8));
-        powrot->setText(QApplication::translate("BuyingPassScreen", "POWR\303\223T", 0, QApplication::UnicodeUTF8));
+        BuyingPassScreen->setWindowTitle(QCoreApplication::translate("BuyingPassScreen", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("BuyingPassScreen", "WYBIERZ RODZAJ KARNETU:", nullptr));
+        label_2->setText(QCoreApplication::translate("BuyingPassScreen", "WYBIERZ RODZAJ P\305\201ATNO\305\232CI:", nullptr));
+        gotowka->setText(QCoreApplication::translate("BuyingPassScreen", "GOT\303\223WKA", nullptr));
+        karta->setText(QCoreApplication::translate("BuyingPassScreen", "KARTA", nullptr));
+        online->setText(QCoreApplication::translate("BuyingPassScreen", "ONLINE", nullptr));
+        powrot->setText(QCoreApplication::translate("BuyingPassScreen", "POWR\303\223T", nullptr));
     } // retranslateUi
 
 };

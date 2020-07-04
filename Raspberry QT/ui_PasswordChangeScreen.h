@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'PasswordChangeScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_PASSWORDCHANGESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -162,13 +159,13 @@ public:
 
     void retranslateUi(QDialog *PasswordChangeScreen)
     {
-        PasswordChangeScreen->setWindowTitle(QApplication::translate("PasswordChangeScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        potwierdz->setText(QApplication::translate("PasswordChangeScreen", "POTWIERD\305\271", 0, QApplication::UnicodeUTF8));
-        forma->setText(QApplication::translate("PasswordChangeScreen", "NOWE HAS\305\201O:", 0, QApplication::UnicodeUTF8));
-        kupujesz->setText(QApplication::translate("PasswordChangeScreen", "STARE HAS\305\201O:", 0, QApplication::UnicodeUTF8));
-        close->setText(QApplication::translate("PasswordChangeScreen", "ANULUJ", 0, QApplication::UnicodeUTF8));
-        forma_2->setText(QApplication::translate("PasswordChangeScreen", "POWT\303\223RZ NOWE HAS\305\201O:", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("PasswordChangeScreen", "PushButton", 0, QApplication::UnicodeUTF8));
+        PasswordChangeScreen->setWindowTitle(QCoreApplication::translate("PasswordChangeScreen", "Dialog", nullptr));
+        potwierdz->setText(QCoreApplication::translate("PasswordChangeScreen", "POTWIERD\305\271", nullptr));
+        forma->setText(QCoreApplication::translate("PasswordChangeScreen", "NOWE HAS\305\201O:", nullptr));
+        kupujesz->setText(QCoreApplication::translate("PasswordChangeScreen", "STARE HAS\305\201O:", nullptr));
+        close->setText(QCoreApplication::translate("PasswordChangeScreen", "ANULUJ", nullptr));
+        forma_2->setText(QCoreApplication::translate("PasswordChangeScreen", "POWT\303\223RZ NOWE HAS\305\201O:", nullptr));
+        pushButton->setText(QCoreApplication::translate("PasswordChangeScreen", "PushButton", nullptr));
     } // retranslateUi
 
 };

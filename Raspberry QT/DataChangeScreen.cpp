@@ -8,9 +8,9 @@ DataChangeScreen::DataChangeScreen(QWidget *parent, UserDAO *loggedUser, LoggedS
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    ui->imie->setText(loggedUser->name.c_str());
+    /*ui->imie->setText(loggedUser->name.c_str());
     ui->nazwisko->setText(loggedUser->surname.c_str());
-    ui->email->setText(loggedUser->email.c_str());
+    ui->email->setText(loggedUser->email.c_str());*/
 
     //W celu ukazania ekranu bez klawiatury i skupionego na jakimkolwiek QLineEdit
     this->ui->nazwiskoLabel->setFocus();
@@ -73,7 +73,7 @@ bool DataChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->imie, ui->zatwierdzZmiany);
+        keyboard->activate(2, ui->imie, ui->zatwierdzZmiany);
         keyboard->show();
         keyboard->activateWindow();
     }
@@ -82,7 +82,7 @@ bool DataChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->nazwisko, ui->zatwierdzZmiany);
+        keyboard->activate(2, ui->nazwisko, ui->zatwierdzZmiany);
         keyboard->show();
         keyboard->activateWindow();
     }
@@ -91,7 +91,7 @@ bool DataChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->email->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->nazwisko->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->imie->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->email, ui->zatwierdzZmiany);
+        keyboard->activate(0, ui->email, ui->zatwierdzZmiany);
         keyboard->show();
         keyboard->activateWindow();
     }

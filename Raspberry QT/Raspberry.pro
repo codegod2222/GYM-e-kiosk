@@ -38,17 +38,14 @@ SOURCES += \
     RegistrationInfoScreen.cpp \
     RegistrationScreen.cpp \
     TakePictureScreen.cpp \
-    dao.cpp \
     main.cpp \
     mainwindow.cpp \
     CameraWorker.cpp \
     printer.cpp \
-    qrc_resources.cpp \
     rfid.cpp
 
 HEADERS += \
     AddOrEditClubMember.h \
-    AddOrEditPassScreen.cpp.autosave \
     AddOrEditPassScreen.h \
     AdministrationScreen.h \
     BuyingPassScreen.h \
@@ -72,7 +69,6 @@ HEADERS += \
     CameraWorker.h \
     printer.h \
     rfid.h \
-    dao.h \
 
 FORMS += \
     AddOrEditClubMember.ui \
@@ -102,10 +98,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 # Requirements for raspicam
-LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
-LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
+#LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
+#LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
+#LIBS += -L/usr/lib -lmysqlcppconn
+
 #LIBS += -E/usr/include/cppconn    -
-LIBS += -L/usr/lib -lmysqlcppconn
+
 
 DISTFILES += \
     AdministrationScreen.o \

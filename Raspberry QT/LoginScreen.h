@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <Keyboard.h>
-#include "dao.h"
 
 namespace Ui {
 class LoginScreen;
@@ -29,7 +28,7 @@ private slots:
 private:
     Ui::LoginScreen *ui;
     Keyboard *keyboard;
-    KodokanDAO *kodokanDAO;
+    //KodokanDAO *kodokanDAO;
 public:
     static int ile;
 };

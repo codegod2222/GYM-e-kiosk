@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'DataChangeScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_DATACHANGESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -179,13 +176,13 @@ public:
 
     void retranslateUi(QDialog *DataChangeScreen)
     {
-        DataChangeScreen->setWindowTitle(QApplication::translate("DataChangeScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        nazwiskoLabel->setText(QApplication::translate("DataChangeScreen", "NAZWISKO", 0, QApplication::UnicodeUTF8));
-        emailLabel->setText(QApplication::translate("DataChangeScreen", "EMAIL", 0, QApplication::UnicodeUTF8));
-        imieLabel->setText(QApplication::translate("DataChangeScreen", "IMI\304\230", 0, QApplication::UnicodeUTF8));
-        zatwierdzZmiany->setText(QApplication::translate("DataChangeScreen", "ZATWIERD\305\271 ZMIANY", 0, QApplication::UnicodeUTF8));
-        zmienHaslo->setText(QApplication::translate("DataChangeScreen", "ZMIE\305\203 HAS\305\201O", 0, QApplication::UnicodeUTF8));
-        powrot->setText(QApplication::translate("DataChangeScreen", "POWR\303\223T", 0, QApplication::UnicodeUTF8));
+        DataChangeScreen->setWindowTitle(QCoreApplication::translate("DataChangeScreen", "Dialog", nullptr));
+        nazwiskoLabel->setText(QCoreApplication::translate("DataChangeScreen", "NAZWISKO", nullptr));
+        emailLabel->setText(QCoreApplication::translate("DataChangeScreen", "EMAIL", nullptr));
+        imieLabel->setText(QCoreApplication::translate("DataChangeScreen", "IMI\304\230", nullptr));
+        zatwierdzZmiany->setText(QCoreApplication::translate("DataChangeScreen", "ZATWIERD\305\271 ZMIANY", nullptr));
+        zmienHaslo->setText(QCoreApplication::translate("DataChangeScreen", "ZMIE\305\203 HAS\305\201O", nullptr));
+        powrot->setText(QCoreApplication::translate("DataChangeScreen", "POWR\303\223T", nullptr));
     } // retranslateUi
 
 };

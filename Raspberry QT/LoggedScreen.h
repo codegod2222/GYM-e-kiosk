@@ -4,9 +4,10 @@
 #include <QDialog>
 #include "LoginScreen.h"
 #include "BuyingPassScreen.h"
-#include "dao.h"
 
 class DataChangeScreen;
+
+class UserDAO;
 
 namespace Ui {
 class LoggedScreen;

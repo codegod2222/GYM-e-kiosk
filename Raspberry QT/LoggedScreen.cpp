@@ -9,8 +9,8 @@ LoggedScreen::LoggedScreen(QWidget *parent, UserDAO *loggedUser) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->loggedUser = loggedUser;
-    std::string temp = loggedUser->name + " " + loggedUser->surname;
-    ui->zalogowanyJako->setText(temp.c_str());
+    //std::string temp = loggedUser->name + " " + loggedUser->surname;
+    //ui->zalogowanyJako->setText(temp.c_str());
     if(parent != nullptr)
     {
         parent->close();
@@ -50,6 +50,6 @@ void LoggedScreen::on_zmienDane_clicked()
 
 void LoggedScreen::odbierzZmianeDanych()
 {
-    std::string temp = loggedUser->name + " " + loggedUser->surname;
-    ui->zalogowanyJako->setText(temp.c_str());
+    //std::string temp = loggedUser->name + " " + loggedUser->surname;
+    //ui->zalogowanyJako->setText(temp.c_str());
 }

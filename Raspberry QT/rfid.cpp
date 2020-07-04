@@ -1,4 +1,4 @@
-#include <stdlib.h>
+/*#include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <termios.h>
@@ -70,4 +70,4 @@ void RFIDclear(int RFIDserial) {
 
 void RFIDclose(int RFIDserial) {
 	close(RFIDserial);
-}
+}*/

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'LoginScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,17 +10,14 @@
 #define UI_LOGINSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -166,11 +163,11 @@ public:
 
     void retranslateUi(QDialog *LoginScreen)
     {
-        LoginScreen->setWindowTitle(QApplication::translate("LoginScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        zaloguj->setText(QApplication::translate("LoginScreen", "ZALOGUJ", 0, QApplication::UnicodeUTF8));
-        powrot->setText(QApplication::translate("LoginScreen", "POWR\303\223T", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("LoginScreen", "LOGIN", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("LoginScreen", "HAS\305\201O", 0, QApplication::UnicodeUTF8));
+        LoginScreen->setWindowTitle(QCoreApplication::translate("LoginScreen", "Dialog", nullptr));
+        zaloguj->setText(QCoreApplication::translate("LoginScreen", "ZALOGUJ", nullptr));
+        powrot->setText(QCoreApplication::translate("LoginScreen", "POWR\303\223T", nullptr));
+        label->setText(QCoreApplication::translate("LoginScreen", "LOGIN", nullptr));
+        label_2->setText(QCoreApplication::translate("LoginScreen", "HAS\305\201O", nullptr));
         komunikat->setText(QString());
     } // retranslateUi
 

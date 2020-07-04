@@ -1,4 +1,4 @@
-#include "CameraWorker.h"
+/*#include "CameraWorker.h"
 
 #include <fstream>
 #include <iostream>
@@ -57,3 +57,4 @@ void CameraWorker::takePhotoWorker()
     cameraRunning = false;
     qApp->processEvents();
 }
+*/

@@ -1,21 +1,12 @@
-#ifndef CAMERAWORKER_H
+/*#ifndef CAMERAWORKER_H
 #define CAMERAWORKER_H
 
 #include <QImage>
 
-#include <raspicam/raspicam.h>
+//#include <raspicam/raspicam.h>
 
-// This makes it so we don't have to prefix everything with raspicam::
-// So raspicam::RaspiCam becomes just RaspiCam
-using namespace raspicam;
+//using namespace raspicam;
 
-/*!
- * \brief Class to run the camera and get data from it.
- *
- * This class is responsible for grabbing data from the Raspberry Pi camera
- * using the [raspicam library](https://github.com/cedricve/raspicam)
- * and converting it to a QImage so it can be displayed by MainWindow.
- */
 class CameraWorker : public QObject
 {
     Q_OBJECT
@@ -24,7 +15,7 @@ public:
     ~CameraWorker();
 
 private:
-    RaspiCam camera;
+    //RaspiCam camera;
     bool cameraRunning;
     unsigned char *data;
 
@@ -38,4 +29,4 @@ public slots:
     void doWork();
 };
 
-#endif // CAMERAWORKER_H
+#endif // CAMERAWORKER_H*/

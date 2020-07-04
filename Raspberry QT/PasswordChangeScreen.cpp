@@ -34,7 +34,7 @@ bool PasswordChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->oldPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->newPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->newPassword2->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->oldPassword, ui->potwierdz);
+        keyboard->activate(0, ui->oldPassword, ui->potwierdz);
         keyboard->show();
         keyboard->activateWindow();
     }
@@ -43,7 +43,7 @@ bool PasswordChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->newPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->oldPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->newPassword2->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->newPassword, ui->potwierdz);
+        keyboard->activate(0, ui->newPassword, ui->potwierdz);
         keyboard->show();
         keyboard->activateWindow();
     }
@@ -52,7 +52,7 @@ bool PasswordChangeScreen::eventFilter(QObject *obj, QEvent *event)
         ui->newPassword2->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(200, 200, 200);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->oldPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
         ui->newPassword->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);font: 75 30pt \"Tahoma\";border-style: solid;border-width:4px;border-radius:30px;");
-        keyboard->activate(ui->newPassword2, ui->potwierdz);
+        keyboard->activate(0, ui->newPassword2, ui->potwierdz);
         keyboard->show();
         keyboard->activateWindow();
     }

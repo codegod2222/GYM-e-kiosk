@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'LoggedScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_LOGGEDSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -98,12 +95,12 @@ public:
 
     void retranslateUi(QDialog *LoggedScreen)
     {
-        LoggedScreen->setWindowTitle(QApplication::translate("LoggedScreen", "Dialog", 0, QApplication::UnicodeUTF8));
-        komunikat->setText(QApplication::translate("LoggedScreen", "JESTE\305\232 ZALOGOWANY JAKO:", 0, QApplication::UnicodeUTF8));
+        LoggedScreen->setWindowTitle(QCoreApplication::translate("LoggedScreen", "Dialog", nullptr));
+        komunikat->setText(QCoreApplication::translate("LoggedScreen", "JESTE\305\232 ZALOGOWANY JAKO:", nullptr));
         zalogowanyJako->setText(QString());
-        kupKarnet->setText(QApplication::translate("LoggedScreen", "KUP KARNET", 0, QApplication::UnicodeUTF8));
-        wyloguj->setText(QApplication::translate("LoggedScreen", "WYLOGUJ", 0, QApplication::UnicodeUTF8));
-        zmienDane->setText(QApplication::translate("LoggedScreen", "ZMIE\305\203 DANE", 0, QApplication::UnicodeUTF8));
+        kupKarnet->setText(QCoreApplication::translate("LoggedScreen", "KUP KARNET", nullptr));
+        wyloguj->setText(QCoreApplication::translate("LoggedScreen", "WYLOGUJ", nullptr));
+        zmienDane->setText(QCoreApplication::translate("LoggedScreen", "ZMIE\305\203 DANE", nullptr));
     } // retranslateUi
 
 };

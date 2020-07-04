@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TakePictureScreen.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_TAKEPICTURESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -87,11 +84,11 @@ public:
 
     void retranslateUi(QWidget *TakePictureScreen)
     {
-        TakePictureScreen->setWindowTitle(QApplication::translate("TakePictureScreen", "Form", 0, QApplication::UnicodeUTF8));
-        imgLabel->setText(QApplication::translate("TakePictureScreen", "Inicjowanie kamery", 0, QApplication::UnicodeUTF8));
-        OK->setText(QApplication::translate("TakePictureScreen", "ZR\303\223B ZDJ\304\230CIE", 0, QApplication::UnicodeUTF8));
-        OK_2->setText(QApplication::translate("TakePictureScreen", "ANULUJ", 0, QApplication::UnicodeUTF8));
-        jeszczeRaz->setText(QApplication::translate("TakePictureScreen", "JESZCZE RAZ", 0, QApplication::UnicodeUTF8));
+        TakePictureScreen->setWindowTitle(QCoreApplication::translate("TakePictureScreen", "Form", nullptr));
+        imgLabel->setText(QCoreApplication::translate("TakePictureScreen", "Inicjowanie kamery", nullptr));
+        OK->setText(QCoreApplication::translate("TakePictureScreen", "ZR\303\223B ZDJ\304\230CIE", nullptr));
+        OK_2->setText(QCoreApplication::translate("TakePictureScreen", "ANULUJ", nullptr));
+        jeszczeRaz->setText(QCoreApplication::translate("TakePictureScreen", "JESZCZE RAZ", nullptr));
     } // retranslateUi
 
 };

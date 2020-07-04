@@ -5,11 +5,13 @@
 #include <LoggedUser.h>
 #include <RegistrationInfoScreen.h>
 #include <Keyboard.h>
-#include "dao.h"
 
 namespace Ui {
 class PasswordChangeScreen;
 }
+
+//zeby dzialalo na windzie
+class UserDAO;
 
 class PasswordChangeScreen : public QDialog
 {
