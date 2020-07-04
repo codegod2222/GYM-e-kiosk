@@ -161,7 +161,7 @@ public:
         cenaLabel->setText(QCoreApplication::translate("AddOrEditPassScreen", "CENA", nullptr));
         nazwaLabel->setText(QCoreApplication::translate("AddOrEditPassScreen", "NAZWA", nullptr));
         zatwierdz->setText(QCoreApplication::translate("AddOrEditPassScreen", "ZATWIERD\305\271", nullptr));
-        powrot->setText(QCoreApplication::translate("AddOrEditPassScreen", "POWR\303\223T", nullptr));
+        powrot->setText(QCoreApplication::translate("AddOrEditPassScreen", "ANULUJ", nullptr));
     } // retranslateUi
 
 };

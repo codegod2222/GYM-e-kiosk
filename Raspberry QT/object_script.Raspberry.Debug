@@ -42,4 +42,3 @@ debug/moc_RegistrationInfoScreen.o
 debug/moc_RegistrationScreen.o
 debug/moc_TakePictureScreen.o
 debug/moc_mainwindow.o
-debug/moc_CameraWorker.o

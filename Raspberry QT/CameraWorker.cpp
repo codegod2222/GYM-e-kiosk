@@ -29,7 +29,7 @@ void CameraWorker::doWork()
     }
 
     // Wait for the camera
-    sleep(3);
+    //sleep(3);
 
     // While the camera is on (the user has clicked the button), capture
     while (cameraRunning) {
@@ -49,9 +49,11 @@ void CameraWorker::doWork()
     }
 }
 
-void CameraWorker::takePhotoWorker()
+void CameraWorker::takePhotoWorker(std::string email)
 {
-    std::ofstream outFile ("photo.ppm", std::ios::binary);
+    std::string path = email;
+    path.append(".ppm");
+    std::ofstream outFile (path , std::ios::binary);
     outFile<<"P6\n"<< camera.getWidth() << " " << camera.getHeight() << " 255\n";
     outFile.write((char*)data, camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB));
     cameraRunning = false;

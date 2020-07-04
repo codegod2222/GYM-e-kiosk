@@ -7,8 +7,6 @@ AdministrationScreen::AdministrationScreen(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-
-    //kodokanDAO = kodokanDAO->getInstance();
 }
 
 AdministrationScreen::~AdministrationScreen()

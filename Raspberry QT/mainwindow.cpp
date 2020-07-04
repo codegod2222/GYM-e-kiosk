@@ -2,19 +2,19 @@
 #include "ui_mainwindow.h"
 #include "LoginScreen.h"
 #include "LoopThread.h"
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //QMainWindow::showFullScreen();
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->threadRun=true;
     loopThread = new LoopThread(threadRun);
     connect( loopThread, SIGNAL(przylozonoKarte(QString)), this, SLOT(przylozonoKarte(QString)));
     this->installEventFilter(this);
-
+    //kodokanDAO = kodokanDAO->getInstance();
 }
 
 MainWindow::~MainWindow()
@@ -72,9 +72,16 @@ void MainWindow::on_zalozKontoButton_clicked()
 
 void MainWindow::on_administracja_clicked()
 {
-    administrationScreen = new AdministrationScreen();
-    administrationScreen->move(0,0);
-    administrationScreen->show();
+    if(administrationScreen == nullptr)
+    {
+        administrationScreen = new AdministrationScreen();
+        administrationScreen->move(0,0);
+        administrationScreen->show();
+    }
+    else
+    {
+        administrationScreen->show();
+    }
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
@@ -89,21 +96,13 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
         }
     }
-    /*else
-    {
-        if(loopThread->isRunning())
-        {
-            qDebug() << "Stop watek";
-            loopThread->terminate();
-        }
-    }*/
     return false;
 }
 
-void MainWindow::przylozonoKarte(QString jakiesDane)
+void MainWindow::przylozonoKarte(QString rfid)
 {
-    qDebug() << jakiesDane;
-    /*LoggedUser *loggedUser = new LoggedUser("Daniel","ZMainWindow",jakiesDane,"tajne");
+    /*qDebug() << rfid;
+    UserDAO loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
     LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);
     loggedScreen->move(0,0);
     loggedScreen->show();*/

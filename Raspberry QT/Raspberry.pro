@@ -1,5 +1,9 @@
 QT       += core gui
 
+#Wylacza warningi o niewykorzystanych parametrach
+QMAKE_CXXFLAGS_WARN_OFF -= -Wunused-parameter
+QMAKE_CFLAGS = -Wno-unused-parameter
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11

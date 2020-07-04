@@ -226,7 +226,7 @@ font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>POWRÓT</string>
+    <string>ANULUJ</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="cena">

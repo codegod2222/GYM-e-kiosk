@@ -42,4 +42,3 @@ release/moc_RegistrationInfoScreen.o
 release/moc_RegistrationScreen.o
 release/moc_TakePictureScreen.o
 release/moc_mainwindow.o
-release/moc_CameraWorker.o

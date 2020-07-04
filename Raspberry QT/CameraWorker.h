@@ -23,7 +23,7 @@ signals:
     void handleImage(QImage &image);
 
 private slots:
-    void takePhotoWorker();
+    void takePhotoWorker(std::string);
 
 public slots:
     void doWork();

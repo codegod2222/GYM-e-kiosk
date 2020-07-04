@@ -30,7 +30,6 @@ private slots:
 
 private:
     Ui::AdministrationScreen *ui;
-    //KodokanDAO *kodokanDAO;
     CompanyInfoScreen *companyInfoScreen = nullptr;
     PassesScreen *passesScreen = nullptr;
     ClubMembersScreen *clubMembersScreen = nullptr;

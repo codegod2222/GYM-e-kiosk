@@ -23,9 +23,12 @@ public:
 private slots:
     void on_powrot_clicked();
 
+    void on_zatwierdzZmiany_clicked();
+
 private:
     Ui::CompanyInfoScreen *ui;
     Keyboard *keyboard;
+    //KodokanDAO *kodokanDAO;
 };
 
 #endif // COMPANYINFOSCREEN_H

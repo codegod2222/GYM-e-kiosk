@@ -70,6 +70,7 @@ int printPair(Printer& printer, const std::string& left, const std::string& righ
     printer.align(a); //przywrócenie wyrównania
     return ret;
 }
+
 void printReceipt(Printer& printer, ReceiptData& data) {
     printer.init(); //inicjalizacja wydruku
     printer.codePage852(); //ustaw stronę kodową
@@ -133,9 +134,9 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     {
         ui->typyKarnetow->addItem("TYGODNIOWY");
         ui->typyKarnetow->addItem("DWUTYGODNIOWY");
-        ui->typyKarnetow->addItem("MIESI��CZNY");
+        ui->typyKarnetow->addItem("MIESIECZNY");
     }
-    ui->typyKarnetow->addItem("JEDNORAZOWE WEJ��IE");
+    ui->typyKarnetow->addItem("JEDNORAZOWE WEJSCIE");
 
     for (int i = 0 ; i <  ui->typyKarnetow->count() ; ++i)
     {
@@ -157,8 +158,20 @@ bool BuyingPassScreen::eventFilter(QObject *obj, QEvent *event)
         ui->typyKarnetow->showPopup();
         ui->label->setFocus();
     }
+    else if (obj != ui->typyKarnetow)
+    {
+        ui->typyKarnetow->hidePopup();
+        ui->label->setFocus();
+    }
     return false;
 }
+
+void BuyingPassScreen::mousePressEvent(QMouseEvent *event)
+{
+    ui->typyKarnetow->hidePopup();
+    ui->label->setFocus();
+}
+
 
 void BuyingPassScreen::on_powrot_clicked()
 {
@@ -168,7 +181,7 @@ void BuyingPassScreen::on_powrot_clicked()
 void BuyingPassScreen::on_gotowka_clicked()
 {
     wybranyKarnet = ui->typyKarnetow->currentText();
-    wybranaPlatnosc = "GOTÓWKA";
+    wybranaPlatnosc = "GOTOWKA";
     potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
@@ -199,6 +212,12 @@ void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatno
 
 void BuyingPassScreen::odbierzPotwierdzenie()
 {
+    /*
+    std::vector<std::string> kodokanInfo = kodokanDAO.get_kodokan_info();
+    data.nazwaFirmy = kodokanInfo.at(0);
+    data.adres = kodokanInfo.at(1);
+    data.nip = kodokanInfo.at(2);
+    */
     //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
     ReceiptData data;
     data.nazwaFirmy = "Nazwa firmy";

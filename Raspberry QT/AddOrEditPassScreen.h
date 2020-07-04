@@ -31,6 +31,7 @@ private:
     Keyboard *keyboard;
     Pass *toEdit;
     std::vector<Pass> *karnety;
+    //KodokanDAO *kodokanDAO;
 };
 
 #endif // ADDOREDITPASSSCREEN_H

@@ -254,6 +254,7 @@ void Keyboard::on_NUMERYCZNA_clicked()
     this->type++;
     if(this->type==3)
         this->type=0;
+    changeKeys();
 }
 
 void Keyboard::on_PRZECINEK_clicked()

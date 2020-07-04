@@ -16,6 +16,14 @@ CompanyInfoScreen::CompanyInfoScreen(QWidget *parent) :
     ui->adres->installEventFilter(this);
 
     this->ui->nazwaLabel->setFocus();
+
+
+    /*kodokanDAO = kodokanDAO->getInstance();
+    std::vector<std::string> kodokanInfo = kodokanDAO.get_kodokan_info();
+    this->ui->nazwa->setText(kodokanInfo.at(0).c_str());
+    this->ui->adres->setText(kodokanInfo.at(1).c_str());
+    this->ui->nip->setText(kodokanInfo.at(2).c_str());
+    */
 }
 
 CompanyInfoScreen::~CompanyInfoScreen()
@@ -67,4 +75,12 @@ void CompanyInfoScreen::mousePressEvent(QMouseEvent *event)
 void CompanyInfoScreen::on_powrot_clicked()
 {
     this->close();
+}
+
+void CompanyInfoScreen::on_zatwierdzZmiany_clicked()
+{
+    /*kodokanDAO.update_kodokan_info(this->ui->nazwa->text().toStdString(),
+                                    this->ui->adres->text().toStdString(),
+                                    this->ui->nip->text().toStdString());
+    */
 }

@@ -17,6 +17,8 @@ public:
 
     bool eventFilter(QObject*, QEvent*);
 
+    void mousePressEvent(QMouseEvent*);
+
 private:
     QString wybranyKarnet;
     QString wybranaPlatnosc;
