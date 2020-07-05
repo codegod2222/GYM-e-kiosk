@@ -48,6 +48,24 @@ void UserDAO::update_user(std::string username,
     }
 }
 
+void UserDAO::update_user_hashed_pswd(std::string new_password)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "UPDATE subscriptions SET hashed_pswd = ? WHERE id = ?"
+        );
+        prepared_statement->setString(1, new_password);
+        prepared_statement->setInt(2, id);
+        prepared_statement->executeUpdate();
+        this->username = username;
+        delete prepared_statement;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
 void UserDAO::update_user_username(std::string username)
 {
     try {

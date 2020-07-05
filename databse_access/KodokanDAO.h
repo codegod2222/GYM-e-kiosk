@@ -17,6 +17,13 @@
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
+struct SubscriptionType{
+    int id;
+    std::string name;
+    int length;
+    int price;
+};
+
 class KodokanDAO {
 private:
     // connection string
@@ -59,6 +66,8 @@ public:
     // print users (debug purposes)
     void list_users();
 
+    std::vector<UserDAO> get_users();
+
     // get kodokan info
     std::vector<std::string> get_kodokan_info();
 
@@ -67,6 +76,14 @@ public:
     void update_nazwa_firmy(std::string nazwa_firmy);
     void update_adres(std::string adres);
     void update_nip(std::string nip);
+
+    // subscription types
+    std::vector<SubscriptionType> get_subscription_types();
+    void add_subscription_type(SubscriptionType new_type);
+    void delete_subscription_type(int id);
+    void edit_subscription_type_name(int id, std::string new_name);
+    void edit_subscription_type_length(int id, int new_length);
+    void edit_subscription_type_price(int id, int new_price);
 
     ~KodokanDAO();
 };

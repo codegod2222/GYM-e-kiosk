@@ -64,6 +64,7 @@ public:
                      std::string surname);
     void update_user_username(std::string username);
     void update_user_email(std::string email);
+    void update_user_hashed_pswd(std::string new_password);
     void update_user_name(std::string name);
     void update_user_surname(std::string surname);
     void update_user_rfid(std::string rfid);

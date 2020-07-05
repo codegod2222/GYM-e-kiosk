@@ -23,6 +23,113 @@ KodokanDAO* KodokanDAO::getInstance() {
     return instance;
 }
 
+std::vector<SubscriptionType> KodokanDAO::get_subscription_types()
+{
+    try {
+        std::vector<SubscriptionType> subscriptions;
+        auto* statement = connection->createStatement();
+        auto result = statement->executeQuery("SELECT * FROM subscription_types");
+        while (result->next()) {
+            subscriptions.push_back(SubscriptionType(
+                    result->getInt("id"),
+                    result->getString("name"),
+                    result->getInt("length"),
+                    result->getInt("price")
+        }
+        return subscriptions;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+        return std::vector<SubscriptionType>();
+    }
+}
+
+void KodokanDAO::add_subscription_type(SubscriptionType new_type)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "INSERT INTO subscription_types(name, length, price) values (?, ?, ?)"
+        );
+        prepared_statement->setString(1, new_type.name);
+        prepared_statement->setString(2, std::string(new_type.length));
+        prepared_statement->setString(3, std::string(new_type.price));
+        prepared_statement->executeUpdate();
+        delete prepared_statement;
+    }
+    catch(const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+void KodokanDAO::delete_subscription_type(int id)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "DELETE FROM subscription_types WHERE id = ?"
+        );
+        prepared_statement->setInt(1, id);
+        prepared_statement->executeUpdate();
+        delete prepared_statement;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+void KodokanDAO::edit_subscription_type_name(int id, std::string new_name)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "UPDATE subscription_types SET name = ? WHERE id = ?"
+        );
+        prepared_statement->setString(1, new_name);
+        prepared_statement->setInt(2, id);
+        prepared_statement->executeUpdate();
+        delete prepared_statement;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+void KodokanDAO::edit_subscription_type_length(int id, int new_length)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "UPDATE subscription_types SET length = ? WHERE id = ?"
+        );
+        prepared_statement->setInt(1, new_length);
+        prepared_statement->setInt(2, id);
+        prepared_statement->executeUpdate();
+        delete prepared_statement;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+void KodokanDAO::edit_subscription_type_price(int id, int new_price)
+{
+    try {
+        auto* prepared_statement = connection->prepareStatement(
+                "UPDATE subscription_types SET price = ? WHERE id = ?"
+        );
+        prepared_statement->setInt(1, new_price);
+        prepared_statement->setInt(2, id);
+        prepared_statement->executeUpdate();
+        delete prepared_statement;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
 KodokanDAO::KodokanDAO()
 {
     try {
@@ -148,6 +255,33 @@ std::string get_todays_date()
 {
     return "2020-07-01";
 }
+
+std::vector<UserDAO> KodokanDAO::get_users()
+{
+    try {
+        std::vector<UserDAO> users;
+        auto* statement = connection->createStatement();
+        auto result = statement->executeQuery("SELECT * FROM users");
+        while (result->next()) {
+            users.push_back(UserDAO(
+                    connection,
+                    result->getInt("id"),
+                    result->getString("login"),
+                    result->getString("email"),
+                    result->getString("creation_date"),
+                    result->getString("name"),
+                    result->getString("surname"),
+                    result->getString("hashed_pswd"));
+        }
+        return users;
+    }
+    catch (const sql::SQLException& e)
+    {
+        std::cout << e.what() << std::endl;
+        return std::vector<UserDAO>();
+    }
+}
+
 
 void KodokanDAO::update_receipt_number(int new_number)
 {
