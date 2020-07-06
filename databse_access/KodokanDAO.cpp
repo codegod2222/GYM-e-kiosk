@@ -173,7 +173,8 @@ UserDAO* KodokanDAO::authorize_user(std::string login, std::string password)
                         result->getString("creation_date"),
                         result->getString("name"),
                         result->getString("surname"),
-                        result->getString("hashed_pswd")
+                        result->getString("hashed_pswd"),
+                        result->getString("rfid")
                 );
             }
         }
@@ -203,7 +204,8 @@ UserDAO* KodokanDAO::authorize_user(std::string rfid)
                 result->getString("creation_date"),
                 result->getString("name"),
                 result->getString("surname"),
-                result->getString("hashed_pswd")
+                result->getString("hashed_pswd"),
+                result->getString("rfid")
             );
         }
         return nullptr;
