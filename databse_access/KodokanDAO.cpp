@@ -158,25 +158,23 @@ UserDAO* KodokanDAO::authorize_user(std::string login, std::string password)
     std::string hashed_pswd = password; // complicated hashing function
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "SELECT * FROM users WHERE login LIKE ?"
+                "SELECT * FROM users WHERE login LIKE ? AND hashed_pswd LIKE ?"
         );
         prepared_statement->setString(1, login);
+        prepared_statement->setString(2, hashed_pswd);
         auto result = prepared_statement->executeQuery();
         if (result->next()) {
-            if (result->getString("hashed_pswd") == hashed_pswd) {
-                auto napis = result->getString(2);
-                return new UserDAO(
-                        connection,
-                        result->getInt("id"),
-                        result->getString("login"),
-                        result->getString("email"),
-                        result->getString("creation_date"),
-                        result->getString("name"),
-                        result->getString("surname"),
-                        result->getString("hashed_pswd"),
-                        result->getString("rfid")
-                );
-            }
+            return new UserDAO(
+                    connection,
+                    result->getInt("id"),
+                    result->getString("login"),
+                    result->getString("email"),
+                    result->getString("creation_date"),
+                    result->getString("name"),
+                    result->getString("surname"),
+                    result->getString("hashed_pswd"),
+                    result->getString("rfid")
+            );
         }
         return nullptr;
     }
