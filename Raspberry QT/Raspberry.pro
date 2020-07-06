@@ -48,7 +48,8 @@ SOURCES += \
     ../online_payment/onlinePayment.cpp \
     ../databse_access/KodokanDAO.cpp \
     ../databse_access/UserDAO.cpp \
-    ../online_payment/md5.cpp
+    ../online_payment/md5.cpp \
+    PaperPayment.cpp
 
 HEADERS += \
     AddOrEditClubMember.h \
@@ -77,7 +78,8 @@ HEADERS += \
     ../online_payment/md5.h \
     ../online_payment/onlinePayment.h \
     ../databse_access/KodokanDAO.h \
-    ../databse_access/UserDAO.h
+    ../databse_access/UserDAO.h \
+    PaperPayment.h
 
 FORMS += \
     AddOrEditClubMember.ui \
@@ -97,7 +99,8 @@ FORMS += \
     RegistrationScreen.ui \
     TakePictureScreen.ui \
     mainwindow.ui \
-    OnlinePaymentScreen.ui
+    OnlinePaymentScreen.ui \
+    PaperPayment.ui
 
 TRANSLATIONS += \
     Raspberry_pl_PL.ts

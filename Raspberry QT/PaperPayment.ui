@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PaperPayment</class>
+ <widget class="QDialog" name="PaperPayment">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(13, 13, 13);</string>
+  </property>
+  <widget class="QLabel" name="wprowadz">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>130</y>
+     <width>1000</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 26pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>WPROWADZ KWOTE:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="kwota">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>250</y>
+     <width>1000</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="anuluj">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>440</y>
+     <width>718</width>
+     <height>108</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>718</width>
+     <height>108</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>718</width>
+     <height>108</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(13, 13, 13);
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+border-color: white;
+max-width:710px;
+max-height:100px;
+min-width:710px;
+min-height:100px;
+
+font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>ANULUJ</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

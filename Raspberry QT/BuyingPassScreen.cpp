@@ -145,6 +145,8 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     }
     ui->label->setFocus();
 
+    kodokanDAO = kodokanDAO->getInstance();
+
 }
 
 BuyingPassScreen::~BuyingPassScreen()
@@ -220,17 +222,23 @@ void BuyingPassScreen::odbierzPotwierdzenie()
             onlinePaymentScreen->show();
         }
     }
-    /*
-    std::vector<std::string> kodokanInfo = kodokanDAO.get_kodokan_info();
+    else if(wybranaPlatnosc.compare("GOTOWKA") == 0)
+    {
+        if(paperPaymentScreen == nullptr)
+        {
+            paperPaymentScreen = new PaperPayment(this, 10);
+            paperPaymentScreen->move(0,0);
+            paperPaymentScreen->show();
+        }
+    }
+
+    std::vector<std::string> kodokanInfo = kodokanDAO->get_kodokan_info();
+
+    //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
+    ReceiptData data;
     data.nazwaFirmy = kodokanInfo.at(0);
     data.adres = kodokanInfo.at(1);
     data.nip = kodokanInfo.at(2);
-    */
-    //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
-    ReceiptData data;
-    data.nazwaFirmy = "Nazwa firmy";
-    data.adres = "ul. Ulica 00\nMiasto 00-000";
-    data.nip = "000-000-00-00";
     data.data = "0000-00-00";
     data.nrWyrduku = 0;
     data.listaKarnetow.push_back({ wybranyKarnet.toStdString() , 1234 });
