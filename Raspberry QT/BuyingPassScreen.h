@@ -3,7 +3,9 @@
 
 #include <QDialog>
 #include "OnlinePaymentScreen.h"
+#include "PaperPayment.h"
 #include "../databse_access/UserDAO.h"
+#include "../databse_access/KodokanDAO.h"
 
 namespace Ui {
 class BuyingPassScreen;
@@ -43,8 +45,9 @@ signals:
 private:
     Ui::BuyingPassScreen *ui;
     OnlinePaymentScreen *onlinePaymentScreen = nullptr;
+    PaperPayment *paperPaymentScreen = nullptr;
     UserDAO *loggedUser = nullptr;
-
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // BUYINGPASSSCREEN_H
