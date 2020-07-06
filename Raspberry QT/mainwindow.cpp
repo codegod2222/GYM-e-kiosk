@@ -104,8 +104,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::przylozonoKarte(QString rfid)
 {
     qDebug() << rfid;
-    /*UserDAO *loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
-    LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);
-    loggedScreen->move(0,0);
-    loggedScreen->show();*/
+    UserDAO *loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
+    if(loggedUser != nullptr)
+    {
+        LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);
+        loggedScreen->move(0,0);
+        loggedScreen->show();
+    }
 }

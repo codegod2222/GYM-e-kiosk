@@ -1,6 +1,7 @@
 #include "PassesScreen.h"
 #include "ui_PassesScreen.h"
 #include <QHeaderView>
+#include <QDebug>
 
 PassesScreen::PassesScreen(QWidget *parent) :
     QDialog(parent),
@@ -98,26 +99,27 @@ void PassesScreen::on_edytujKarnet_clicked()
     int toEditIndex = this->ui->listaKarnetow->currentRow();
     std::string temp = ui->listaKarnetow->takeItem(toEditIndex,0)->text().toStdString();
 
-    SubscriptionType toEdit;
+    SubscriptionType* toEdit = new SubscriptionType;
 
+    qDebug() << kodokanDAO;
     std::vector<SubscriptionType> karnety = kodokanDAO->get_subscription_types();
     for (auto karnet : karnety)
     {
         if(karnet.name.compare(temp) == 0)
         {
-            toEdit = karnet;
+            *toEdit = karnet;
         }
     }
 
 
     if(addOrEditPassScreen == nullptr)
     {
-        addOrEditPassScreen = new AddOrEditPassScreen(this, &toEdit);
+        addOrEditPassScreen = new AddOrEditPassScreen(this, toEdit);
     }
     else
     {
         delete addOrEditPassScreen;
-        addOrEditPassScreen = new AddOrEditPassScreen(this , &toEdit);
+        addOrEditPassScreen = new AddOrEditPassScreen(this , toEdit);
     }
     addOrEditPassScreen->move(0,0);
     addOrEditPassScreen->show();

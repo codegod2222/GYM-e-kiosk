@@ -1,6 +1,7 @@
 #include "AddOrEditPassScreen.h"
 #include "ui_AddOrEditPassScreen.h"
 #include "RegistrationInfoScreen.h"
+#include "QDebug"
 
 AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, SubscriptionType *toEdit) :
     QDialog(parent),
@@ -24,6 +25,7 @@ AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, SubscriptionType *toEd
         this->ui->cena->setText(QString::number(toEdit->price));
         this->ui->ileDni->setText(QString::number(toEdit->length));
     }
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 AddOrEditPassScreen::~AddOrEditPassScreen()
@@ -93,6 +95,7 @@ void AddOrEditPassScreen::on_zatwierdz_clicked()
 
         for(auto sub : subs)
         {
+            qDebug() << toEdit->name.c_str() << " " << sub.name.c_str();
             if (toEdit->name.compare(sub.name) == 0)
             {
                 kodokanDAO->edit_subscription_type_name(sub.id, this->ui->nazwa->text().toStdString());
@@ -103,9 +106,9 @@ void AddOrEditPassScreen::on_zatwierdz_clicked()
     }
     else
     {
-        SubscriptionType newPass{0 , this->ui->nazwa->text().toStdString() , this->ui->cena->text().toInt() , this->ui->ileDni->text().toInt()};
+        SubscriptionType newPass{0 , this->ui->nazwa->text().toStdString() , this->ui->ileDni->text().toInt() , this->ui->cena->text().toInt()};
         kodokanDAO->add_subscription_type(newPass);
     }
-
+    delete toEdit;
     on_powrot_clicked();
 }

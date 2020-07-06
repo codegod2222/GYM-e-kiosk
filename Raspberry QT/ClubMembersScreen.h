@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "AddOrEditClubMember.h"
+#include "../databse_access/KodokanDAO.h"
+#include "../databse_access/UserDAO.h"
 
 namespace Ui {
 class ClubMembersScreen;
@@ -32,8 +34,8 @@ private slots:
 
 private:
     Ui::ClubMembersScreen *ui;
-    std::vector<ClubMember> *czlonkowie;
     AddOrEditClubMember *addOrEditClubMember = nullptr;
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // CLUBMEMBERSSCREEN_H

@@ -52,7 +52,7 @@ void UserDAO::update_user_hashed_pswd(std::string new_password)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET hashed_pswd = ? WHERE id = ?"
+                "UPDATE users SET hashed_pswd = ? WHERE id = ?"
         );
         prepared_statement->setString(1, new_password);
         prepared_statement->setInt(2, id);
@@ -70,7 +70,7 @@ void UserDAO::update_user_username(std::string username)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET username = ? WHERE id = ?"
+                "UPDATE users SET username = ? WHERE id = ?"
         );
         prepared_statement->setString(1, username);
         prepared_statement->setInt(2, id);
@@ -88,7 +88,7 @@ void UserDAO::update_user_email(std::string email)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET email = ? WHERE id = ?"
+                "UPDATE users SET email = ? WHERE id = ?"
         );
         prepared_statement->setString(1, email);
         prepared_statement->setInt(2, id);
@@ -106,7 +106,7 @@ void UserDAO::update_user_name(std::string name)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET name = ? WHERE id = ?"
+                "UPDATE users SET name = ? WHERE id = ?"
         );
         prepared_statement->setString(1, name);
         prepared_statement->setInt(2, id);
@@ -124,7 +124,7 @@ void UserDAO::update_user_surname(std::string surname)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET surname = ? WHERE id = ?"
+                "UPDATE users SET surname = ? WHERE id = ?"
         );
         prepared_statement->setString(1, surname);
         prepared_statement->setInt(2, id);
@@ -143,7 +143,7 @@ void UserDAO::add_update_photo_path(std::string photo_path)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET photo_path = ? WHERE id = ?"
+                "UPDATE users SET photo_path = ? WHERE id = ?"
         );
         prepared_statement->setString(1, photo_path);
         prepared_statement->setInt(2, id);
@@ -162,7 +162,7 @@ void UserDAO::add_update_rfid(std::string rfid)
 {
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "UPDATE subscriptions SET rfid = ? WHERE id = ?"
+                "UPDATE users SET rfid = ? WHERE id = ?"
         );
         prepared_statement->setString(1, rfid);
         prepared_statement->setInt(2, id);

@@ -8,14 +8,6 @@ ClubMembersScreen::ClubMembersScreen(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    czlonkowie = new std::vector<ClubMember>;
-    ClubMember new1("Daniel", "Kaleta", "danielkalelta@gmail.com", "tajne");
-    ClubMember new2("Piotr", "Uhl", "piotruhl@gmail.com", "rownieztajne");
-    ClubMember new3("Piotr", "Bosowski", "piotrbosowski@gmail.com", "nieznane");
-    czlonkowie->push_back(new1);
-    czlonkowie->push_back(new2);
-    czlonkowie->push_back(new3);
-
     this->ui->listaCzlonkow->setColumnCount(3);
     this->ui->listaCzlonkow->setColumnWidth(0,250);
     this->ui->listaCzlonkow->setColumnWidth(1,250);
@@ -31,6 +23,8 @@ ClubMembersScreen::ClubMembersScreen(QWidget *parent) :
     this->ui->listaCzlonkow->setShowGrid(false);
 
     this->installEventFilter(this);
+
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 ClubMembersScreen::~ClubMembersScreen()
@@ -42,12 +36,12 @@ void ClubMembersScreen::on_dodajCzlonka_clicked()
 {
     if(addOrEditClubMember == nullptr)
     {
-        addOrEditClubMember = new AddOrEditClubMember(this,nullptr,czlonkowie);
+        addOrEditClubMember = new AddOrEditClubMember(this,nullptr);
     }
     else
     {
         delete addOrEditClubMember;
-        addOrEditClubMember = new AddOrEditClubMember(this,nullptr,czlonkowie);
+        addOrEditClubMember = new AddOrEditClubMember(this,nullptr);
     }
     addOrEditClubMember->move(0,0);
     addOrEditClubMember->show();
@@ -56,27 +50,52 @@ void ClubMembersScreen::on_dodajCzlonka_clicked()
 void ClubMembersScreen::on_usunCzlonka_clicked()
 {
     int toDeleteIndex = this->ui->listaCzlonkow->currentRow();
-    QString email = this->ui->listaCzlonkow->takeItem(toDeleteIndex, 2)->text();
-    //tutaj jakies pobranie z bazy na podstawie emaila bym widzial,
-    //lub pobiorę hasło na zasadzie vector.at(toDeleteIndex)
-    czlonkowie->erase(czlonkowie->begin()+toDeleteIndex);
+    std::string temp = ui->listaCzlonkow->takeItem(toDeleteIndex,2)->text().toStdString();
+
+    UserDAO *toEdit = nullptr;
+
+    std::vector<UserDAO> users = kodokanDAO->get_users();
+    for (auto user : users)
+    {
+        if(user.email.compare(temp) == 0)
+        {
+            user.delete_user();
+        }
+    }
+
     refreshTable();
 }
 
 void ClubMembersScreen::on_edytujCzlonka_clicked()
 {
+
     int toEditIndex = this->ui->listaCzlonkow->currentRow();
-    QString email = this->ui->listaCzlonkow->takeItem(toEditIndex, 2)->text();
+
+    std::string temp = ui->listaCzlonkow->takeItem(toEditIndex,2)->text().toStdString();
+
+    UserDAO *toEdit = nullptr;
+
+    std::vector<UserDAO> users = kodokanDAO->get_users();
+    for (auto user : users)
+    {
+        if(user.email.compare(temp) == 0)
+        {
+            toEdit = new UserDAO(user);
+            break;
+        }
+    }
+
+
     //tutaj jakies pobranie z bazy na podstawie emaila bym widzial,
     //lub pobiorę hasło na zasadzie vector.at(toDeleteIndex)
     if(addOrEditClubMember == nullptr)
     {
-        addOrEditClubMember = new AddOrEditClubMember(this, &czlonkowie->at(toEditIndex) , czlonkowie);
+        addOrEditClubMember = new AddOrEditClubMember(this, toEdit);
     }
     else
     {
         delete addOrEditClubMember;
-        addOrEditClubMember = new AddOrEditClubMember(this , &czlonkowie->at(toEditIndex) , czlonkowie);
+        addOrEditClubMember = new AddOrEditClubMember(this , toEdit);
     }
     addOrEditClubMember->move(0,0);
     addOrEditClubMember->show();
@@ -89,12 +108,13 @@ void ClubMembersScreen::on_powrot_clicked()
 
 void ClubMembersScreen::refreshTable()
 {
-    this->ui->listaCzlonkow->setRowCount(czlonkowie->size());
+    std::vector<UserDAO> users = kodokanDAO->get_users();
+    this->ui->listaCzlonkow->setRowCount(users.size());
     int i = 0;
-    for (auto czlonek : *czlonkowie)
+    for (auto czlonek : users)
     {
-        this->ui->listaCzlonkow->setItem(i , 0 , new QTableWidgetItem(QString(czlonek.imie.c_str())));
-        this->ui->listaCzlonkow->setItem(i , 1 , new QTableWidgetItem(QString(czlonek.nazwisko.c_str())));
+        this->ui->listaCzlonkow->setItem(i , 0 , new QTableWidgetItem(QString(czlonek.name.c_str())));
+        this->ui->listaCzlonkow->setItem(i , 1 , new QTableWidgetItem(QString(czlonek.surname.c_str())));
         this->ui->listaCzlonkow->setItem(i , 2 , new QTableWidgetItem(QString(czlonek.email.c_str())));
         i++;
     }

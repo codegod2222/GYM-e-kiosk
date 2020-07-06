@@ -25,6 +25,7 @@ AddOrEditClubMember::AddOrEditClubMember(QWidget *parent, UserDAO *toEdit) :
         this->ui->nazwisko->setText(QString(toEdit->surname.c_str()));
         this->ui->email->setText(QString(toEdit->email.c_str()));
         this->ui->haslo->setText(QString(toEdit->hashed_pswd.c_str()));
+        this->ui->rfid->setText(QString(toEdit->rfid.c_str()));
     }
     kodokanDAO = kodokanDAO->getInstance();
 
@@ -116,6 +117,7 @@ void AddOrEditClubMember::mousePressEvent(QMouseEvent *event)
 void AddOrEditClubMember::on_powrot_clicked()
 {
     threadRun = false;
+    delete toEdit;
     this->close();
 }
 
@@ -135,13 +137,14 @@ void AddOrEditClubMember::on_zatwierdz_clicked()
         if(toEdit->name.compare(this->ui->imie->text().toStdString()) != 0)
             toEdit->update_user_name(this->ui->imie->text().toStdString());
 
-        if(toEdit->surname.compare(this->ui->imie->text().toStdString()) != 0)
+
+        if(toEdit->surname.compare(this->ui->nazwisko->text().toStdString()) != 0)
             toEdit->update_user_surname(this->ui->nazwisko->text().toStdString());
 
-        if(toEdit->email.compare(this->ui->imie->text().toStdString()) != 0)
+        if(toEdit->email.compare(this->ui->email->text().toStdString()) != 0)
             toEdit->update_user_email(this->ui->email->text().toStdString());
 
-        if(toEdit->hashed_pswd.compare(this->ui->imie->text().toStdString()) != 0)
+        if(toEdit->hashed_pswd.compare(this->ui->haslo->text().toStdString()) != 0)
             toEdit->update_user_hashed_pswd(this->ui->haslo->text().toStdString());
 
         if(toEdit->rfid.compare(this->ui->rfid->text().toStdString()) != 0)
