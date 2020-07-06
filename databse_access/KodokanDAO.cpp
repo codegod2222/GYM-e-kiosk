@@ -29,12 +29,15 @@ std::vector<SubscriptionType> KodokanDAO::get_subscription_types()
         std::vector<SubscriptionType> subscriptions;
         auto* statement = connection->createStatement();
         auto result = statement->executeQuery("SELECT * FROM subscription_types");
-        while (result->next()) {
-            subscriptions.push_back(SubscriptionType(
+        while (result->next())
+        {
+            subscriptions.push_back(SubscriptionType
+            {
                     result->getInt("id"),
                     result->getString("name"),
                     result->getInt("length"),
                     result->getInt("price")
+            });
         }
         return subscriptions;
     }
@@ -52,8 +55,8 @@ void KodokanDAO::add_subscription_type(SubscriptionType new_type)
                 "INSERT INTO subscription_types(name, length, price) values (?, ?, ?)"
         );
         prepared_statement->setString(1, new_type.name);
-        prepared_statement->setString(2, std::string(new_type.length));
-        prepared_statement->setString(3, std::string(new_type.price));
+        prepared_statement->setString(2, std::to_string(new_type.length));
+        prepared_statement->setString(3, std::to_string(new_type.price));
         prepared_statement->executeUpdate();
         delete prepared_statement;
     }
@@ -233,7 +236,7 @@ void KodokanDAO::add_user(std::string login, std::string email, std::string name
     }
 }
 
-std::vector<std::string> KodokanDAO::get_subscription_types()
+/*std::vector<std::string> KodokanDAO::get_subscription_types()
 {
     try {
         auto* statement = connection->createStatement();
@@ -249,7 +252,7 @@ std::vector<std::string> KodokanDAO::get_subscription_types()
         std::cout << e.what() << std::endl;
         return std::vector<std::string>();
     }
-}
+}*/
 
 std::string get_todays_date()
 {
@@ -262,7 +265,8 @@ std::vector<UserDAO> KodokanDAO::get_users()
         std::vector<UserDAO> users;
         auto* statement = connection->createStatement();
         auto result = statement->executeQuery("SELECT * FROM users");
-        while (result->next()) {
+        while (result->next())
+        {
             users.push_back(UserDAO(
                     connection,
                     result->getInt("id"),
@@ -271,7 +275,7 @@ std::vector<UserDAO> KodokanDAO::get_users()
                     result->getString("creation_date"),
                     result->getString("name"),
                     result->getString("surname"),
-                    result->getString("hashed_pswd"));
+                    result->getString("hashed_pswd")));
         }
         return users;
     }

@@ -10,11 +10,11 @@
 #define UI_PASSESSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QTableWidget>
+#include <QApplication>
+#include <QDialog>
+#include <QHeaderView>
+#include <QPushButton>
+#include <QTableWidget>
 
 QT_BEGIN_NAMESPACE
 

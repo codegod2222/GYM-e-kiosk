@@ -2,6 +2,8 @@
 #define BUYINGPASSSCREEN_H
 
 #include <QDialog>
+#include "OnlinePaymentScreen.h"
+#include "../databse_access/UserDAO.h"
 
 namespace Ui {
 class BuyingPassScreen;
@@ -12,7 +14,7 @@ class BuyingPassScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit BuyingPassScreen(QWidget *parent = nullptr, bool logged = false);
+    explicit BuyingPassScreen(QWidget *parent = nullptr, UserDAO *loggedUser = nullptr);
     ~BuyingPassScreen();
 
     bool eventFilter(QObject*, QEvent*);
@@ -40,6 +42,8 @@ signals:
 
 private:
     Ui::BuyingPassScreen *ui;
+    OnlinePaymentScreen *onlinePaymentScreen = nullptr;
+    UserDAO *loggedUser = nullptr;
 
 };
 

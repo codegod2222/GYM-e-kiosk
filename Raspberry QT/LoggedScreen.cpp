@@ -9,8 +9,8 @@ LoggedScreen::LoggedScreen(QWidget *parent, UserDAO *loggedUser) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->loggedUser = loggedUser;
-    //std::string temp = loggedUser->name + " " + loggedUser->surname;
-    //ui->zalogowanyJako->setText(temp.c_str());
+    std::string temp = loggedUser->name + " " + loggedUser->surname;
+    ui->zalogowanyJako->setText(temp.c_str());
     if(parent != nullptr)
     {
         parent->close();
@@ -29,7 +29,7 @@ void LoggedScreen::on_wyloguj_clicked()
 
 void LoggedScreen::on_kupKarnet_clicked()
 {
-    buyingPassScreen = new BuyingPassScreen(nullptr,true);
+    buyingPassScreen = new BuyingPassScreen(nullptr, loggedUser);
     buyingPassScreen->move(0,0);
     buyingPassScreen->show();
 }
@@ -50,6 +50,6 @@ void LoggedScreen::on_zmienDane_clicked()
 
 void LoggedScreen::odbierzZmianeDanych()
 {
-    //std::string temp = loggedUser->name + " " + loggedUser->surname;
-    //ui->zalogowanyJako->setText(temp.c_str());
+    std::string temp = loggedUser->name + " " + loggedUser->surname;
+    ui->zalogowanyJako->setText(temp.c_str());
 }

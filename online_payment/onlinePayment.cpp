@@ -64,7 +64,7 @@ std::string makeTransaction(float _amount, std::string _description, PAYMENT_MET
             "\n  \"name\": \"" + _name + "\","
             "\n  \"api_password\": \"p@$$w0rd#@!\""
             "\n"
-            "}";
+            "}";           
         const char* data = dataPom.c_str();
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);

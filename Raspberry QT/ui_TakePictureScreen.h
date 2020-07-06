@@ -10,10 +10,10 @@
 #define UI_TAKEPICTURESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
+#include <QApplication>
+#include <QLabel>
+#include <QPushButton>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 

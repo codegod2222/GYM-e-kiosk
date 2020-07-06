@@ -118,7 +118,7 @@ void printReceipt(Printer& printer, ReceiptData& data) {
     printer.endFeed(90);
 }
 
-BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
+BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     QDialog(parent),
     ui(new Ui::BuyingPassScreen)
 {
@@ -130,7 +130,8 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, bool logged) :
     ui->typyKarnetow->lineEdit()->setAlignment(Qt::AlignCenter);
     this->ui->typyKarnetow->installEventFilter(this);
 
-    if(logged)
+    this->loggedUser = loggedUser;
+    if(loggedUser != nullptr)
     {
         ui->typyKarnetow->addItem("TYGODNIOWY");
         ui->typyKarnetow->addItem("DWUTYGODNIOWY");
@@ -194,11 +195,9 @@ void BuyingPassScreen::on_karta_clicked()
 
 void BuyingPassScreen::on_online_clicked()
 {
-
     wybranyKarnet = ui->typyKarnetow->currentText();
     wybranaPlatnosc = "ONLINE";
     potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
-
 }
 
 void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatnosci)
@@ -212,6 +211,15 @@ void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatno
 
 void BuyingPassScreen::odbierzPotwierdzenie()
 {
+    if(wybranaPlatnosc.compare("ONLINE") == 0)
+    {
+        if(onlinePaymentScreen == nullptr)
+        {
+            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.toStdString(), 10);
+            onlinePaymentScreen->move(0,0);
+            onlinePaymentScreen->show();
+        }
+    }
     /*
     std::vector<std::string> kodokanInfo = kodokanDAO.get_kodokan_info();
     data.nazwaFirmy = kodokanInfo.at(0);

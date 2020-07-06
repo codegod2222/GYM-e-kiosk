@@ -10,13 +10,13 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QWidget>
+#include <QApplication>
+#include <QFrame>
+#include <QMainWindow>
+#include <QMenuBar>
+#include <QPushButton>
+#include <QStatusBar>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 

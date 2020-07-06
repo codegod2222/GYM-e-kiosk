@@ -58,7 +58,7 @@ public:
     void add_user(std::string login, std::string email, std::string name, std::string surname, std::string password);
 
     // get possible subscription types
-    std::vector<std::string> get_subscription_types();
+    std::vector<SubscriptionType> get_subscription_types();
 
     // get actual receipt number (counting restarts at midnight)
     int get_receipt_number();
@@ -78,7 +78,6 @@ public:
     void update_nip(std::string nip);
 
     // subscription types
-    std::vector<SubscriptionType> get_subscription_types();
     void add_subscription_type(SubscriptionType new_type);
     void delete_subscription_type(int id);
     void edit_subscription_type_name(int id, std::string new_name);

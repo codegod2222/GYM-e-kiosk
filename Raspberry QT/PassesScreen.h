@@ -2,8 +2,8 @@
 #define PASSESSCREEN_H
 
 #include <QDialog>
-#include "Pass.h"
 #include "AddOrEditPassScreen.h"
+#include "../databse_access/KodokanDAO.h"
 
 namespace Ui {
 class PassesScreen;
@@ -32,8 +32,8 @@ private slots:
 
 private:
     Ui::PassesScreen *ui;
-    std::vector<Pass> *karnety;
     AddOrEditPassScreen *addOrEditPassScreen = nullptr;
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // PASSESSCREEN_H

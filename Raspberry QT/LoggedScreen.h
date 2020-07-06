@@ -5,6 +5,7 @@
 #include "LoginScreen.h"
 #include "BuyingPassScreen.h"
 
+
 class DataChangeScreen;
 
 class UserDAO;

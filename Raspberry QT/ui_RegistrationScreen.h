@@ -10,11 +10,11 @@
 #define UI_REGISTRATIONSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPushButton>
+#include <QApplication>
+#include <QDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 

@@ -10,11 +10,11 @@
 #define UI_BUYINGPASSSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
+#include <QApplication>
+#include <QComboBox>
+#include <QDialog>
+#include <QLabel>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 

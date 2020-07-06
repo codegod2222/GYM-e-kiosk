@@ -26,7 +26,6 @@ SOURCES += \
     AddOrEditPassScreen.cpp \
     AdministrationScreen.cpp \
     BuyingPassScreen.cpp \
-    ClubMember.cpp \
     ClubMembersScreen.cpp \
     CompanyInfoScreen.cpp \
     ConfirmPurchaseScreen.cpp \
@@ -36,7 +35,6 @@ SOURCES += \
     LoggedUser.cpp \
     LoginScreen.cpp \
     LoopThread.cpp \
-    Pass.cpp \
     PassesScreen.cpp \
     PasswordChangeScreen.cpp \
     RegistrationInfoScreen.cpp \
@@ -46,14 +44,18 @@ SOURCES += \
     mainwindow.cpp \
     CameraWorker.cpp \
     printer.cpp \
-    rfid.cpp
+    rfid.cpp \
+    OnlinePaymentScreen.cpp \
+    ../online_payment/onlinePayment.cpp \
+    ../databse_access/KodokanDAO.cpp \
+    ../databse_access/UserDAO.cpp \
+    ../online_payment/md5.cpp
 
 HEADERS += \
     AddOrEditClubMember.h \
     AddOrEditPassScreen.h \
     AdministrationScreen.h \
     BuyingPassScreen.h \
-    ClubMember.h \
     ClubMembersScreen.h \
     CompanyInfoScreen.h \
     ConfirmPurchaseScreen.h \
@@ -63,7 +65,6 @@ HEADERS += \
     LoggedUser.h \
     LoginScreen.h \
     LoopThread.h \
-    Pass.h \
     PassesScreen.h \
     PasswordChangeScreen.h \
     RegistrationInfoScreen.h \
@@ -73,6 +74,12 @@ HEADERS += \
     CameraWorker.h \
     printer.h \
     rfid.h \
+    OnlinePaymentScreen.h \
+    ../online_payment/json.hpp \
+    ../online_payment/md5.h \
+    ../online_payment/onlinePayment.h \
+    ../databse_access/KodokanDAO.h \
+    ../databse_access/UserDAO.h
 
 FORMS += \
     AddOrEditClubMember.ui \
@@ -91,7 +98,8 @@ FORMS += \
     RegistrationInfoScreen.ui \
     RegistrationScreen.ui \
     TakePictureScreen.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    OnlinePaymentScreen.ui
 
 TRANSLATIONS += \
     Raspberry_pl_PL.ts
@@ -102,11 +110,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 # Requirements for raspicam
-#LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
-#LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
-#LIBS += -L/usr/lib -lmysqlcppconn
+LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
+LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
+LIBS += -L/usr/lib -lmysqlcppconn
 
 #LIBS += -E/usr/include/cppconn    -
+
+LIBS += -lcurl
 
 
 DISTFILES += \
@@ -149,7 +159,11 @@ DISTFILES += \
     moc_mainwindow.o \
     printer.o \
     qrc_resources.o \
-    rfid.o
+    rfid.o \
+    ../online_payment/curl/Makefile.am \
+    ../online_payment/curl/Makefile.in \
+    ../online_payment/libcurld.lib \
+    ../online_payment/libcurl-d.dll
 
 RESOURCES += \
     resources.qrc \

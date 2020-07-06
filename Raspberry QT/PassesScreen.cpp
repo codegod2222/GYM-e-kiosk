@@ -9,14 +9,6 @@ PassesScreen::PassesScreen(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    karnety = new std::vector<Pass>;
-    Pass new1("tygodniowy", 50, 7);
-    Pass new2("miesieczny", 100, 30);
-    Pass new3("dwumiesieczny", 150, 60);
-    karnety->push_back(new1);
-    karnety->push_back(new2);
-    karnety->push_back(new3);
-
     this->ui->listaKarnetow->setColumnCount(3);
     this->ui->listaKarnetow->setColumnWidth(0,400);
     this->ui->listaKarnetow->setColumnWidth(1,300);
@@ -32,6 +24,8 @@ PassesScreen::PassesScreen(QWidget *parent) :
     this->ui->listaKarnetow->setShowGrid(false);
 
     this->installEventFilter(this);
+
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 PassesScreen::~PassesScreen()
@@ -48,12 +42,12 @@ void PassesScreen::on_dodajKarnet_clicked()
 {
     if(addOrEditPassScreen == nullptr)
     {
-        addOrEditPassScreen = new AddOrEditPassScreen(this,nullptr,karnety);
+        addOrEditPassScreen = new AddOrEditPassScreen(this,nullptr);
     }
     else
     {
         delete addOrEditPassScreen;
-        addOrEditPassScreen = new AddOrEditPassScreen(this,nullptr,karnety);
+        addOrEditPassScreen = new AddOrEditPassScreen(this,nullptr);
     }
     addOrEditPassScreen->move(0,0);
     addOrEditPassScreen->show();
@@ -61,13 +55,14 @@ void PassesScreen::on_dodajKarnet_clicked()
 
 void PassesScreen::refreshTable()
 {
-    this->ui->listaKarnetow->setRowCount(karnety->size());
+    std::vector<SubscriptionType> karnety = kodokanDAO->get_subscription_types();
+    this->ui->listaKarnetow->setRowCount(karnety.size());
     int i = 0;
-    for (auto karnet : *karnety)
+    for (auto karnet : karnety)
     {
-        this->ui->listaKarnetow->setItem(i , 0 , new QTableWidgetItem(QString(karnet.nazwa.c_str())));
-        this->ui->listaKarnetow->setItem(i , 1 , new QTableWidgetItem(QString::number(karnet.ileDni)));
-        this->ui->listaKarnetow->setItem(i , 2 , new QTableWidgetItem(QString::number(karnet.cena)));
+        this->ui->listaKarnetow->setItem(i , 0 , new QTableWidgetItem(QString(karnet.name.c_str())));
+        this->ui->listaKarnetow->setItem(i , 1 , new QTableWidgetItem(QString::number(karnet.length)));
+        this->ui->listaKarnetow->setItem(i , 2 , new QTableWidgetItem(QString::number(karnet.price)));
         i++;
     }
 }
@@ -84,21 +79,45 @@ bool PassesScreen::eventFilter(QObject *obj, QEvent *event)
 void PassesScreen::on_usunKarnet_clicked()
 {
     int toDeleteIndex = this->ui->listaKarnetow->currentRow();
-    karnety->erase(karnety->begin()+toDeleteIndex);
+    std::string temp = ui->listaKarnetow->takeItem(toDeleteIndex,0)->text().toStdString();
+
+    std::vector<SubscriptionType> karnety = kodokanDAO->get_subscription_types();
+    for (auto karnet : karnety)
+    {
+        if(karnet.name.compare(temp) == 0)
+        {
+            kodokanDAO->delete_subscription_type(karnet.id);
+        }
+    }
+
     refreshTable();
 }
 
 void PassesScreen::on_edytujKarnet_clicked()
 {
     int toEditIndex = this->ui->listaKarnetow->currentRow();
+    std::string temp = ui->listaKarnetow->takeItem(toEditIndex,0)->text().toStdString();
+
+    SubscriptionType toEdit;
+
+    std::vector<SubscriptionType> karnety = kodokanDAO->get_subscription_types();
+    for (auto karnet : karnety)
+    {
+        if(karnet.name.compare(temp) == 0)
+        {
+            toEdit = karnet;
+        }
+    }
+
+
     if(addOrEditPassScreen == nullptr)
     {
-        addOrEditPassScreen = new AddOrEditPassScreen(this, &karnety->at(toEditIndex) , karnety);
+        addOrEditPassScreen = new AddOrEditPassScreen(this, &toEdit);
     }
     else
     {
         delete addOrEditPassScreen;
-        addOrEditPassScreen = new AddOrEditPassScreen(this , &karnety->at(toEditIndex) , karnety);
+        addOrEditPassScreen = new AddOrEditPassScreen(this , &toEdit);
     }
     addOrEditPassScreen->move(0,0);
     addOrEditPassScreen->show();

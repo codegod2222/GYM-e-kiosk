@@ -43,6 +43,6 @@ private:
     AdministrationScreen *administrationScreen = nullptr;
     LoopThread *loopThread;
     bool threadRun;
-    //KodokanDAO *kodokanDAO;
+    KodokanDAO *kodokanDAO;
 };
 #endif // MAINWINDOW_H

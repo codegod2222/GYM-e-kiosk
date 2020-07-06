@@ -2,7 +2,6 @@
 #define CLUBMEMBERSSCREEN_H
 
 #include <QDialog>
-#include "ClubMember.h"
 #include "AddOrEditClubMember.h"
 
 namespace Ui {

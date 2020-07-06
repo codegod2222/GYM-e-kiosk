@@ -2,7 +2,7 @@
 #include "ui_AddOrEditPassScreen.h"
 #include "RegistrationInfoScreen.h"
 
-AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, Pass *toEdit, std::vector<Pass> *karnety) :
+AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, SubscriptionType *toEdit) :
     QDialog(parent),
     ui(new Ui::AddOrEditPassScreen)
 {
@@ -17,13 +17,12 @@ AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, Pass *toEdit, std::vec
     this->ui->nazwa->installEventFilter(this);
     this->ui->cenaLabel->setFocus();
 
-    this->karnety = karnety;
     this->toEdit = toEdit;
     if(toEdit !=nullptr)
     {
-        this->ui->nazwa->setText(toEdit->nazwa.c_str());
-        this->ui->cena->setText(QString::number(toEdit->cena));
-        this->ui->ileDni->setText(QString::number(toEdit->ileDni));
+        this->ui->nazwa->setText(toEdit->name.c_str());
+        this->ui->cena->setText(QString::number(toEdit->price));
+        this->ui->ileDni->setText(QString::number(toEdit->length));
     }
 }
 
@@ -90,37 +89,22 @@ void AddOrEditPassScreen::on_zatwierdz_clicked()
     }
     if(this->toEdit !=nullptr)
     {
-        /*
-        UserDAO *toEdit = kodokanDAO->authorize_user(toEdit->email, toEdit->hashed_pswd);
+        std::vector<SubscriptionType> subs = kodokanDAO->get_subscription_types();
 
-        if(toEdit->name.compare(this->ui->imie->text().toStdString()) != 0)
-            toEdit->update_user_name(this->ui->imie->text().toStdString());
-
-        if(toEdit->surname.compare(this->ui->imie->text().toStdString()) != 0)
-            toEdit->update_user_surname(this->ui->nazwisko->text().toStdString());
-
-        if(toEdit->email.compare(this->ui->imie->text().toStdString()) != 0)
-            toEdit->update_user_email(this->ui->email->text().toStdString());
-
-        if(toEdit->hashed_pswd.compare(this->ui->imie->text().toStdString()) != 0)
-            toEdit->update_user_hashed_pswd(this->ui->haslo->text().toStdString());
-        */
-        toEdit->nazwa = this->ui->nazwa->text().toStdString();
-        toEdit->cena = this->ui->cena->text().toInt();
-        toEdit->ileDni = this->ui->ileDni->text().toInt();
+        for(auto sub : subs)
+        {
+            if (toEdit->name.compare(sub.name) == 0)
+            {
+                kodokanDAO->edit_subscription_type_name(sub.id, this->ui->nazwa->text().toStdString());
+                kodokanDAO->edit_subscription_type_price(sub.id, this->ui->cena->text().toInt());
+                kodokanDAO->edit_subscription_type_length(sub.id, this->ui->ileDni->text().toInt());
+            }
+        }
     }
     else
     {
-        /*
-        kodokanDAO.add_user(this->ui->email->text().toStdString(),
-                            this->ui->email->text().toStdString(),
-                            this->ui->imie->text().toStdString(),
-                            this->ui->nazwisko->text().toStdString(),
-                            this->ui->haslo->text().toStdString());
-
-        */
-        Pass newPass(this->ui->nazwa->text().toStdString() , this->ui->cena->text().toInt() , this->ui->ileDni->text().toInt());
-        karnety->push_back(newPass);
+        SubscriptionType newPass{0 , this->ui->nazwa->text().toStdString() , this->ui->cena->text().toInt() , this->ui->ileDni->text().toInt()};
+        kodokanDAO->add_subscription_type(newPass);
     }
 
     on_powrot_clicked();

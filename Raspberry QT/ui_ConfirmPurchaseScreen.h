@@ -10,10 +10,10 @@
 #define UI_CONFIRMPURCHASESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
+#include <QApplication>
+#include <QDialog>
+#include <QLabel>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 

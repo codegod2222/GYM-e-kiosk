@@ -10,9 +10,9 @@
 #define UI_ADMINISTRATIONSCREEN_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QPushButton>
+#include <QApplication>
+#include <QDialog>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 

@@ -130,7 +130,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>153</x>
-     <y>490</y>
+     <y>590</y>
      <width>718</width>
      <height>90</height>
     </rect>
@@ -271,8 +271,8 @@ color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="zatwierdz">
    <property name="geometry">
     <rect>
-     <x>153</x>
-     <y>390</y>
+     <x>150</x>
+     <y>490</y>
      <width>718</width>
      <height>90</height>
     </rect>
@@ -376,6 +376,77 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="rfidLabel">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>380</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>RFID</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="rfid">
+   <property name="geometry">
+    <rect>
+     <x>369</x>
+     <y>380</y>
+     <width>508</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>508</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+font: 75 30pt &quot;Tahoma&quot;;
+
+border-style: solid;
+border-width:4px;
+border-radius:30px;
+
+max-width:500px;
+max-height:82px;
+min-width:500px;
+min-height:82px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
    </property>
   </widget>
  </widget>

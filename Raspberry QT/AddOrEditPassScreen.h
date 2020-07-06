@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "Keyboard.h"
-#include "Pass.h"
+#include "../databse_access/KodokanDAO.h"
 
 namespace Ui {
 class AddOrEditPassScreen;
@@ -14,7 +14,7 @@ class AddOrEditPassScreen : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddOrEditPassScreen(QWidget *parent = nullptr, Pass *toEdit = nullptr, std::vector<Pass> *karnety = nullptr);
+    explicit AddOrEditPassScreen(QWidget *parent = nullptr, SubscriptionType *toEdit = nullptr);
     ~AddOrEditPassScreen();
 
     bool eventFilter(QObject*, QEvent*);
@@ -29,9 +29,8 @@ private slots:
 private:
     Ui::AddOrEditPassScreen *ui;
     Keyboard *keyboard;
-    Pass *toEdit;
-    std::vector<Pass> *karnety;
-    //KodokanDAO *kodokanDAO;
+    SubscriptionType *toEdit;
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // ADDOREDITPASSSCREEN_H

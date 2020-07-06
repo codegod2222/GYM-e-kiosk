@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     loopThread = new LoopThread(threadRun);
     connect( loopThread, SIGNAL(przylozonoKarte(QString)), this, SLOT(przylozonoKarte(QString)));
     this->installEventFilter(this);
-    //kodokanDAO = kodokanDAO->getInstance();
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 MainWindow::~MainWindow()
@@ -28,7 +28,7 @@ void MainWindow::on_kupKarnetButton_clicked()
     threadRun = false;
     if(buyingPassScreen == nullptr)
     {
-        buyingPassScreen = new BuyingPassScreen(nullptr,false);
+        buyingPassScreen = new BuyingPassScreen(nullptr,nullptr);
         buyingPassScreen->move(0,0);
         buyingPassScreen->show();
     }
@@ -72,6 +72,8 @@ void MainWindow::on_zalozKontoButton_clicked()
 
 void MainWindow::on_administracja_clicked()
 {
+    qDebug() << "Stop watek";
+    threadRun = false;
     if(administrationScreen == nullptr)
     {
         administrationScreen = new AdministrationScreen();
@@ -101,8 +103,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 void MainWindow::przylozonoKarte(QString rfid)
 {
-    /*qDebug() << rfid;
-    UserDAO loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
+    qDebug() << rfid;
+    /*UserDAO *loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
     LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);
     loggedScreen->move(0,0);
     loggedScreen->show();*/

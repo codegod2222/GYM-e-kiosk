@@ -22,7 +22,7 @@ LoginScreen::LoginScreen(QWidget *parent) :
 
     ui->login->setFocus();
 
-    //kodokanDAO = kodokanDAO->getInstance();
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 LoginScreen::~LoginScreen()
@@ -47,16 +47,15 @@ void LoginScreen::on_zaloguj_clicked()
     QString login = ui->login->text();
     QString password = ui->password->text();
 
-    //UserDAO *loggedUser = kodokanDAO->authorize_user(login.toStdString(), password.toStdString());
-    QString loggedUser = nullptr;   //zastepczo
+    UserDAO *loggedUser = kodokanDAO->authorize_user(login.toStdString(), password.toStdString());
 
     if(loggedUser != nullptr)
     {
         ui->komunikat->show();
         ui->komunikat->setText("ZALOGOWANO POMYŚLNIE");
-        /*LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
+        LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
         loggedScreen->move(0,0);
-        loggedScreen->show();*/
+        loggedScreen->show();
 
         on_powrot_clicked();
     }
