@@ -37,7 +37,8 @@ public:
             std::string creation_date,
             std::string name,
             std::string surname,
-            std::string hashed_pswd)
+            std::string hashed_pswd,
+            std::string rfid)
             : connection{ connection },
               id{ id },
               username{ username },
@@ -45,7 +46,8 @@ public:
               creation_date{ creation_date },
               name{ name },
               surname{ surname },
-              hashed_pswd{ hashed_pswd }
+              hashed_pswd{ hashed_pswd },
+              rfid{rfid}
     {}
 
     // add new subscription (when user buys one)
