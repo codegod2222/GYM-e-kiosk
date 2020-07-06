@@ -11,6 +11,7 @@ PasswordChangeScreen::PasswordChangeScreen(QWidget *parent, UserDAO *loggedUser)
 
     keyboard = keyboard->getKeyboard();
     keyboard->move(0,388); //418
+    this->loggedUser = loggedUser;
 
     this->ui->oldPassword->installEventFilter(this);
     this->ui->newPassword->installEventFilter(this);
@@ -71,7 +72,7 @@ void PasswordChangeScreen::mousePressEvent(QMouseEvent *event)
 void PasswordChangeScreen::on_potwierdz_clicked()
 {
     QString oldPassword = this->ui->oldPassword->text();
-    /*int temp = oldPassword.compare(loggedUser->getPassword());
+    int temp = oldPassword.compare(QString(loggedUser->hashed_pswd.c_str()));
     if(temp==0)
     {
         QString newPassword = this->ui->newPassword->text();
@@ -92,7 +93,7 @@ void PasswordChangeScreen::on_potwierdz_clicked()
         }
         else
         {
-            //loggedUser->setPassword(newPassword);
+            loggedUser->update_user_hashed_pswd(this->ui->newPassword->text().toStdString());
             infoScreen = new RegistrationInfoScreen(nullptr, "HASŁO POMYŚLNIE ZMIENIONE");
             infoScreen->move(162,234);
             infoScreen->show();
@@ -105,5 +106,5 @@ void PasswordChangeScreen::on_potwierdz_clicked()
         infoScreen->move(162,234);
         infoScreen->show();
         return;
-    }*/
+    }
 }

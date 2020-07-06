@@ -22,7 +22,7 @@ static const uint qt_meta_data_TakePictureScreen[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -30,22 +30,23 @@ static const uint qt_meta_data_TakePictureScreen[] = {
        1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      18,   41,   41,   41, 0x05,
+      18,   30,   30,   30, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      42,   63,   41,   41, 0x08,
-      69,   41,   41,   41, 0x08,
-      91,   41,   41,   41, 0x08,
-     109,   41,   41,   41, 0x08,
+      31,   52,   30,   30, 0x08,
+      58,   30,   30,   30, 0x08,
+      80,   30,   30,   30, 0x08,
+      98,   30,   30,   30, 0x08,
+     114,   30,   30,   30, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_TakePictureScreen[] = {
-    "TakePictureScreen\0takePhoto(std::string)\0"
-    "\0handleImage(QImage&)\0image\0"
+    "TakePictureScreen\0takePhoto()\0\0"
+    "handleImage(QImage&)\0image\0"
     "on_btnStart_clicked()\0on_OK_2_clicked()\0"
-    "on_OK_clicked()\0"
+    "on_OK_clicked()\0on_zapisz_clicked()\0"
 };
 
 void TakePictureScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,11 +55,12 @@ void TakePictureScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         Q_ASSERT(staticMetaObject.cast(_o));
         TakePictureScreen *_t = static_cast<TakePictureScreen *>(_o);
         switch (_id) {
-        case 0: _t->takePhoto((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 0: _t->takePhoto(); break;
         case 1: _t->handleImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;
         case 2: _t->on_btnStart_clicked(); break;
         case 3: _t->on_OK_2_clicked(); break;
         case 4: _t->on_OK_clicked(); break;
+        case 5: _t->on_zapisz_clicked(); break;
         default: ;
         }
     }
@@ -96,17 +98,16 @@ int TakePictureScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
 
 // SIGNAL 0
-void TakePictureScreen::takePhoto(std::string _t1)
+void TakePictureScreen::takePhoto()
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

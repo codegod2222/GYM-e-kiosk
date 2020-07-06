@@ -8,9 +8,9 @@ DataChangeScreen::DataChangeScreen(QWidget *parent, UserDAO *loggedUser, LoggedS
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    /*ui->imie->setText(loggedUser->name.c_str());
+    ui->imie->setText(loggedUser->name.c_str());
     ui->nazwisko->setText(loggedUser->surname.c_str());
-    ui->email->setText(loggedUser->email.c_str());*/
+    ui->email->setText(loggedUser->email.c_str());
 
     //W celu ukazania ekranu bez klawiatury i skupionego na jakimkolwiek QLineEdit
     this->ui->nazwiskoLabel->setFocus();
@@ -42,9 +42,9 @@ void DataChangeScreen::on_powrot_clicked()
 
 void DataChangeScreen::on_zatwierdzZmiany_clicked()
 {
-    /*loggedUser->name = ui->imie->text();
-    loggedUser->surname = ui->nazwisko->text();
-    loggedUser->email = ui->email->text();*/
+    loggedUser->update_user_name(ui->imie->text().toStdString());
+    loggedUser->update_user_surname(ui->nazwisko->text().toStdString());
+    loggedUser->update_user_email(ui->email->text().toStdString());
 
     connect( this, SIGNAL(wyslijZmianeDanych()), loggedScreen, SLOT(odbierzZmianeDanych()));
     emit wyslijZmianeDanych();

@@ -25,15 +25,15 @@ TakePictureScreen::~TakePictureScreen()
 
 void TakePictureScreen::on_btnStart_clicked()
 {
-    /*workerThread = new QThread;
+    workerThread = new QThread;
     worker = new CameraWorker;
 
     worker->moveToThread(workerThread);
 
     connect(workerThread, SIGNAL(started()), worker, SLOT(doWork()));
-    connect(this, SIGNAL(takePhoto(std::string)), worker, SLOT(takePhotoWorker(std::string)));
+    connect(this, SIGNAL(takePhoto()), worker, SLOT(takePhotoWorker()));
     connect(worker, SIGNAL(handleImage(QImage &)), this, SLOT(handleImage(QImage &)));
-    workerThread->start();*/
+    workerThread->start();
 
 }
 
@@ -47,16 +47,22 @@ void TakePictureScreen::handleImage(QImage &image)
 
 void TakePictureScreen::on_OK_2_clicked()
 {
+
+    this->close();
     /*workerThread->terminate();
     delete worker;*/
-    this->close();
 }
 
 void TakePictureScreen::on_OK_clicked()
 {
     this->ui->OK->setVisible(false);
     this->ui->jeszczeRaz->setVisible(true);
-    emit takePhoto(email);
+    emit takePhoto();
     QApplication::processEvents();
     this->repaint();
+}
+
+void TakePictureScreen::on_zapisz_clicked()
+{
+    this->close();
 }

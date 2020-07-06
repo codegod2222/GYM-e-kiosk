@@ -1,11 +1,11 @@
-/*#ifndef CAMERAWORKER_H
+#ifndef CAMERAWORKER_H
 #define CAMERAWORKER_H
 
 #include <QImage>
 
-//#include <raspicam/raspicam.h>
+#include <raspicam/raspicam.h>
 
-//using namespace raspicam;
+using namespace raspicam;
 
 class CameraWorker : public QObject
 {
@@ -15,7 +15,7 @@ public:
     ~CameraWorker();
 
 private:
-    //RaspiCam camera;
+    RaspiCam camera;
     bool cameraRunning;
     unsigned char *data;
 
@@ -23,10 +23,10 @@ signals:
     void handleImage(QImage &image);
 
 private slots:
-    void takePhotoWorker(std::string);
+    void takePhotoWorker();
 
 public slots:
     void doWork();
 };
 
-#endif // CAMERAWORKER_H*/
+#endif // CAMERAWORKER_H

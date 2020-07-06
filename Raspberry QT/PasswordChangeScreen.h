@@ -2,9 +2,9 @@
 #define PASSWORDCHANGESCREEN_H
 
 #include <QDialog>
-#include <LoggedUser.h>
 #include <RegistrationInfoScreen.h>
 #include <Keyboard.h>
+#include "../databse_access/UserDAO.h"
 
 namespace Ui {
 class PasswordChangeScreen;

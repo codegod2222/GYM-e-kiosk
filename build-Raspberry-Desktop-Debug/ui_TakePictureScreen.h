@@ -26,7 +26,7 @@ public:
     QLabel *imgLabel;
     QPushButton *OK;
     QPushButton *OK_2;
-    QPushButton *jeszczeRaz;
+    QPushButton *zapisz;
 
     void setupUi(QWidget *TakePictureScreen)
     {
@@ -68,10 +68,10 @@ public:
 "\n"
 "font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);"));
-        jeszczeRaz = new QPushButton(TakePictureScreen);
-        jeszczeRaz->setObjectName(QString::fromUtf8("jeszczeRaz"));
-        jeszczeRaz->setGeometry(QRect(74, 645, 400, 100));
-        jeszczeRaz->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+        zapisz = new QPushButton(TakePictureScreen);
+        zapisz->setObjectName(QString::fromUtf8("zapisz"));
+        zapisz->setGeometry(QRect(74, 645, 400, 100));
+        zapisz->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
 "border-style: solid;\n"
 "border-width:4px;\n"
 "border-radius:30px;\n"
@@ -91,7 +91,7 @@ public:
         imgLabel->setText(QApplication::translate("TakePictureScreen", "Inicjowanie kamery", 0, QApplication::UnicodeUTF8));
         OK->setText(QApplication::translate("TakePictureScreen", "ZR\303\223B ZDJ\304\230CIE", 0, QApplication::UnicodeUTF8));
         OK_2->setText(QApplication::translate("TakePictureScreen", "ANULUJ", 0, QApplication::UnicodeUTF8));
-        jeszczeRaz->setText(QApplication::translate("TakePictureScreen", "JESZCZE RAZ", 0, QApplication::UnicodeUTF8));
+        zapisz->setText(QApplication::translate("TakePictureScreen", "ZAPISZ", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

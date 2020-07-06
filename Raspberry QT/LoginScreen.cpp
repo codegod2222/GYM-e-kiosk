@@ -1,7 +1,6 @@
 #include "LoginScreen.h"
 #include "ui_LoginScreen.h"
 #include "LoggedScreen.h"
-#include "LoggedUser.h"
 #include "Keyboard.h"
 
 int LoginScreen::ile = 0;

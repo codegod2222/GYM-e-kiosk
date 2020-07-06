@@ -1,4 +1,4 @@
-/*#include "CameraWorker.h"
+#include "CameraWorker.h"
 
 #include <fstream>
 #include <iostream>
@@ -11,7 +11,7 @@
 CameraWorker::CameraWorker() : cameraRunning(true)
 {
     qRegisterMetaType<QImage>("QImage&");
-    data = new unsigned char[camera.getImageTypeSize(RASPICAM_FORMAT_RGB)];
+    data = new unsigned char[camera.getImageTypeSize(RASPICAM_FORMAT_GRAY)];
 }
 
 CameraWorker::~CameraWorker()
@@ -41,6 +41,7 @@ void CameraWorker::doWork()
 
         // Convert the data and send to the caller to handle
         QImage image = QImage(data, camera.getWidth(), camera.getHeight(), QImage::Format_RGB888);
+        image = image.rgbSwapped();
         emit handleImage(image);
 
         // Make the app process stopWork() if necessary
@@ -49,14 +50,14 @@ void CameraWorker::doWork()
     }
 }
 
-void CameraWorker::takePhotoWorker(std::string email)
+void CameraWorker::takePhotoWorker()
 {
-    std::string path = email;
+    std::string path = "email";
     path.append(".ppm");
     std::ofstream outFile (path , std::ios::binary);
     outFile<<"P6\n"<< camera.getWidth() << " " << camera.getHeight() << " 255\n";
-    outFile.write((char*)data, camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB));
+    outFile.write((char*)data, camera.getImageTypeSize(RASPICAM_FORMAT_BGR));
     cameraRunning = false;
     qApp->processEvents();
 }
-*/
+

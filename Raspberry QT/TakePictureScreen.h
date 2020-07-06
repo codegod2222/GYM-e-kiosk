@@ -2,10 +2,10 @@
 #define TAKEPICTURESCREEN_H
 
 #include <QWidget>
-//#include <raspicam/raspicam.h>
+#include <raspicam/raspicam.h>
 #include <CameraWorker.h>
 
-//using namespace raspicam;
+using namespace raspicam;
 
 namespace Ui {
 class TakePictureScreen;
@@ -29,14 +29,16 @@ private slots:
 
         void on_OK_clicked();
 
+        void on_zapisz_clicked();
+
 signals:
 
-        void takePhoto(std::string);
+        void takePhoto();
 
 private:
         Ui::TakePictureScreen *ui;
         QThread *workerThread;
-        //CameraWorker *worker;
+        CameraWorker *worker;
         std::string email;
 };
 

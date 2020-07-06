@@ -32,7 +32,6 @@ SOURCES += \
     DataChangeScreen.cpp \
     Keyboard.cpp \
     LoggedScreen.cpp \
-    LoggedUser.cpp \
     LoginScreen.cpp \
     LoopThread.cpp \
     PassesScreen.cpp \
@@ -62,7 +61,6 @@ HEADERS += \
     DataChangeScreen.h \
     Keyboard.h \
     LoggedScreen.h \
-    LoggedUser.h \
     LoginScreen.h \
     LoopThread.h \
     PassesScreen.h \
@@ -114,7 +112,7 @@ LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
 LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
 LIBS += -L/usr/lib -lmysqlcppconn
 
-#LIBS += -E/usr/include/cppconn    -
+#LIBS += -E/usr/include/cppconn
 
 LIBS += -lcurl
 
@@ -127,7 +125,6 @@ DISTFILES += \
     DataChangeScreen.o \
     Keyboard.o \
     LoggedScreen.o \
-    LoggedUser.o \
     LoginScreen.o \
     LoopThread.o \
     Makefile \

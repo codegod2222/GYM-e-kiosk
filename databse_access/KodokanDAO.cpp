@@ -277,7 +277,8 @@ std::vector<UserDAO> KodokanDAO::get_users()
                     result->getString("creation_date"),
                     result->getString("name"),
                     result->getString("surname"),
-                    result->getString("hashed_pswd")));
+                    result->getString("hashed_pswd"),
+                    result->getString("rfid")));
         }
         return users;
     }

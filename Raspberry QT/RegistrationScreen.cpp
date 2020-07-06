@@ -1,7 +1,6 @@
 #include "RegistrationScreen.h"
 #include "ui_RegistrationScreen.h"
 #include "QMouseEvent"
-#include "LoggedUser.h"
 #include "LoggedScreen.h"
 #include "TakePictureScreen.h"
 
@@ -21,7 +20,7 @@ RegistrationScreen::RegistrationScreen(QWidget *parent) :
     ui->powtHaslo->installEventFilter(this);
     ui->nazwiskoLabel->installEventFilter(this);
 
-    //kodokanDAO = kodokanDAO->getInstance();
+    kodokanDAO = kodokanDAO->getInstance();
 }
 
 RegistrationScreen::~RegistrationScreen()
@@ -178,7 +177,7 @@ void RegistrationScreen::on_pushButton_clicked()
         return;
     }
 
-    //kodokanDAO->add_user(email.toStdString(), email.toStdString(), imie.toStdString(), nazwisko.toStdString(), haslo.toStdString());
+    kodokanDAO->add_user(email.toStdString(), email.toStdString(), imie.toStdString(), nazwisko.toStdString(), haslo.toStdString());
 
     registrationInfoScreen = new RegistrationInfoScreen(nullptr, "ZAREJESTROWANO POMYŚLNIE");
     registrationInfoScreen->move(162,234);
@@ -189,11 +188,11 @@ void RegistrationScreen::on_pushButton_clicked()
 
     }
 
-    /*UserDAO * loggedUser = kodokanDAO->authorize_user(email.toStdString(), haslo.toStdString());
+    UserDAO * loggedUser = kodokanDAO->authorize_user(email.toStdString(), haslo.toStdString());
 
     LoggedScreen *loggedScreen = new LoggedScreen(this,loggedUser);
     loggedScreen->move(0,0);
-    loggedScreen->show();*/
+    loggedScreen->show();
     on_powrot_clicked();
 }
 

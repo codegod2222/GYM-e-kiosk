@@ -2,7 +2,6 @@
 #define DATACHANGESCREEN_H
 
 #include <QDialog>
-#include "LoggedUser.h"
 #include "LoggedScreen.h"
 #include "PasswordChangeScreen.h"
 #include <Keyboard.h>

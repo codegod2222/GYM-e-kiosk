@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "Keyboard.h"
+#include "../databse_access/KodokanDAO.h"
 
 namespace Ui {
 class CompanyInfoScreen;
@@ -28,7 +29,7 @@ private slots:
 private:
     Ui::CompanyInfoScreen *ui;
     Keyboard *keyboard;
-    //KodokanDAO *kodokanDAO;
+    KodokanDAO *kodokanDAO;
 };
 
 #endif // COMPANYINFOSCREEN_H
