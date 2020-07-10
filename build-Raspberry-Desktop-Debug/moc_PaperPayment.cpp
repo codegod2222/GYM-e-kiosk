@@ -22,26 +22,40 @@ static const uint qt_meta_data_PaperPayment[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      13,   22,   22,   22, 0x05,
+
+ // slots: signature, parameters, type, tag, flags
+      23,   22,   22,   22, 0x08,
+      43,   22,   22,   22, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_PaperPayment[] = {
-    "PaperPayment\0"
+    "PaperPayment\0drukuj()\0\0on_anuluj_clicked()\0"
+    "zaplacono(int)\0"
 };
 
 void PaperPayment::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        PaperPayment *_t = static_cast<PaperPayment *>(_o);
+        switch (_id) {
+        case 0: _t->drukuj(); break;
+        case 1: _t->on_anuluj_clicked(); break;
+        case 2: _t->zaplacono((*reinterpret_cast< int(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObjectExtraData PaperPayment::staticMetaObjectExtraData = {
@@ -75,6 +89,17 @@ int PaperPayment::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void PaperPayment::drukuj()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

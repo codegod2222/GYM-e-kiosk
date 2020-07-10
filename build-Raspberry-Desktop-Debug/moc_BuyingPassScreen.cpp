@@ -22,7 +22,7 @@ static const uint qt_meta_data_BuyingPassScreen[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -30,26 +30,28 @@ static const uint qt_meta_data_BuyingPassScreen[] = {
        1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      17,   78,  102,  102, 0x05,
+      17,   87,  111,  111, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     103,  102,  102,  102, 0x08,
-     123,  102,  102,  102, 0x08,
-     144,  102,  102,  102, 0x08,
-     163,  102,  102,  102, 0x08,
-     183,  215,  102,  102, 0x08,
-     217,  102,  102,  102, 0x08,
+     112,  111,  111,  111, 0x08,
+     132,  111,  111,  111, 0x08,
+     153,  111,  111,  111, 0x08,
+     172,  111,  111,  111, 0x08,
+     192,  233,  111,  111, 0x08,
+     235,  111,  111,  111, 0x08,
+     258,  111,  111,  111, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_BuyingPassScreen[] = {
     "BuyingPassScreen\0"
-    "wyslijDaneDoPotwierdzenia(QString,QString,BuyingPassScreen*)\0"
+    "wyslijDaneDoPotwierdzenia(SubscriptionType,QString,BuyingPassScreen*)\0"
     "karnet,rodzajPlatnosci,\0\0on_powrot_clicked()\0"
     "on_gotowka_clicked()\0on_karta_clicked()\0"
-    "on_online_clicked()\0potwierdzZakup(QString,QString)\0"
-    ",\0odbierzPotwierdzenie()\0"
+    "on_online_clicked()\0"
+    "potwierdzZakup(SubscriptionType,QString)\0"
+    ",\0odbierzPotwierdzenie()\0drukuj2()\0"
 };
 
 void BuyingPassScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -58,13 +60,14 @@ void BuyingPassScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_ASSERT(staticMetaObject.cast(_o));
         BuyingPassScreen *_t = static_cast<BuyingPassScreen *>(_o);
         switch (_id) {
-        case 0: _t->wyslijDaneDoPotwierdzenia((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< BuyingPassScreen*(*)>(_a[3]))); break;
+        case 0: _t->wyslijDaneDoPotwierdzenia((*reinterpret_cast< SubscriptionType(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< BuyingPassScreen*(*)>(_a[3]))); break;
         case 1: _t->on_powrot_clicked(); break;
         case 2: _t->on_gotowka_clicked(); break;
         case 3: _t->on_karta_clicked(); break;
         case 4: _t->on_online_clicked(); break;
-        case 5: _t->potwierdzZakup((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 5: _t->potwierdzZakup((*reinterpret_cast< SubscriptionType(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 6: _t->odbierzPotwierdzenie(); break;
+        case 7: _t->drukuj2(); break;
         default: ;
         }
     }
@@ -102,15 +105,15 @@ int BuyingPassScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
 
 // SIGNAL 0
-void BuyingPassScreen::wyslijDaneDoPotwierdzenia(QString _t1, QString _t2, BuyingPassScreen * _t3)
+void BuyingPassScreen::wyslijDaneDoPotwierdzenia(SubscriptionType _t1, QString _t2, BuyingPassScreen * _t3)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

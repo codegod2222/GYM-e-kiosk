@@ -53,7 +53,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+    <string notr="true">font: 75 28pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);
 aligment: alignVcenter;
 aligment: alignHcenter;</string>
@@ -68,9 +68,9 @@ aligment: alignHcenter;</string>
   <widget class="QComboBox" name="typyKarnetow">
    <property name="geometry">
     <rect>
-     <x>232</x>
+     <x>12</x>
      <y>130</y>
-     <width>560</width>
+     <width>1000</width>
      <height>100</height>
     </rect>
    </property>
@@ -81,16 +81,26 @@ aligment: alignHcenter;</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+    <string notr="true">QComboBox {
+font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(13, 13, 13);
 selection-background-color: rgb(13, 13, 13);
-down-arrow:
-{   
-    heidth:100px;
-    width:100px;
-};
+border: 1px solid gray;
+}
+QComboBox::drop-down {
+width: 100px;
+}
 </string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -118,7 +128,7 @@ down-arrow:
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 30pt &quot;Tahoma&quot;;
+    <string notr="true">font: 75 28pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);
 aligment: alignVcenter;
 aligment: alignHcenter;</string>

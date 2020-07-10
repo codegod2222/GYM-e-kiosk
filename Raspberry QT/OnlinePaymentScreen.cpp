@@ -26,4 +26,9 @@ void OnlinePaymentScreen::on_zaplacono_clicked()
 {
     std::string status = getTransactionStatus(this->url.substr(url.rfind("gtitle=") + 7));
     this->ui->status->setText(status.c_str());
+
+    if(status == "correct"){
+        this->ui->anuluj->setText("OK");
+        emit drukuj();
+    }
 }

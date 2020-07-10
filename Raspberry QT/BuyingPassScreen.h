@@ -23,10 +23,6 @@ public:
 
     void mousePressEvent(QMouseEvent*);
 
-private:
-    QString wybranyKarnet;
-    QString wybranaPlatnosc;
-
 private slots:
     void on_powrot_clicked();
 
@@ -36,11 +32,13 @@ private slots:
 
     void on_online_clicked();
 
-    void potwierdzZakup(QString, QString);
+    void potwierdzZakup(SubscriptionType, QString);
 
     void odbierzPotwierdzenie();
+
+    void drukuj2();
 signals:
-    void wyslijDaneDoPotwierdzenia(QString karnet, QString rodzajPlatnosci, BuyingPassScreen*);
+    void wyslijDaneDoPotwierdzenia(SubscriptionType karnet, QString rodzajPlatnosci, BuyingPassScreen*);
 
 private:
     Ui::BuyingPassScreen *ui;
@@ -48,6 +46,9 @@ private:
     PaperPayment *paperPaymentScreen = nullptr;
     UserDAO *loggedUser = nullptr;
     KodokanDAO *kodokanDAO;
+    bool popupHidden = true;
+    SubscriptionType wybranyKarnet;
+    QString wybranaPlatnosc;
 };
 
 #endif // BUYINGPASSSCREEN_H

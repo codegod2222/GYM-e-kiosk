@@ -50,6 +50,8 @@ public:
               rfid{rfid}
     {}
 
+    UserDAO(std::string email, std::string name):id {0},email{email}, name{name}{}
+
     // add new subscription (when user buys one)
     void add_subscription(int subscription_type);
 

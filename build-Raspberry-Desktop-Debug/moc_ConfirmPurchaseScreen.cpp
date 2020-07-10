@@ -34,8 +34,8 @@ static const uint qt_meta_data_ConfirmPurchaseScreen[] = {
 
  // slots: signature, parameters, type, tag, flags
       45,   44,   44,   44, 0x08,
-      68,  115,   44,   44, 0x08,
-     139,   44,   44,   44, 0x08,
+      68,  124,   44,   44, 0x08,
+     148,   44,   44,   44, 0x08,
 
        0        // eod
 };
@@ -43,7 +43,7 @@ static const uint qt_meta_data_ConfirmPurchaseScreen[] = {
 static const char qt_meta_stringdata_ConfirmPurchaseScreen[] = {
     "ConfirmPurchaseScreen\0wyslijPotwierdzenie()\0"
     "\0on_potwierdz_clicked()\0"
-    "odbierzDane(QString,QString,BuyingPassScreen*)\0"
+    "odbierzDane(SubscriptionType,QString,BuyingPassScreen*)\0"
     "karnet,rodzajPlatnosci,\0on_close_clicked()\0"
 };
 
@@ -55,7 +55,7 @@ void ConfirmPurchaseScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         switch (_id) {
         case 0: _t->wyslijPotwierdzenie(); break;
         case 1: _t->on_potwierdz_clicked(); break;
-        case 2: _t->odbierzDane((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< BuyingPassScreen*(*)>(_a[3]))); break;
+        case 2: _t->odbierzDane((*reinterpret_cast< SubscriptionType(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< BuyingPassScreen*(*)>(_a[3]))); break;
         case 3: _t->on_close_clicked(); break;
         default: ;
         }

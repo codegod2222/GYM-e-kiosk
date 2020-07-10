@@ -49,7 +49,9 @@ SOURCES += \
     ../databse_access/KodokanDAO.cpp \
     ../databse_access/UserDAO.cpp \
     ../online_payment/md5.cpp \
-    PaperPayment.cpp
+    PaperPayment.cpp \
+    ../banknote_acceptor/acceptor_test.cpp \
+    PaymentThread.cpp
 
 HEADERS += \
     AddOrEditClubMember.h \
@@ -79,7 +81,9 @@ HEADERS += \
     ../online_payment/onlinePayment.h \
     ../databse_access/KodokanDAO.h \
     ../databse_access/UserDAO.h \
-    PaperPayment.h
+    PaperPayment.h \
+    ../banknote_acceptor/acceptor_test.h \
+    PaymentThread.h
 
 FORMS += \
     AddOrEditClubMember.ui \
@@ -115,10 +119,14 @@ LIBS += -L/opt/vc/lib -lmmal -lmmal_core -lmmal_util
 LIBS += -L/usr/local/lib -I/usr/local/include -lraspicam
 LIBS += -L/usr/lib -lmysqlcppconn
 
+LIBS += -L/usr/lib -lwiringPi
+
 #LIBS += -E/usr/include/cppconn
 
 LIBS += -lcurl
 
+LIBS += -L/usr/local/lib
+LIBS += -L/usr/local/lib -lwiringPi
 
 DISTFILES += \
     AdministrationScreen.o \

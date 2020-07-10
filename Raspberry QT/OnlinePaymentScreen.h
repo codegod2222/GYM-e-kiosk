@@ -23,9 +23,14 @@ private slots:
 
     void on_zaplacono_clicked();
 
+signals:
+    void drukuj();
+
 private:
     Ui::OnlinePaymentScreen *ui;
     std::string url;
+
+
 };
 
 #endif // ONLINEPAYMENTSCREEN_H

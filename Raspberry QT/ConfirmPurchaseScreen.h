@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <BuyingPassScreen.h>
+#include <../databse_access/KodokanDAO.h>
 
 namespace Ui {
 class ConfirmPurchaseScreen;
@@ -20,7 +21,7 @@ public:
 private slots:
     void on_potwierdz_clicked();
 
-    void odbierzDane(QString karnet, QString rodzajPlatnosci, BuyingPassScreen*);
+    void odbierzDane(SubscriptionType karnet, QString rodzajPlatnosci, BuyingPassScreen*);
 
     void on_close_clicked();
 

@@ -22,23 +22,26 @@ static const uint qt_meta_data_OnlinePaymentScreen[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      20,   29,   29,   29, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      20,   40,   40,   40, 0x08,
-      41,   40,   40,   40, 0x08,
+      30,   29,   29,   29, 0x08,
+      50,   29,   29,   29, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_OnlinePaymentScreen[] = {
-    "OnlinePaymentScreen\0on_anuluj_clicked()\0"
-    "\0on_zaplacono_clicked()\0"
+    "OnlinePaymentScreen\0drukuj()\0\0"
+    "on_anuluj_clicked()\0on_zaplacono_clicked()\0"
 };
 
 void OnlinePaymentScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,8 +50,9 @@ void OnlinePaymentScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         Q_ASSERT(staticMetaObject.cast(_o));
         OnlinePaymentScreen *_t = static_cast<OnlinePaymentScreen *>(_o);
         switch (_id) {
-        case 0: _t->on_anuluj_clicked(); break;
-        case 1: _t->on_zaplacono_clicked(); break;
+        case 0: _t->drukuj(); break;
+        case 1: _t->on_anuluj_clicked(); break;
+        case 2: _t->on_zaplacono_clicked(); break;
         default: ;
         }
     }
@@ -87,10 +91,16 @@ int OnlinePaymentScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
+}
+
+// SIGNAL 0
+void OnlinePaymentScreen::drukuj()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

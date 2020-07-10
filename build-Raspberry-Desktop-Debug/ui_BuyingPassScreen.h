@@ -46,33 +46,36 @@ public:
         label->setMinimumSize(QSize(130, 100));
         label->setMaximumSize(QSize(1000, 100));
         label->setLayoutDirection(Qt::RightToLeft);
-        label->setStyleSheet(QString::fromUtf8("font: 75 30pt \"Tahoma\";\n"
+        label->setStyleSheet(QString::fromUtf8("font: 75 28pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);\n"
 "aligment: alignVcenter;\n"
 "aligment: alignHcenter;"));
         label->setAlignment(Qt::AlignCenter);
         typyKarnetow = new QComboBox(BuyingPassScreen);
         typyKarnetow->setObjectName(QString::fromUtf8("typyKarnetow"));
-        typyKarnetow->setGeometry(QRect(232, 130, 560, 100));
+        typyKarnetow->setGeometry(QRect(12, 130, 1000, 100));
         typyKarnetow->setLayoutDirection(Qt::LeftToRight);
         typyKarnetow->setAutoFillBackground(false);
-        typyKarnetow->setStyleSheet(QString::fromUtf8("font: 75 30pt \"Tahoma\";\n"
+        typyKarnetow->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(13, 13, 13);\n"
 "selection-background-color: rgb(13, 13, 13);\n"
-"down-arrow:\n"
-"{   \n"
-"    heidth:100px;\n"
-"    width:100px;\n"
-"};\n"
+"border: 1px solid gray;\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"width: 100px;\n"
+"}\n"
 ""));
+        typyKarnetow->setIconSize(QSize(100, 100));
+        typyKarnetow->setFrame(false);
         label_2 = new QLabel(BuyingPassScreen);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(232, 240, 560, 100));
         label_2->setMinimumSize(QSize(130, 100));
         label_2->setMaximumSize(QSize(1000, 100));
         label_2->setLayoutDirection(Qt::RightToLeft);
-        label_2->setStyleSheet(QString::fromUtf8("font: 75 30pt \"Tahoma\";\n"
+        label_2->setStyleSheet(QString::fromUtf8("font: 75 28pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);\n"
 "aligment: alignVcenter;\n"
 "aligment: alignHcenter;"));

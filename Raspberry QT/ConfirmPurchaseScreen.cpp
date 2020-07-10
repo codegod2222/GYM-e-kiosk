@@ -16,9 +16,9 @@ ConfirmPurchaseScreen::~ConfirmPurchaseScreen()
     delete ui;
 }
 
-void ConfirmPurchaseScreen::odbierzDane(QString karnet, QString platnosc, BuyingPassScreen* ekranKupowania)
+void ConfirmPurchaseScreen::odbierzDane(SubscriptionType karnet, QString platnosc, BuyingPassScreen* ekranKupowania)
 {
-    ui->typKarnetu->setText(karnet);
+    ui->typKarnetu->setText(karnet.name.c_str());
     ui->typFormy->setText(platnosc);
     buyingPassScreen = ekranKupowania;
 }

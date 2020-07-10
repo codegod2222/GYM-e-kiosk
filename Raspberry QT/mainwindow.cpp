@@ -88,6 +88,7 @@ void MainWindow::on_administracja_clicked()
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
+
     if(event->type() == QEvent::WindowActivate)
     {
         if(!loopThread->isRunning())
@@ -103,8 +104,25 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 void MainWindow::przylozonoKarte(QString rfid)
 {
+    if(rfid.compare("B0070AFEB1") == 0)
+    {
+        qDebug() << "Stop watek";
+        threadRun = false;
+        if(administrationScreen == nullptr)
+        {
+            administrationScreen = new AdministrationScreen();
+            administrationScreen->move(0,0);
+            administrationScreen->show();
+        }
+        else
+        {
+            administrationScreen->show();
+        }
+    }
     qDebug() << rfid;
     UserDAO *loggedUser = kodokanDAO->authorize_user(rfid.toStdString());
+    qDebug() << "Stop watek";
+    threadRun = false;
     if(loggedUser != nullptr)
     {
         LoggedScreen *loggedScreen = new LoggedScreen(nullptr,loggedUser);

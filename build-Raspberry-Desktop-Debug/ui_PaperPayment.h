@@ -26,6 +26,7 @@ public:
     QLabel *wprowadz;
     QLabel *kwota;
     QPushButton *anuluj;
+    QLabel *info;
 
     void setupUi(QDialog *PaperPayment)
     {
@@ -62,6 +63,12 @@ public:
 "\n"
 "font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);"));
+        info = new QLabel(PaperPayment);
+        info->setObjectName(QString::fromUtf8("info"));
+        info->setGeometry(QRect(12, 600, 1000, 81));
+        info->setStyleSheet(QString::fromUtf8("font: 75 30pt \"Tahoma\";\n"
+"color: rgb(255, 255, 255);"));
+        info->setAlignment(Qt::AlignCenter);
 
         retranslateUi(PaperPayment);
 
@@ -74,6 +81,7 @@ public:
         wprowadz->setText(QApplication::translate("PaperPayment", "WPROWADZ KWOTE:", 0, QApplication::UnicodeUTF8));
         kwota->setText(QString());
         anuluj->setText(QApplication::translate("PaperPayment", "ANULUJ", 0, QApplication::UnicodeUTF8));
+        info->setText(QString());
     } // retranslateUi
 
 };

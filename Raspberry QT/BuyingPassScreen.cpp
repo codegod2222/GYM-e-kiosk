@@ -4,6 +4,8 @@
 #include "ConfirmPurchaseScreen.h"
 #include "printer.h"
 #include <sstream>
+#include <QDebug>
+#include <ctime>
 
 struct ReceiptData {
     std::string nazwaFirmy;
@@ -105,15 +107,10 @@ void printReceipt(Printer& printer, ReceiptData& data) {
     printer.size(Printer::Size::NORMAL);
     printer.font(Printer::Font::A);
     printPair(printer, data.rodzajPlatnosci, makePrice(data.zaplacono));
-    if (data.rodzajPlatnosci == "Gotówka") {
-        printPair(printer, "Reszta gotówka", makePrice(data.zaplacono-data.suma));
-    }
-    printPair(printer, "Nabywca", data.nabywca);
+    if (data.nabywca != "")
+        printPair(printer, "Nabywca", data.nabywca);
     printer.font(Printer::Font::B);
-    printer.print(toInt(data.nrDobowy, 5) + '/' + toInt(data.nrDoby, 4) + ' ');
-    printer.font(Printer::Font::A);
-    printer.print("                    ");
-    printer.font(Printer::Font::B);
+    printer.align(Printer::Align::RIGHT);
     printer.println(data.godzina);
     printer.endFeed(90);
 }
@@ -131,13 +128,20 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     this->ui->typyKarnetow->installEventFilter(this);
 
     this->loggedUser = loggedUser;
-    if(loggedUser != nullptr)
+
+    kodokanDAO = kodokanDAO->getInstance();
+
+    std::vector<SubscriptionType> karnety = kodokanDAO->get_subscription_types();
+    for (auto karnet : karnety)
     {
-        ui->typyKarnetow->addItem("TYGODNIOWY");
-        ui->typyKarnetow->addItem("DWUTYGODNIOWY");
-        ui->typyKarnetow->addItem("MIESIECZNY");
+        std::string temp = karnet.name;
+        if(loggedUser != nullptr || temp.compare("Jednorazowy") == 0)
+        {
+            temp += " " + std::to_string(karnet.price);
+            ui->typyKarnetow->addItem(temp.c_str());
+        }
     }
-    ui->typyKarnetow->addItem("JEDNORAZOWE WEJSCIE");
+
 
     for (int i = 0 ; i <  ui->typyKarnetow->count() ; ++i)
     {
@@ -145,7 +149,7 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     }
     ui->label->setFocus();
 
-    kodokanDAO = kodokanDAO->getInstance();
+
 
 }
 
@@ -156,23 +160,32 @@ BuyingPassScreen::~BuyingPassScreen()
 
 bool BuyingPassScreen::eventFilter(QObject *obj, QEvent *event)
 {
-    if( obj == ui->typyKarnetow && event->type() == QEvent::FocusIn)
+    /*if( obj == ui->typyKarnetow && event->type() == QEvent::FocusIn)
     {
-        ui->typyKarnetow->showPopup();
-        ui->label->setFocus();
+        if(this->popupHidden == true)
+        {
+            ui->typyKarnetow->showPopup();
+            this->popupHidden = false;
+        }
+        //ui->label->setFocus();
+
     }
     else if (obj != ui->typyKarnetow)
     {
         ui->typyKarnetow->hidePopup();
         ui->label->setFocus();
-    }
+    }*/
     return false;
 }
 
 void BuyingPassScreen::mousePressEvent(QMouseEvent *event)
 {
-    ui->typyKarnetow->hidePopup();
-    ui->label->setFocus();
+    /*if(this->popupHidden == false)
+    {
+        ui->typyKarnetow->hidePopup();
+        ui->label->setFocus();
+        this->popupHidden = true;
+    }*/
 }
 
 
@@ -183,29 +196,50 @@ void BuyingPassScreen::on_powrot_clicked()
 
 void BuyingPassScreen::on_gotowka_clicked()
 {
-    wybranyKarnet = ui->typyKarnetow->currentText();
+    std::string wybranyKarnetString = ui->typyKarnetow->currentText().toStdString();
+    wybranyKarnetString = wybranyKarnetString.substr(0, wybranyKarnetString.find(' '));
+    std::vector<SubscriptionType> subs = kodokanDAO->get_subscription_types();
+    for(auto sub : subs)
+    {
+        if(sub.name.compare(wybranyKarnetString) == 0)
+            wybranyKarnet = sub;
+    }
     wybranaPlatnosc = "GOTOWKA";
     potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
 void BuyingPassScreen::on_karta_clicked()
 {
-    wybranyKarnet = ui->typyKarnetow->currentText();
+    std::string wybranyKarnetString = ui->typyKarnetow->currentText().toStdString();
+    wybranyKarnetString = wybranyKarnetString.substr(0, wybranyKarnetString.find(' '));
+    std::vector<SubscriptionType> subs = kodokanDAO->get_subscription_types();
+    for(auto sub : subs)
+    {
+        if(sub.name.compare(wybranyKarnetString) == 0)
+            wybranyKarnet = sub;
+    }
     wybranaPlatnosc = "KARTA";
     potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
 void BuyingPassScreen::on_online_clicked()
 {
-    wybranyKarnet = ui->typyKarnetow->currentText();
+    std::string wybranyKarnetString = ui->typyKarnetow->currentText().toStdString();
+    wybranyKarnetString = wybranyKarnetString.substr(0, wybranyKarnetString.find(' '));
+    std::vector<SubscriptionType> subs = kodokanDAO->get_subscription_types();
+    for(auto sub : subs)
+    {
+        if(sub.name.compare(wybranyKarnetString) == 0)
+            wybranyKarnet = sub;
+    }
     wybranaPlatnosc = "ONLINE";
     potwierdzZakup(wybranyKarnet, wybranaPlatnosc);
 }
 
-void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatnosci)
+void BuyingPassScreen::potwierdzZakup(SubscriptionType wybranyKarnet, QString formaPlatnosci)
 {
     ConfirmPurchaseScreen *confirmPurchaseScreen = new ConfirmPurchaseScreen;
-    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(QString,QString,BuyingPassScreen*)), confirmPurchaseScreen, SLOT(odbierzDane(QString,QString,BuyingPassScreen*)));
+    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(SubscriptionType,QString,BuyingPassScreen*)), confirmPurchaseScreen, SLOT(odbierzDane(SubscriptionType,QString,BuyingPassScreen*)));
     emit wyslijDaneDoPotwierdzenia(wybranyKarnet,formaPlatnosci,this);
     confirmPurchaseScreen->show();
     confirmPurchaseScreen->move(252,84);
@@ -213,25 +247,55 @@ void BuyingPassScreen::potwierdzZakup(QString wybranyKarnet, QString formaPlatno
 
 void BuyingPassScreen::odbierzPotwierdzenie()
 {
+    //qDebug() << loggedUser->name.c_str();
     if(wybranaPlatnosc.compare("ONLINE") == 0)
     {
         if(onlinePaymentScreen == nullptr)
         {
-            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.toStdString(), 10);
+            if(loggedUser == nullptr){
+                loggedUser = new UserDAO("email@frytki.pl", "Gosc");
+                }
+
+            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.name, 10);
+            connect(onlinePaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
             onlinePaymentScreen->move(0,0);
-            onlinePaymentScreen->show();
+            onlinePaymentScreen->exec();
+
         }
     }
     else if(wybranaPlatnosc.compare("GOTOWKA") == 0)
     {
         if(paperPaymentScreen == nullptr)
         {
-            paperPaymentScreen = new PaperPayment(this, 10);
+            paperPaymentScreen = new PaperPayment(this, wybranyKarnet.price);
+            connect(paperPaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
             paperPaymentScreen->move(0,0);
-            paperPaymentScreen->show();
+            paperPaymentScreen->exec();
+
         }
     }
 
+    if(onlinePaymentScreen != nullptr)
+    {
+        while(onlinePaymentScreen->isActiveWindow())
+        {
+
+        }
+    }
+    else if(paperPaymentScreen != nullptr)
+    {
+        while(paperPaymentScreen->isActiveWindow())
+        {
+
+        }
+    }
+
+
+
+}
+
+void BuyingPassScreen::drukuj2()
+{
     std::vector<std::string> kodokanInfo = kodokanDAO->get_kodokan_info();
 
     //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
@@ -239,18 +303,18 @@ void BuyingPassScreen::odbierzPotwierdzenie()
     data.nazwaFirmy = kodokanInfo.at(0);
     data.adres = kodokanInfo.at(1);
     data.nip = kodokanInfo.at(2);
-    data.data = "0000-00-00";
-    data.nrWyrduku = 0;
-    data.listaKarnetow.push_back({ wybranyKarnet.toStdString() , 1234 });
-    data.listaKarnetow.push_back({ "Nazwa karnetu2", 3456 });
-    data.nrDobowy = 0;
-    data.nrDoby = 0;
-    data.godzina = "00:00";
-    data.rodzajPlatnosci = "Gotówka";
-    data.zaplacono = 5000;
-    //data.rodzajPlatnosci = "Karta";
-    //data.zaplacono = 4690;
-    data.nabywca = "Imię Nazwisko";
+    time_t unixtime = time(nullptr);
+    tm* date = localtime(&unixtime);
+    data.data = std::to_string(date->tm_year + 1900) + '-' + (date->tm_mon < 9 ? ('0' + std::to_string(date->tm_mon + 1)) : std::to_string(date->tm_mon + 1)) + '-' + std::to_string(date->tm_mday);
+    data.nrWyrduku = kodokanDAO->get_receipt_number();
+    data.listaKarnetow.push_back({ wybranyKarnet.name , wybranyKarnet.price });
+    data.godzina = std::to_string(date->tm_hour) + ':' + std::to_string(date->tm_min);
+    data.rodzajPlatnosci = wybranaPlatnosc.toStdString();
+    data.zaplacono = wybranyKarnet.price;
+    if (loggedUser == nullptr)
+        data.nabywca = "";
+    else
+        data.nabywca = loggedUser->name + ' ' + loggedUser->surname;
 
     Printer printer;
     printer.open(); //otwarcie połączenia
@@ -258,6 +322,6 @@ void BuyingPassScreen::odbierzPotwierdzenie()
     printReceipt(printer, data);
 
     printer.close(); //zamknięcie połączenia
+
     this->close();
 }
-
