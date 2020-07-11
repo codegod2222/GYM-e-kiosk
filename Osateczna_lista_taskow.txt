@@ -1,0 +1,19 @@
+1. Wyłączyć widoczność myszki
+2. Polskie znaki
+3. Raz się baza wykrzaczyła, a potem działała, a potem jeszcze raz
+4. Wyświetlanie listy karnetów w panelu admina - wyświetlanie ceny
+5. Edycja karnetu - wyświetlanie ceny
+6. Dodanie karnetu - pomnożenie wpisanej ceny * 100
+7. Edycja karnetu - pomnożenie zmienionej ceny * 100
+8. Zmiana hasła z poziomu użytkownika - po zmianie i kliknięciu "OK", nie przechodzi do ekranu "zalogowany"
+9. Sprawdzić, czy przy zmianie maila, zmienia też login (z poziomu admina i usera)(chyba nie zmienia) 
+10. Wyświetlanie ceny karnetu przy kupnie karnetu
+11. po zapłaceniu nie wyświetla się od razu "OK", tylko trzeba najpierw kliknąć w ekran
+12. wyświetlanie ceny (/100) przy płatności gotówką (wprowadź kwotę)
+13. Gdy anuluje się płatność i chce jeszcze raz zrobić tę samą, to się nie da
+14. W płatnościach online wyświetla się zła cena w przeglądarce (chyba jest 10 zł na sztywno)
+15. Po kliknięciu zapłacono, gdy poprawna płatność, powinno od razu wychodzić do ekranu logowania
+16. przy ekranie płatności online okienko nie wyświetla się na fullscreen
+17. przy kupnie karnetu gotówką o cenie innej niż 10, 20, 50, 100 wywala program
+18. gdy kliknie się zdjęcie, następnie anuluj, to za drugim razem nie inicjalizuje się kamera
+19. kliknięcie "jeszcze raz" po zrobieniu zdj nic nie robi, oprócz zapisania na dysku z odwróconymi kolorami w folderze debug (może zrobić specjalny folder na zdj i niech zapisują się pod nazwą ID usera)(zapisuje się tak naprawdę od razu po kliknięciu zrób zdj)
