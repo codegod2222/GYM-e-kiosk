@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect( loopThread, SIGNAL(przylozonoKarte(QString)), this, SLOT(przylozonoKarte(QString)));
     this->installEventFilter(this);
     kodokanDAO = kodokanDAO->getInstance();
+
+    //#1.3
+    this->setCursor(Qt::BlankCursor);
 }
 
 MainWindow::~MainWindow()

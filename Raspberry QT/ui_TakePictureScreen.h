@@ -10,10 +10,10 @@
 #define UI_TAKEPICTURESCREEN_H
 
 #include <QtCore/QVariant>
-#include <QApplication>
-#include <QLabel>
-#include <QPushButton>
-#include <QWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -21,9 +21,9 @@ class Ui_TakePictureScreen
 {
 public:
     QLabel *imgLabel;
-    QPushButton *OK;
-    QPushButton *OK_2;
-    QPushButton *jeszczeRaz;
+    QPushButton *robZdj;
+    QPushButton *wyjdz;
+    QPushButton *ponow;
 
     void setupUi(QWidget *TakePictureScreen)
     {
@@ -43,10 +43,10 @@ public:
 "font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);"));
         imgLabel->setAlignment(Qt::AlignCenter);
-        OK = new QPushButton(TakePictureScreen);
-        OK->setObjectName(QString::fromUtf8("OK"));
-        OK->setGeometry(QRect(74, 645, 400, 100));
-        OK->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+        robZdj = new QPushButton(TakePictureScreen);
+        robZdj->setObjectName(QString::fromUtf8("robZdj"));
+        robZdj->setGeometry(QRect(74, 645, 400, 100));
+        robZdj->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
 "border-style: solid;\n"
 "border-width:4px;\n"
 "border-radius:30px;\n"
@@ -54,10 +54,10 @@ public:
 "\n"
 "font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);"));
-        OK_2 = new QPushButton(TakePictureScreen);
-        OK_2->setObjectName(QString::fromUtf8("OK_2"));
-        OK_2->setGeometry(QRect(550, 645, 400, 100));
-        OK_2->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+        wyjdz = new QPushButton(TakePictureScreen);
+        wyjdz->setObjectName(QString::fromUtf8("wyjdz"));
+        wyjdz->setGeometry(QRect(550, 645, 400, 100));
+        wyjdz->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
 "border-style: solid;\n"
 "border-width:4px;\n"
 "border-radius:30px;\n"
@@ -65,10 +65,10 @@ public:
 "\n"
 "font: 75 30pt \"Tahoma\";\n"
 "color: rgb(255, 255, 255);"));
-        jeszczeRaz = new QPushButton(TakePictureScreen);
-        jeszczeRaz->setObjectName(QString::fromUtf8("jeszczeRaz"));
-        jeszczeRaz->setGeometry(QRect(74, 645, 400, 100));
-        jeszczeRaz->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
+        ponow = new QPushButton(TakePictureScreen);
+        ponow->setObjectName(QString::fromUtf8("ponow"));
+        ponow->setGeometry(QRect(74, 645, 400, 100));
+        ponow->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 13, 13);\n"
 "border-style: solid;\n"
 "border-width:4px;\n"
 "border-radius:30px;\n"
@@ -86,9 +86,9 @@ public:
     {
         TakePictureScreen->setWindowTitle(QCoreApplication::translate("TakePictureScreen", "Form", nullptr));
         imgLabel->setText(QCoreApplication::translate("TakePictureScreen", "Inicjowanie kamery", nullptr));
-        OK->setText(QCoreApplication::translate("TakePictureScreen", "ZR\303\223B ZDJ\304\230CIE", nullptr));
-        OK_2->setText(QCoreApplication::translate("TakePictureScreen", "ANULUJ", nullptr));
-        jeszczeRaz->setText(QCoreApplication::translate("TakePictureScreen", "JESZCZE RAZ", nullptr));
+        robZdj->setText(QCoreApplication::translate("TakePictureScreen", "ZR\303\223B ZDJ\304\230CIE", nullptr));
+        wyjdz->setText(QCoreApplication::translate("TakePictureScreen", "WYJSCIE", nullptr));
+        ponow->setText(QCoreApplication::translate("TakePictureScreen", "PONOW", nullptr));
     } // retranslateUi
 
 };

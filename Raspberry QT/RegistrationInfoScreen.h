@@ -20,6 +20,8 @@ private slots:
 
 private:
     Ui::RegistrationInfoScreen *ui;
+    //#8
+    QWidget *parent = nullptr;
 };
 
 #endif // REGISTRATIONINFOSCREEN_H

@@ -7,6 +7,9 @@
 #include <QDebug>
 #include <ctime>
 
+#pragma region Printer
+#define PrinterStart {
+
 struct ReceiptData {
     std::string nazwaFirmy;
     std::string adres;
@@ -115,6 +118,9 @@ void printReceipt(Printer& printer, ReceiptData& data) {
     printer.endFeed(90);
 }
 
+#define PrinterEnd }
+#pragma endregion Printer
+
 BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     QDialog(parent),
     ui(new Ui::BuyingPassScreen)
@@ -137,7 +143,9 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
         std::string temp = karnet.name;
         if(loggedUser != nullptr || temp.compare("Jednorazowy") == 0)
         {
-            temp += " " + std::to_string(karnet.price);
+            //#10
+            int price = karnet.price / 100;
+            temp += " " + std::to_string(price);
             ui->typyKarnetow->addItem(temp.c_str());
         }
     }
@@ -175,6 +183,15 @@ bool BuyingPassScreen::eventFilter(QObject *obj, QEvent *event)
         ui->typyKarnetow->hidePopup();
         ui->label->setFocus();
     }*/
+
+    //#13
+    if(event->type() == QEvent::WindowActivate)
+    {
+        if(paperPaymentScreen != nullptr)
+            delete paperPaymentScreen;
+        if(onlinePaymentScreen != nullptr)
+            delete onlinePaymentScreen;
+    }
     return false;
 }
 
@@ -238,25 +255,34 @@ void BuyingPassScreen::on_online_clicked()
 
 void BuyingPassScreen::potwierdzZakup(SubscriptionType wybranyKarnet, QString formaPlatnosci)
 {
-    ConfirmPurchaseScreen *confirmPurchaseScreen = new ConfirmPurchaseScreen;
-    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(SubscriptionType,QString,BuyingPassScreen*)), confirmPurchaseScreen, SLOT(odbierzDane(SubscriptionType,QString,BuyingPassScreen*)));
-    emit wyslijDaneDoPotwierdzenia(wybranyKarnet,formaPlatnosci,this);
+    if(confirmPurchaseScreen == nullptr)
+        confirmPurchaseScreen = new ConfirmPurchaseScreen();
+    connect( confirmPurchaseScreen, SIGNAL(wyslijPotwierdzenie()), this, SLOT(odbierzPotwierdzenie()));
+    connect( this, SIGNAL(wyslijDaneDoPotwierdzenia(SubscriptionType,QString)), confirmPurchaseScreen, SLOT(odbierzDane(SubscriptionType,QString)));
+    emit wyslijDaneDoPotwierdzenia(wybranyKarnet,formaPlatnosci);
     confirmPurchaseScreen->show();
     confirmPurchaseScreen->move(252,84);
 }
 
 void BuyingPassScreen::odbierzPotwierdzenie()
 {
-    //qDebug() << loggedUser->name.c_str();
+    //#13
+    if(paperPaymentScreen != nullptr)
+        delete paperPaymentScreen;
+    if(onlinePaymentScreen != nullptr)
+        delete onlinePaymentScreen;
+
     if(wybranaPlatnosc.compare("ONLINE") == 0)
     {
         if(onlinePaymentScreen == nullptr)
         {
-            if(loggedUser == nullptr){
+            if(loggedUser == nullptr)
+            {
                 loggedUser = new UserDAO("email@frytki.pl", "Gosc");
-                }
-
-            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.name, 10);
+            }
+            //#14
+            int price = wybranyKarnet.price / 100;
+            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.name, price);
             connect(onlinePaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
             onlinePaymentScreen->move(0,0);
             onlinePaymentScreen->exec();
@@ -267,38 +293,25 @@ void BuyingPassScreen::odbierzPotwierdzenie()
     {
         if(paperPaymentScreen == nullptr)
         {
-            paperPaymentScreen = new PaperPayment(this, wybranyKarnet.price);
+            //#12
+            int price = wybranyKarnet.price / 100;
+            paperPaymentScreen = new PaperPayment(this, price);
             connect(paperPaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
             paperPaymentScreen->move(0,0);
             paperPaymentScreen->exec();
-
         }
     }
 
     if(onlinePaymentScreen != nullptr)
-    {
-        while(onlinePaymentScreen->isActiveWindow())
-        {
-
-        }
-    }
+        while(onlinePaymentScreen->isActiveWindow()){}
     else if(paperPaymentScreen != nullptr)
-    {
-        while(paperPaymentScreen->isActiveWindow())
-        {
-
-        }
-    }
-
-
-
+        while(paperPaymentScreen->isActiveWindow()){}
 }
 
 void BuyingPassScreen::drukuj2()
 {
     std::vector<std::string> kodokanInfo = kodokanDAO->get_kodokan_info();
 
-    //Tutaj jakieś rzeczy związane z zakupem, płatność, baza danych itd
     ReceiptData data;
     data.nazwaFirmy = kodokanInfo.at(0);
     data.adres = kodokanInfo.at(1);

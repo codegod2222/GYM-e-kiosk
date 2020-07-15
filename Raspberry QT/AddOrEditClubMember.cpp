@@ -137,12 +137,15 @@ void AddOrEditClubMember::on_zatwierdz_clicked()
         if(toEdit->name.compare(this->ui->imie->text().toStdString()) != 0)
             toEdit->update_user_name(this->ui->imie->text().toStdString());
 
-
         if(toEdit->surname.compare(this->ui->nazwisko->text().toStdString()) != 0)
             toEdit->update_user_surname(this->ui->nazwisko->text().toStdString());
 
         if(toEdit->email.compare(this->ui->email->text().toStdString()) != 0)
+        {
             toEdit->update_user_email(this->ui->email->text().toStdString());
+            //#9
+            toEdit->update_user_username(this->ui->email->text().toStdString());
+        }
 
         if(toEdit->hashed_pswd.compare(this->ui->haslo->text().toStdString()) != 0)
             toEdit->update_user_hashed_pswd(this->ui->haslo->text().toStdString());

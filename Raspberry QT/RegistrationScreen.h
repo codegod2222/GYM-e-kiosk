@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "RegistrationInfoScreen.h"
 #include <Keyboard.h>
+#include "TakePictureScreen.h"
 #include "../databse_access/KodokanDAO.h"
 
 namespace Ui {
@@ -36,6 +37,7 @@ private:
     RegistrationInfoScreen *registrationInfoScreen;
     Keyboard *keyboard;
     KodokanDAO *kodokanDAO;
+    TakePictureScreen *takePictureScreen;
 };
 
 #endif // REGISTRATIONSCREEN_H

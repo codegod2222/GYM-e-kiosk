@@ -94,7 +94,7 @@ void PasswordChangeScreen::on_potwierdz_clicked()
         else
         {
             loggedUser->update_user_hashed_pswd(this->ui->newPassword->text().toStdString());
-            infoScreen = new RegistrationInfoScreen(nullptr, "HASŁO POMYŚLNIE ZMIENIONE");
+            infoScreen = new RegistrationInfoScreen(this, "HASŁO POMYŚLNIE ZMIENIONE");
             infoScreen->move(162,234);
             infoScreen->show();
             return;

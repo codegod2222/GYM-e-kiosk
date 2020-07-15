@@ -11,22 +11,29 @@ TakePictureScreen::TakePictureScreen(QWidget *parent, std::string email) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    this->ui->jeszczeRaz->setVisible(false);
+    this->ui->ponow->setVisible(false);
     this->email = email;
 
     qRegisterMetaType<QImage>("QImage&");
-    on_btnStart_clicked();
+    startCapturing();
 }
 
 TakePictureScreen::~TakePictureScreen()
 {
+    qDebug() << "Destruktor TakePictureScreen";
+    this->cameraRunning = false;
+    //Moze generowac bledy:
+    delete workerThread;
+    delete worker;
     delete ui;
 }
 
-void TakePictureScreen::on_btnStart_clicked()
+void TakePictureScreen::startCapturing()
 {
+    this->cameraRunning = true;
+
     workerThread = new QThread;
-    worker = new CameraWorker;
+    worker = new CameraWorker(cameraRunning, email);
 
     worker->moveToThread(workerThread);
 
@@ -44,25 +51,27 @@ void TakePictureScreen::handleImage(QImage &image)
     this->repaint();
 }
 
-
-void TakePictureScreen::on_OK_2_clicked()
+void TakePictureScreen::on_robZdj_clicked()
 {
-
-    this->close();
-    /*workerThread->terminate();
-    delete worker;*/
-}
-
-void TakePictureScreen::on_OK_clicked()
-{
-    this->ui->OK->setVisible(false);
-    this->ui->jeszczeRaz->setVisible(true);
+    this->ui->robZdj->setVisible(false);
+    this->ui->ponow->setVisible(true);
     emit takePhoto();
     QApplication::processEvents();
     this->repaint();
 }
 
-void TakePictureScreen::on_zapisz_clicked()
+void TakePictureScreen::on_ponow_clicked()
 {
+    this->cameraRunning = true;
+    //Trzeba przedebugowac bo nie wiem jak sie zachowa (nie mamy nigdzie jawnie thread.stop()
+    workerThread->start();
+    //lub ewentualnie to:
+    //worker->doWork();
+}
+
+void TakePictureScreen::on_wyjdz_clicked()
+{
+    this->cameraRunning = false;
+    worker->clean();
     this->close();
 }

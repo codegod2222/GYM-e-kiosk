@@ -198,7 +198,13 @@ void RegistrationScreen::on_pushButton_clicked()
 
 void RegistrationScreen::on_dodajZdjecie_clicked()
 {
-    TakePictureScreen *takePictureScreen = new TakePictureScreen();
+    if(takePictureScreen == nullptr)
+        takePictureScreen = new TakePictureScreen(this, ui->email->text().toStdString());
+    else
+    {
+        delete takePictureScreen;
+        takePictureScreen = new TakePictureScreen(this, ui->email->text().toStdString());
+    }
     takePictureScreen->move(0,0);
     takePictureScreen->show();
 }

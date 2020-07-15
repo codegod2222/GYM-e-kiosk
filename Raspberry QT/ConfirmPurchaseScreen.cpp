@@ -1,6 +1,5 @@
 #include "ConfirmPurchaseScreen.h"
 #include "ui_ConfirmPurchaseScreen.h"
-#include "BuyingPassScreen.h"
 
 ConfirmPurchaseScreen::ConfirmPurchaseScreen(QWidget *parent) :
     QDialog(parent),
@@ -16,16 +15,14 @@ ConfirmPurchaseScreen::~ConfirmPurchaseScreen()
     delete ui;
 }
 
-void ConfirmPurchaseScreen::odbierzDane(SubscriptionType karnet, QString platnosc, BuyingPassScreen* ekranKupowania)
+void ConfirmPurchaseScreen::odbierzDane(SubscriptionType karnet, QString platnosc)
 {
     ui->typKarnetu->setText(karnet.name.c_str());
     ui->typFormy->setText(platnosc);
-    buyingPassScreen = ekranKupowania;
 }
 
 void ConfirmPurchaseScreen::on_potwierdz_clicked()
 {
-    connect( this, SIGNAL(wyslijPotwierdzenie()), buyingPassScreen, SLOT(odbierzPotwierdzenie()));
     emit wyslijPotwierdzenie();
     this->close();
 }

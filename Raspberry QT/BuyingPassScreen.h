@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "OnlinePaymentScreen.h"
 #include "PaperPayment.h"
+#include "ConfirmPurchaseScreen.h"
 #include "../databse_access/UserDAO.h"
 #include "../databse_access/KodokanDAO.h"
 
@@ -38,7 +39,7 @@ private slots:
 
     void drukuj2();
 signals:
-    void wyslijDaneDoPotwierdzenia(SubscriptionType karnet, QString rodzajPlatnosci, BuyingPassScreen*);
+    void wyslijDaneDoPotwierdzenia(SubscriptionType karnet, QString rodzajPlatnosci);
 
 private:
     Ui::BuyingPassScreen *ui;
@@ -49,6 +50,8 @@ private:
     bool popupHidden = true;
     SubscriptionType wybranyKarnet;
     QString wybranaPlatnosc;
+    ConfirmPurchaseScreen *confirmPurchaseScreen = nullptr;
+
 };
 
 #endif // BUYINGPASSSCREEN_H

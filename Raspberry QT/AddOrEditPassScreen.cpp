@@ -22,7 +22,8 @@ AddOrEditPassScreen::AddOrEditPassScreen(QWidget *parent, SubscriptionType *toEd
     if(toEdit !=nullptr)
     {
         this->ui->nazwa->setText(toEdit->name.c_str());
-        this->ui->cena->setText(QString::number(toEdit->price));
+        //#5
+        this->ui->cena->setText(QString::number(toEdit->price/100));
         this->ui->ileDni->setText(QString::number(toEdit->length));
     }
     kodokanDAO = kodokanDAO->getInstance();
@@ -99,14 +100,18 @@ void AddOrEditPassScreen::on_zatwierdz_clicked()
             if (toEdit->name.compare(sub.name) == 0)
             {
                 kodokanDAO->edit_subscription_type_name(sub.id, this->ui->nazwa->text().toStdString());
-                kodokanDAO->edit_subscription_type_price(sub.id, this->ui->cena->text().toInt());
+                //#6
+                int price = this->ui->cena->text().toInt()*100;
+                kodokanDAO->edit_subscription_type_price(sub.id, price);
                 kodokanDAO->edit_subscription_type_length(sub.id, this->ui->ileDni->text().toInt());
             }
         }
     }
     else
     {
-        SubscriptionType newPass{0 , this->ui->nazwa->text().toStdString() , this->ui->ileDni->text().toInt() , this->ui->cena->text().toInt()};
+        //#7
+        int price = this->ui->cena->text().toInt()*100;
+        SubscriptionType newPass{0 , this->ui->nazwa->text().toStdString() , this->ui->ileDni->text().toInt() , price};
         kodokanDAO->add_subscription_type(newPass);
     }
     delete toEdit;

@@ -63,7 +63,8 @@ void PassesScreen::refreshTable()
     {
         this->ui->listaKarnetow->setItem(i , 0 , new QTableWidgetItem(QString(karnet.name.c_str())));
         this->ui->listaKarnetow->setItem(i , 1 , new QTableWidgetItem(QString::number(karnet.length)));
-        this->ui->listaKarnetow->setItem(i , 2 , new QTableWidgetItem(QString::number(karnet.price)));
+        //#4
+        this->ui->listaKarnetow->setItem(i , 2 , new QTableWidgetItem(QString::number(karnet.price/100)));
         i++;
     }
 }

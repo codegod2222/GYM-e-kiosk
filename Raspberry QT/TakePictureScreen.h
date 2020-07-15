@@ -23,13 +23,13 @@ private slots:
 
         void handleImage(QImage &image);
 
-        void on_btnStart_clicked();
+        void startCapturing();
 
-        void on_OK_2_clicked();
+        void on_robZdj_clicked();
 
-        void on_OK_clicked();
+        void on_ponow_clicked();
 
-        void on_zapisz_clicked();
+        void on_wyjdz_clicked();
 
 signals:
 
@@ -40,6 +40,7 @@ private:
         QThread *workerThread;
         CameraWorker *worker;
         std::string email;
+        bool cameraRunning;
 };
 
 #endif // TAKEPICTURESCREEN_H

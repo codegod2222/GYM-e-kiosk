@@ -7,7 +7,8 @@ OnlinePaymentScreen::OnlinePaymentScreen(QWidget *parent, UserDAO *loggedUser, s
     ui(new Ui::OnlinePaymentScreen)
 {
     ui->setupUi(this);
-
+    //#16
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->url = makeTransaction(price, desc, PKO, loggedUser->email, loggedUser->name);
     this->ui->adres->setText(url.c_str());
 }
@@ -27,8 +28,11 @@ void OnlinePaymentScreen::on_zaplacono_clicked()
     std::string status = getTransactionStatus(this->url.substr(url.rfind("gtitle=") + 7));
     this->ui->status->setText(status.c_str());
 
-    if(status == "correct"){
+    if(status == "correct")
+    {
         this->ui->anuluj->setText("OK");
         emit drukuj();
+        //#15
+        this->close();
     }
 }

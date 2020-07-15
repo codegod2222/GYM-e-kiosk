@@ -45,6 +45,8 @@ void DataChangeScreen::on_zatwierdzZmiany_clicked()
     loggedUser->update_user_name(ui->imie->text().toStdString());
     loggedUser->update_user_surname(ui->nazwisko->text().toStdString());
     loggedUser->update_user_email(ui->email->text().toStdString());
+    //#9
+    loggedUser->update_user_username(ui->email->text().toStdString());
 
     connect( this, SIGNAL(wyslijZmianeDanych()), loggedScreen, SLOT(odbierzZmianeDanych()));
     emit wyslijZmianeDanych();

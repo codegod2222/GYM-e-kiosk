@@ -42,7 +42,7 @@ color: rgb(255, 255, 255);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="OK">
+  <widget class="QPushButton" name="robZdj">
    <property name="geometry">
     <rect>
      <x>74</x>
@@ -65,7 +65,7 @@ color: rgb(255, 255, 255);</string>
     <string>ZRÓB ZDJĘCIE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="OK_2">
+  <widget class="QPushButton" name="wyjdz">
    <property name="geometry">
     <rect>
      <x>550</x>
@@ -85,10 +85,10 @@ font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>ANULUJ</string>
+    <string>WYJSCIE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="zapisz">
+  <widget class="QPushButton" name="ponow">
    <property name="geometry">
     <rect>
      <x>74</x>
@@ -108,7 +108,7 @@ font: 75 30pt &quot;Tahoma&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>ZAPISZ</string>
+    <string>PONOW</string>
    </property>
   </widget>
  </widget>

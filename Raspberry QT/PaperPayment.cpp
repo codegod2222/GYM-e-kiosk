@@ -7,9 +7,6 @@ PaperPayment::PaperPayment(QWidget *parent, int price) :
     QDialog(parent),
     ui(new Ui::PaperPayment)
 {
-
-
-
     ui->setupUi(this);
     this->ui->kwota->setText(QString::number(price));
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
@@ -44,13 +41,16 @@ PaperPayment::~PaperPayment()
 
 void PaperPayment::zaplacono(int result)
 {
-
-
-    if(result){
+    if(result)
+    {
         this->ui->info->setText("PATNO— PRAWDIOWA");
         this->ui->anuluj->setText("OK");
         emit drukuj();
-    }else{
+        //#15
+        this->close();
+    }
+    else
+    {
         this->ui->info->setText("PATNO— NIEPRAWDIOWA");
     }
 }

@@ -8,56 +8,57 @@
 
 #include "unistd.h"
 
-CameraWorker::CameraWorker() : cameraRunning(true)
-{
-    qRegisterMetaType<QImage>("QImage&");
-    data = new unsigned char[camera.getImageTypeSize(RASPICAM_FORMAT_GRAY)];
-}
-
 CameraWorker::~CameraWorker()
 {
+    qDebug() << "Destruktor CameraWorker";
+    delete data;
 }
 
 void CameraWorker::doWork()
 {
-    // Open the camera
-    if (!camera.open()) {
-        qDebug() << "Error opening camera";
-        cameraRunning = false;
-    } else {
-        cameraRunning = true;
+    //Przeniesione z konstruktora
+    qRegisterMetaType<QImage>("QImage&");
+    data = new unsigned char[camera.getImageTypeSize(RASPICAM_FORMAT_RGB)];
+
+    if (!camera.open())
+    {
+        qDebug() << "Problem z kamera";
+        return;
     }
 
-    // Wait for the camera
-    //sleep(3);
+    sleep(2);
 
-    // While the camera is on (the user has clicked the button), capture
-    while (cameraRunning) {
-        // Capture
+    while (this->cameraRunning)
+    {
         camera.grab();
         camera.retrieve(data, RASPICAM_FORMAT_RGB);
         camera.setWidth(1280);
         camera.setHeight(960);
 
-        // Convert the data and send to the caller to handle
         QImage image = QImage(data, camera.getWidth(), camera.getHeight(), QImage::Format_RGB888);
         image = image.rgbSwapped();
         emit handleImage(image);
 
-        // Make the app process stopWork() if necessary
         qApp->processEvents();
         usleep(200);
     }
+    qDebug() << "Wychodze z metody doWork";
 }
 
 void CameraWorker::takePhotoWorker()
 {
-    std::string path = "email";
-    path.append(".ppm");
+    this->cameraRunning = false;
+    //Do sprawdzenia backslash
+    std::string path = "Pictures/" + email + ".ppm";
     std::ofstream outFile (path , std::ios::binary);
     outFile<<"P6\n"<< camera.getWidth() << " " << camera.getHeight() << " 255\n";
-    outFile.write((char*)data, camera.getImageTypeSize(RASPICAM_FORMAT_BGR));
-    cameraRunning = false;
+    outFile.write((char*)data, camera.getImageTypeSize(RASPICAM_FORMAT_RGB));
     qApp->processEvents();
+}
+
+void CameraWorker::clean()
+{
+    qDebug() << "Sprzatam w cameraWorker";
+    delete data;
 }
 

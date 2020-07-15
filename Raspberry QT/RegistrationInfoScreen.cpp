@@ -8,6 +8,9 @@ RegistrationInfoScreen::RegistrationInfoScreen(QWidget *parent, QString informat
     ui->setupUi(this);
     ui->information->setText(information);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    //#8
+    this->parent = parent;
 }
 
 RegistrationInfoScreen::~RegistrationInfoScreen()
@@ -17,5 +20,10 @@ RegistrationInfoScreen::~RegistrationInfoScreen()
 
 void RegistrationInfoScreen::on_OK_clicked()
 {
+    //#8
+    if(parent != nullptr)
+    {
+        parent->close();
+    }
     this->close();
 }
