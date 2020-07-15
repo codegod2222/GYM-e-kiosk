@@ -4,6 +4,7 @@
 #4. Wyświetlanie listy karnetów w panelu admina - wyświetlanie ceny
 #5. Edycja karnetu - wyświetlanie ceny
 #6. Dodanie karnetu - pomnożenie wpisanej ceny * 100
+#7. Edycja karnetu - pomnożenie zmienionej ceny * 100
 #8. Zmiana hasła z poziomu użytkownika - po zmianie i kliknięciu "OK", nie przechodzi do ekranu "zalogowany"
 #9. Sprawdzić, czy przy zmianie maila, zmienia też login (z poziomu admina i usera)(chyba nie zmienia)
 #10. Wyświetlanie ceny karnetu przy kupnie karnetu
