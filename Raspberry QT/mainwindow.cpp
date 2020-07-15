@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     kodokanDAO = kodokanDAO->getInstance();
 
     //#1.3
-    this->setCursor(Qt::BlankCursor);
+    //this->setCursor(Qt::BlankCursor);
 }
 
 MainWindow::~MainWindow()
@@ -107,6 +107,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 void MainWindow::przylozonoKarte(QString rfid)
 {
+    //B0070AFEB1
     if(rfid.compare("B0070AFEB1") == 0)
     {
         qDebug() << "Stop watek";

@@ -6,7 +6,7 @@ RegistrationInfoScreen::RegistrationInfoScreen(QWidget *parent, QString informat
     ui(new Ui::RegistrationInfoScreen)
 {
     ui->setupUi(this);
-    ui->information->setText(information);
+    ui->information->setText(QString::fromUtf8(information.toStdString().c_str()));
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
     //#8

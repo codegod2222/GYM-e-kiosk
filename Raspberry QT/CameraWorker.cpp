@@ -11,7 +11,8 @@
 CameraWorker::~CameraWorker()
 {
     qDebug() << "Destruktor CameraWorker";
-    delete data;
+    //if (data != nullptr)
+        //delete data;
 }
 
 void CameraWorker::doWork()
@@ -26,7 +27,7 @@ void CameraWorker::doWork()
         return;
     }
 
-    sleep(2);
+    //sleep(2);
 
     while (this->cameraRunning)
     {
@@ -43,6 +44,7 @@ void CameraWorker::doWork()
         usleep(200);
     }
     qDebug() << "Wychodze z metody doWork";
+    camera.release();
 }
 
 void CameraWorker::takePhotoWorker()
@@ -50,15 +52,18 @@ void CameraWorker::takePhotoWorker()
     this->cameraRunning = false;
     //Do sprawdzenia backslash
     std::string path = "Pictures/" + email + ".ppm";
+    qDebug() << "Zapis";
     std::ofstream outFile (path , std::ios::binary);
     outFile<<"P6\n"<< camera.getWidth() << " " << camera.getHeight() << " 255\n";
-    outFile.write((char*)data, camera.getImageTypeSize(RASPICAM_FORMAT_RGB));
+    QImage image = QImage(data, camera.getWidth(), camera.getHeight(), QImage::Format_RGB888);
+    image = image.rgbSwapped();
+    outFile.write((char*)image.bits(), camera.getImageTypeSize(RASPICAM_FORMAT_RGB));
     qApp->processEvents();
 }
 
 void CameraWorker::clean()
 {
     qDebug() << "Sprzatam w cameraWorker";
-    delete data;
+    //delete data;
 }
 

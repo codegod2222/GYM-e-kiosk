@@ -37,7 +37,7 @@ private:
     RegistrationInfoScreen *registrationInfoScreen;
     Keyboard *keyboard;
     KodokanDAO *kodokanDAO;
-    TakePictureScreen *takePictureScreen;
+    TakePictureScreen *takePictureScreen = nullptr;
 };
 
 #endif // REGISTRATIONSCREEN_H

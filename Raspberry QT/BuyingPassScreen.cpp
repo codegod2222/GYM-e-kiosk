@@ -133,6 +133,9 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
     ui->typyKarnetow->lineEdit()->setAlignment(Qt::AlignCenter);
     this->ui->typyKarnetow->installEventFilter(this);
 
+    onlinePaymentScreen = nullptr;
+    paperPaymentScreen = nullptr;
+
     this->loggedUser = loggedUser;
 
     kodokanDAO = kodokanDAO->getInstance();
@@ -168,41 +171,20 @@ BuyingPassScreen::~BuyingPassScreen()
 
 bool BuyingPassScreen::eventFilter(QObject *obj, QEvent *event)
 {
-    /*if( obj == ui->typyKarnetow && event->type() == QEvent::FocusIn)
-    {
-        if(this->popupHidden == true)
-        {
-            ui->typyKarnetow->showPopup();
-            this->popupHidden = false;
-        }
-        //ui->label->setFocus();
-
-    }
-    else if (obj != ui->typyKarnetow)
-    {
-        ui->typyKarnetow->hidePopup();
-        ui->label->setFocus();
-    }*/
-
     //#13
-    if(event->type() == QEvent::WindowActivate)
+    /*if(event->type() == QEvent::WindowActivate)
     {
         if(paperPaymentScreen != nullptr)
-            delete paperPaymentScreen;
+             paperPaymentScreen = nullptr;
         if(onlinePaymentScreen != nullptr)
-            delete onlinePaymentScreen;
-    }
+            onlinePaymentScreen = nullptr;
+    }*/
     return false;
 }
 
 void BuyingPassScreen::mousePressEvent(QMouseEvent *event)
 {
-    /*if(this->popupHidden == false)
-    {
-        ui->typyKarnetow->hidePopup();
-        ui->label->setFocus();
-        this->popupHidden = true;
-    }*/
+
 }
 
 
@@ -268,44 +250,39 @@ void BuyingPassScreen::odbierzPotwierdzenie()
 {
     //#13
     if(paperPaymentScreen != nullptr)
+    {
         delete paperPaymentScreen;
+        paperPaymentScreen = nullptr;
+    }
+
     if(onlinePaymentScreen != nullptr)
+    {
         delete onlinePaymentScreen;
+        onlinePaymentScreen = nullptr;
+    }
 
     if(wybranaPlatnosc.compare("ONLINE") == 0)
     {
-        if(onlinePaymentScreen == nullptr)
+        if(loggedUser == nullptr)
         {
-            if(loggedUser == nullptr)
-            {
-                loggedUser = new UserDAO("email@frytki.pl", "Gosc");
-            }
-            //#14
-            int price = wybranyKarnet.price / 100;
-            onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.name, price);
-            connect(onlinePaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
-            onlinePaymentScreen->move(0,0);
-            onlinePaymentScreen->exec();
-
+            loggedUser = new UserDAO("email@frytki.pl", "Gosc");
         }
+        //#14
+        int price = wybranyKarnet.price / 100;
+        onlinePaymentScreen = new OnlinePaymentScreen(this, loggedUser, wybranyKarnet.name, price);
+        connect(onlinePaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
+        onlinePaymentScreen->move(0,0);
+        onlinePaymentScreen->show();
     }
     else if(wybranaPlatnosc.compare("GOTOWKA") == 0)
     {
-        if(paperPaymentScreen == nullptr)
-        {
-            //#12
-            int price = wybranyKarnet.price / 100;
-            paperPaymentScreen = new PaperPayment(this, price);
-            connect(paperPaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
-            paperPaymentScreen->move(0,0);
-            paperPaymentScreen->exec();
-        }
+        //#12
+        int price = wybranyKarnet.price / 100;
+        paperPaymentScreen = new PaperPayment(this, price);
+        connect(paperPaymentScreen, SIGNAL(drukuj()), this, SLOT(drukuj2()));
+        paperPaymentScreen->move(0,0);
+        paperPaymentScreen->show();
     }
-
-    if(onlinePaymentScreen != nullptr)
-        while(onlinePaymentScreen->isActiveWindow()){}
-    else if(paperPaymentScreen != nullptr)
-        while(paperPaymentScreen->isActiveWindow()){}
 }
 
 void BuyingPassScreen::drukuj2()
@@ -321,10 +298,10 @@ void BuyingPassScreen::drukuj2()
     data.data = std::to_string(date->tm_year + 1900) + '-' + (date->tm_mon < 9 ? ('0' + std::to_string(date->tm_mon + 1)) : std::to_string(date->tm_mon + 1)) + '-' + std::to_string(date->tm_mday);
     data.nrWyrduku = kodokanDAO->get_receipt_number();
     data.listaKarnetow.push_back({ wybranyKarnet.name , wybranyKarnet.price });
-    data.godzina = std::to_string(date->tm_hour) + ':' + std::to_string(date->tm_min);
+    data.godzina = std::to_string(date->tm_hour) + ':' + (date->tm_min < 10 ? ('0' + std::to_string(date->tm_min)) : std::to_string(date->tm_min));
     data.rodzajPlatnosci = wybranaPlatnosc.toStdString();
     data.zaplacono = wybranyKarnet.price;
-    if (loggedUser == nullptr)
+    if (loggedUser->name == "Gosc")
         data.nabywca = "";
     else
         data.nabywca = loggedUser->name + ' ' + loggedUser->surname;

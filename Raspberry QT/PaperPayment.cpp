@@ -13,16 +13,16 @@ PaperPayment::PaperPayment(QWidget *parent, int price) :
     this->threadRun=true;
 
     switch(price){
-    case 1000:
+    case 10:
         price = TEN;
         break;
-    case 2000:
+    case 20:
         price = TWENTY;
         break;
-    case 5000:
+    case 50:
         price = FIFTY;
         break;
-    case 10000:
+    case 100:
         price = HUNDRET;
         break;
 
@@ -43,7 +43,7 @@ void PaperPayment::zaplacono(int result)
 {
     if(result)
     {
-        this->ui->info->setText("PùATNOóè PRAWDIùOWA");
+        this->ui->info->setText(QString::fromUtf8("P≈ÅATNO≈öƒÜ PRAWDI≈ÅOWA"));
         this->ui->anuluj->setText("OK");
         emit drukuj();
         //#15
@@ -51,7 +51,7 @@ void PaperPayment::zaplacono(int result)
     }
     else
     {
-        this->ui->info->setText("PùATNOóè NIEPRAWDIùOWA");
+        this->ui->info->setText(QString::fromUtf8("P≈ÅATNO≈öƒÜ NIEPRAWDI≈ÅOWA"));
     }
 }
 

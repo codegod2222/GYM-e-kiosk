@@ -63,10 +63,12 @@ void TakePictureScreen::on_robZdj_clicked()
 void TakePictureScreen::on_ponow_clicked()
 {
     this->cameraRunning = true;
+    this->ui->robZdj->setVisible(true);
+    this->ui->ponow->setVisible(false);
     //Trzeba przedebugowac bo nie wiem jak sie zachowa (nie mamy nigdzie jawnie thread.stop()
-    workerThread->start();
+    //workerThread->start();
     //lub ewentualnie to:
-    //worker->doWork();
+    worker->doWork();
 }
 
 void TakePictureScreen::on_wyjdz_clicked()

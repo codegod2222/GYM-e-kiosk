@@ -3,9 +3,9 @@
 
 #include <QImage>
 
-//#include <raspicam/raspicam.h>
+#include <raspicam/raspicam.h>
 
-//using namespace raspicam;
+using namespace raspicam;
 
 class CameraWorker : public QObject
 {
@@ -15,7 +15,7 @@ public:
     ~CameraWorker();
 
 private:
-    //RaspiCam camera;
+    RaspiCam camera;
     bool& cameraRunning;
     unsigned char *data;
     std::string email;

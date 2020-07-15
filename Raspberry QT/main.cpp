@@ -9,11 +9,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     //#1.1
-    QWSServer::setCursorVisible(false);
+    //QWSServer::setCursorVisible(false);
     //#1.2
-    QCursor cursor(Qt::BlankCursor);
+    /*QCursor cursor(Qt::BlankCursor);
     QApplication::setOverrideCursor(cursor);
-    QApplication::changeOverrideCursor(cursor);
+    QApplication::changeOverrideCursor(cursor);*/
     //
 
     MainWindow w;

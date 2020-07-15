@@ -27,9 +27,9 @@ struct SubscriptionType{
 class KodokanDAO {
 private:
     // connection string
-    const char* server_name = "kodokanserver.mysql.database.azure.com";
+    const char* server_name = "kodokan-server.mysql.database.azure.com";
     const char* username = "azureuser";
-    const char* username_visual_studio = "azureuser@kodokanserver";
+    const char* username_visual_studio = "azureuser@kodokan-server";
     const char* password = "Kodokan123";
     const char* database_name = "kodokan_database";
 
