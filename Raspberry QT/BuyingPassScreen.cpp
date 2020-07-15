@@ -146,7 +146,7 @@ BuyingPassScreen::BuyingPassScreen(QWidget *parent, UserDAO *loggedUser) :
             //#10
             int price = karnet.price / 100;
             temp += " " + std::to_string(price);
-            ui->typyKarnetow->addItem(temp.c_str());
+            ui->typyKarnetow->addItem(QString::fromUtf8(temp.c_str()));
         }
     }
 
