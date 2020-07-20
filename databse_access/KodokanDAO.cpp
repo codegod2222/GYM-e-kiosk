@@ -153,14 +153,14 @@ KodokanDAO::KodokanDAO()
     }
 }
 
-UserDAO* KodokanDAO::authorize_user(std::string login, std::string password)
+UserDAO* KodokanDAO::authorize_user(std::string email, std::string password)
 {
     std::string hashed_pswd = password; // complicated hashing function
     try {
         auto* prepared_statement = connection->prepareStatement(
-                "SELECT * FROM users WHERE login LIKE ? AND hashed_pswd LIKE ?"
+                "SELECT * FROM users WHERE email LIKE ? AND hashed_pswd LIKE ?"
         );
-        prepared_statement->setString(1, login);
+        prepared_statement->setString(1, email);
         prepared_statement->setString(2, hashed_pswd);
         auto result = prepared_statement->executeQuery();
         if (result->next()) {

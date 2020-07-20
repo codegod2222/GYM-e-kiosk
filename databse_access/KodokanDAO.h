@@ -51,7 +51,7 @@ public:
     static KodokanDAO* getInstance();
 
     // get user object using login and password or just rfid
-    UserDAO* authorize_user(std::string login, std::string password);
+    UserDAO* authorize_user(std::string email, std::string password);
     UserDAO* authorize_user(std::string rfid);
 
     // add new user (only obligatory fields)
